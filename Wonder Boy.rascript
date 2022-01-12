@@ -41,10 +41,30 @@ achievement(
 )
 
 achievement(
-    title = "Guardian Angl", description = "Obtain a Guardian Angel", points = 1,
+    title = "Guardian Angel", description = "Obtain a Guardian Angel", points = 1,
     id = 0, badge = "75466", published = "", modified = "",
     trigger = Delta(bit1(0x0127)) == 0 && bit1(0x0127) == 1 && 
               IsInGame()              
+)
+
+achievement(
+    title = "Wonder Milk", description = "Collect a bottle of milk", points = 2,
+    id = 0, badge = "75465", published = "", modified = "",
+    trigger = byte(0x0002) == 0x9D && IsInGame()          
+)
+
+achievement(
+    title = "Multiple Pyschadelics", description = "Get the Multiplier Mushroom", points = 2,
+    id = 0, badge = "75465", published = "", modified = "",
+    trigger = Delta(bit3(0x0127)) == 0 && bit3(0x0127) == 1 && 
+              IsInGame()       
+)
+
+achievement(
+    title = "S-E-G-A", description = "Collect all Sega Letters", points = 5,
+    id = 0, badge = "69517", published = "", modified = "",
+    trigger = Delta(byte(0x0135)) == 3 && byte(0x0135) == 0 && 
+              IsInGame()       
 )
 
 achievement(
@@ -55,35 +75,147 @@ achievement(
 )
 
 achievement(
-    title = "Walk With the Dead", description = "Reach GOAL with the Dead", points = 5,
-    id = 0, badge = "76323", published = "", modified = "",
-    trigger = bit3(0x0000) == 1 && 
-              IsInGame() && IsAtGoal()          
-)
-
-achievement(
     title = "Doll Finder I", description = "Find 10 Dolls", points = 5,
-    id = 0, badge = "59160", published = "", modified = "",
+    id = 0, badge = "69583", published = "", modified = "",
     trigger = Delta(byte(0x0130)) == 9 && measured(byte(0x0130) == 10) && 
               IsInGame() && Level() >= 9             
 )
 
 achievement(
     title = "Doll Finder II", description = "Find 20 Dolls", points = 10,
-    id = 0, badge = "59160", published = "", modified = "",
+    id = 0, badge = "69584", published = "", modified = "",
     trigger = Delta(byte(0x0130)) == 19 && measured(byte(0x0130) == 20) && 
               IsInGame() && Level() >= 17             
 )
 
 achievement(
     title = "Doll Finder III", description = "Find 30 Dolls", points = 10,
-    id = 0, badge = "59160", published = "", modified = "",
+    id = 0, badge = "69585", published = "", modified = "",
     trigger = Delta(byte(0x0130)) == 29 && measured(byte(0x0130) == 30) && 
               IsInGame() && Level() >= 26             
 )
 achievement(
     title = "Doll Collector", description = "Find All Dolls", points = 25,
-    id = 0, badge = "59160", published = "", modified = "",
+    id = 0, badge = "69586", published = "", modified = "",
     trigger = Delta(byte(0x0130)) == 39 && measured(byte(0x0130) == 40) && 
               IsInGame() && Level() >= 39             
+)
+
+achievement(
+    title = "Walk With the Dead", description = "Reach GOAL with the Dead", points = 5,
+    id = 0, badge = "76323", published = "", modified = "",
+    trigger = bit3(0x0000) == 1 && byte(0x0012B) >= 254 &&
+              byte(0x0012C) >= 31 && IsInGame()           
+)
+
+achievement(
+    title = "Angelic GOAL", description = "Reach GOAL with Angel", points = 5,
+    id = 0, badge = "76327", published = "", modified = "",
+    trigger = bit1(0x0127) == 1 && byte(0x0012B) >= 254 &&
+              byte(0x0012C) >= 31 && IsInGame()           
+)
+
+achievement(
+    title = "X Games Winner", description = "Reach GOAL while riding a skateboard", points = 5,
+    id = 0, badge = "69339", published = "", modified = "",
+    trigger = bit2(0x0127) == 1 && IsInGame() &&
+              IsAtGoal()
+)
+
+achievement(
+    title = "Bronze Score", description = "Reach 50,000 Points", points = 1,
+    id = 0, badge = "69587", published = "", modified = "",
+    trigger = Delta(word(0x0122)) < 0x50 && word(0x0122) >= 0x50 &&
+              IsInGame()
+)
+
+achievement(
+    title = "Silver Score", description = "Reach 100,000 Points", points = 5,
+    id = 0, badge = "69588", published = "", modified = "",
+    trigger = Delta(word(0x0122)) < 0x100 && word(0x0122) >= 0x100 &&
+              IsInGame()
+)
+
+achievement(
+    title = "Gold Score", description = "Reach 250,000 Points", points = 10,
+    id = 0, badge = "69589", published = "", modified = "",
+    trigger = Delta(word(0x0122)) < 0x250 && word(0x0122) >= 0x250 &&
+              IsInGame()
+)
+
+achievement(
+    title = "Platinum Score", description = "Reach 500,000 Points", points = 25,
+    id = 0, badge = "69590", published = "", modified = "",
+    trigger = Delta(word(0x0122)) < 0x500 && word(0x0122) >= 0x500 &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Eagle King", description = "Defeat the King of Area 1", points = 2,
+    id = 0, badge = "76268", published = "", modified = "",
+    trigger = Level() == 3 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Rhino King", description = "Defeat the King of Area 2", points = 5,
+    id = 0, badge = "76311", published = "", modified = "",
+    trigger = Level() == 7 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Demon King", description = "Defeat the King of Area 3", points = 5,
+    id = 0, badge = "76312", published = "", modified = "",
+    trigger = Level() == 11 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Fire King", description = "Defeat the King of Area 4", points = 5,
+    id = 0, badge = "76313", published = "", modified = "",
+    trigger = Level() == 15 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Cyclops King", description = "Defeat the King of Area 5", points = 5,
+    id = 0, badge = "76314", published = "", modified = "",
+    trigger = Level() == 19 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Cat King", description = "Defeat the King of Area 6", points = 10,
+    id = 0, badge = "76315", published = "", modified = "",
+    trigger = Level() == 23 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Elephant King", description = "Defeat the King of Area 7", points = 10,
+    id = 0, badge = "76316", published = "", modified = "",
+    trigger = Level() == 27 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Blue King", description = "Defeat the King of Area 8", points = 10,
+    id = 0, badge = "76317", published = "", modified = "",
+    trigger = Level() == 31 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Goat King", description = "Defeat the King of Area 9", points = 10,
+    id = 0, badge = "76318", published = "", modified = "",
+    trigger = Level() == 35 && IsAtGoal() &&
+              IsInGame()
+)
+
+achievement(
+    title = "The Tiger King", description = "Defeat Drancon in Area 10 and beat the game", points = 25,
+    id = 0, badge = "76319", published = "", modified = "",
+    trigger = Level() == 39 && IsAtGoal() &&
+              IsInGame()
 )
