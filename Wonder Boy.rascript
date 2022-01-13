@@ -6,13 +6,13 @@ function Delta(mem) => prev(mem)
 // 0x0128 Level
 function Level() => byte(0x128)
 
-function DeltaLevel() => prev(byte(0x128))
+function DeltaLevel() => Delta(byte(0x128))
 
 function WarpLevel() => byte(0x128) == 0x28
 
 function Doll() => byte(0x0130)
 
-function DeltaDoll() => prve(byte(0x0130))
+function DeltaDoll() => Delta(byte(0x0130))
 
 // 0x0115 GameMode
 // 01 = Title Screen
@@ -34,6 +34,9 @@ function IsAtEnd() => GoalState() == 0x20
 function Sound() => byte(0x0002)
 
 function HammerKill() => Sound() == 0x91
+
+function Vitality() => byte(0xc36)
+function VitalityFull() => Vitality() > 0x0f
 
 
 achievement(
@@ -80,34 +83,34 @@ achievement(
 achievement(
     title = "Playing With Dolls", description = "Obtain your first doll", points = 2,
     id = 0, badge = "59160", published = "", modified = "",
-    trigger = Delta(byte(0x0130)) == 0 && byte(0x0130) == 1 && 
+    trigger = DeltaDoll() == 0 && Doll() == 1 && 
               IsInGame()              
 )
 
 achievement(
     title = "Doll Finder I", description = "Find 10 Dolls", points = 5,
     id = 0, badge = "69583", published = "", modified = "",
-    trigger = Delta(byte(0x0130)) == 9 && measured(byte(0x0130) == 10) && 
+    trigger = DeltaDoll() == 9 && measured(Doll() == 10) && 
               IsInGame() && Level() >= 9             
 )
 
 achievement(
     title = "Doll Finder II", description = "Find 20 Dolls", points = 10,
     id = 0, badge = "69584", published = "", modified = "",
-    trigger = Delta(byte(0x0130)) == 19 && measured(byte(0x0130) == 20) && 
+    trigger = DeltaDoll() == 19 && measured(Doll() == 20) && 
               IsInGame() && Level() >= 17             
 )
 
 achievement(
     title = "Doll Finder III", description = "Find 30 Dolls", points = 10,
     id = 0, badge = "69585", published = "", modified = "",
-    trigger = Delta(byte(0x0130)) == 29 && measured(byte(0x0130) == 30) && 
+    trigger = DeltaDoll() == 29 && measured(Doll() == 30) && 
               IsInGame() && Level() >= 26             
 )
 achievement(
     title = "Doll Collector", description = "Find All Dolls", points = 25,
     id = 0, badge = "69586", published = "", modified = "",
-    trigger = Delta(byte(0x0130)) == 39 && measured(byte(0x0130) == 40) && 
+    trigger = DeltaDoll() == 39 && measured(Doll() == 40) && 
               IsInGame() && Level() >= 39             
 )
 
@@ -226,7 +229,7 @@ achievement(
 achievement(
     title = "The Tiger King", description = "Defeat Drancon in Area 10 and beat the game(No Level Skip)", points = 25,
     id = 0, badge = "76319", published = "", modified = "",
-    trigger = Level() == 39 && IsAtGoal() &&
+    trigger = Level() == 39 && IsAtEnd() &&
               IsInGame()
 )
 
@@ -234,7 +237,7 @@ achievement(
     title = "The Hammer Is My Weapon", description = "Kill 500 Enemys with the Hammer", points = 25,
     id = 0, badge = "75985", published = "", modified = "",
     trigger = unless(GameMode() != 3) && measured(repeated(500, HammerKill())) &&
-              IsInGame() && never(GameMode() == 1)
+              IsInGame() && never(GameMode() == 1 && unless(byte(0x0114) == 5))
 )
 
 achievement(
@@ -318,7 +321,27 @@ achievement(
     title = "Super Wonderboy", description = "Finish the game with all dolls collected without a Game Over", points = 25,
     id = 0, badge = "76379", published = "", modified = "",
     trigger = Doll() == 40 && Level() == 0x27 &&
-              IsInGame() && IsAtEnd()
-              //pauseif one hit if lives ==0 and bit6(0x0120) == 1
-              //resetif Game() == 1
+              IsInGame() && IsAtEnd() && (bit6(0x120) == 1 && unless(once(byte(0x012d) == 0))) ||
+              never(GameMode() == 1)
+)
+
+achievement(
+    title = "Full Vitality", description = "Finish any round with full vitality", points = 5,
+    id = 0, badge = "69576", published = "", modified = "",
+    trigger = VitalityFull() && byte(0x0120) == 0x20 &&
+              IsInGame()
+)
+
+achievement(
+    title = "King Of Points", description = "Defeat the King of Area 1 with at least 75000 points", points = 10,
+    id = 0, badge = "59182", published = "", modified = "",
+    trigger = Level() == 3 && IsAtGoal() &&
+              IsInGame() && word(0x0122) >= 0x75
+)
+
+achievement(
+    title = "Pacifist Boy", description = "Finish all four rounds of World 2 without killing anything with the hammer", points = 10,
+    id = 0, badge = "75927", published = "", modified = "",
+    trigger = once(Level() == 4) && once(Level() == 5) && once(Level() == 6) && Level() == 7 && IsAtGoal() &&
+              IsInGame() && never(HammerKill())
 )
