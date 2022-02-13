@@ -65,22 +65,21 @@ function WeaponEquipped() => byte(0x0f5127)
 
 //////////////////////////////Acheivements////////////////////////////////////////////////////////////
 
-
 //////////////////////////////Chris Run Acheivements////////////////////////////////////////////////////////////
 achievement(
-    title = "Where Are They?", description = "Obtain Jill's Beretta", points = 1,
+    title = "Where Are They?", description = "As Chris, Obtain Jill's Beretta", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && ItemPickup(bit5(0x0f86de)) && Room() == 0x0006              
 )
 
 achievement(
-    title = "Whoa!...What Is It?", description = "Meet Rebecca", points = 1,
+    title = "Whoa!...What Is It?", description = "AS Chris, Meet Rebecca in the Medical Storgae Room", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && EventPrior(bit5(0x0f8699)) && Room() == 0x0000 &&  View() == 0x03            
 )
 
 achievement(
-    title = "Chris Shotgun", description = "Obtain the shotgun as Chris. Must place the broken shotgun in its place", points = 2,
+    title = "Chris Shotgun", description = "AS Chris, Obtain the shotgun(Must place the broken shotgun in its place).", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && ItemPrior(bit7(0x0f86dd)) && EventDelta(bit6(0x0f86dd))&& Room() == 0x0016           
 )
@@ -92,9 +91,15 @@ achievement(
 )
 
 achievement(
-    title = "Chris VJOLT", description = "As Rebecca, Use VJolt on Plant42", points = 5,
+    title = "Chris VJOLT", description = "As Rebecca, Use VJolt on Plant 42 roots", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsRebecca() && EventDelta(bit4(0x0f8703))&& Room() == 0x030f           
+)
+
+achievement(
+    title = "Rebecca Hunter - Need Name", description = "As Chris, Save Rebecca from a Hunter", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsChris() && EventDelta(bit1(0x0f86c2))&& Room() == 0x0606 // Need event delta memory for the rebecca save           
 )
 
 achievement(
@@ -104,21 +109,122 @@ achievement(
 )
 
 achievement(
-    title = "Chris Colt Python", description = "Obtain the Colt Python as Chris", points = 5,
+    title = "Chris Colt Python", description = "As Chris, Obtain the Colt Python", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && ItemPickup(bit0(0x0f86f0)) && Room() == 0x050D           
 )
 
 achievement(
-    title = "Get Ready For the Heat Wave", description = "AS Chris, Equip a Flamethrower", points = 1,
+    title = "Get Ready For the Heat Wave", description = "As Chris, Equip a Flamethrower", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && WeaponEquipped() == 0x06 && Room() >= 0x0200 && Room() <= 0x0300           
 )
 
 achievement(
-    title = "Double Crosser!", description = "AS Chris, Watch a scene with a fellow stars member in the Underground", points = 5,
+    title = "Double Crosser!", description = "As Chris, Watch a scene with a fellow stars member in the Underground", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && EventDelta(bit7(0x0f869c)) && Room() == 0x020A           
+)
+
+achievement(
+    title = "Man vs Man...?", description = "As Chris, Destory the ultimate lifeform in the Labratory", points = 10,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsChris() && EventDelta(bit7(0xf86cb)) && Room() == 0x0413           
+)
+
+achievement(
+    title = "Best endign Chris - Need Name", description = "As Chris, Finish the game with the best possible outcome(Save Jill and Rebecca)", points = 25,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsChris() && Room() == 0x0211  // Need to find memeory for the endign scens         
+)
+
+achievement(
+    title = "Secret Costume Chris - Need Name", description = "As Chris, Change costume in the secret room", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = (Room() ==0x001C || Room() == 0x051C || Room() == 0x0012 || Room() == 0x0512) && 
+              IsChris() && bit7(0xf86bb) == 1 && EventDelta(bit7(0xf870f))
+                      
+)
+
+////////////////////Jill Run Cheevos//////////////////////
+achievement(
+    title = "Stay Alert", description = "As Jill, Kill the first zombie on first encounter[m]", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && EventDelta(bit3(0xf86be)) && bit6(0xf86a9) == 0 && Room() == 0x0004         
+)
+
+achievement(
+    title = "Master Of Unlocking", description = "As Jill, Recieve the lockpick from Barry", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && EventDelta(bit3(0xf870e)) && Room() == 0x0006           
+)
+
+achievement(
+    title = "Jill Sandwhich", description = "As Jill, Have Barry save you from a collapsing room", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && EventDelta(bit6(0xf8699)) && Room() == 0x0009           
+)
+
+achievement(
+    title = "A Gift From Forrest", description = "As Jill, Obtain a Bazooka", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && ItemPickup(bit1(0xf86dd)) && Room() == 0x0112           
+)
+
+achievement(
+    title = "Drug Runner", description = "As Jill, Give Richard the Serum and receive his radio", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && ItemPickup(bit0(0xf870e)) && Room() == 0x010D           
+)
+
+achievement(
+    title = "Jill Vjolt - Need Name", description = "As Jill, Use VJOLT on Plant 42 roots", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && EventDelta(bit4(0x0f8703))&& Room() == 0x030f           
+)
+
+achievement(
+    title = "Burn Baby Burn", description = "As Jill, Watch Barry Roast Plant 42", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && EventDelta(bit4(0x0f8703))&& Room() == 0x030C //Need memory for scene           
+)
+
+achievement(
+    title = "Jill Kill YAWN", description = "As Jill, Kill YAWN", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && EventDelta(bit1(0x0f86c2))&& Room() == 0x060C           
+)
+
+achievement(
+    title = "I HAVE THIS", description = "As Jill, Obtain the Colt Python", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && ItemPickup(bit0(0x0f86f0)) && Room() == 0x050D           
+)
+
+achievement(
+    title = "Jill Enrico Scene - Need Name", description = "As Jill, Watch a scene with a fellow stars member in the Underground", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && EventDelta(bit7(0x0f869c)) && Room() == 0x020A           
+)
+
+achievement(
+    title = "Tyrant Or Something...I Think", description = "As Jill, Destory the ultimate lifeform in the Labratory", points = 10,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && EventDelta(bit7(0xf86cb)) && Room() == 0x0413           
+)
+
+achievement(
+    title = "Best endign Jill - Need Name", description = "As Jill, Finish the game with the best possible outcome(Save Barry and Chris)", points = 25,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = IsJill() && Room() == 0x0211  // Need to find memeory for the endign scens         
+)
+
+achievement(
+    title = "Secret Costume Jill - Need Name", description = "As Jill, Change costume in the secret room", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = (Room() ==0x001C || Room() == 0x051C || Room() == 0x0012 || Room() == 0x0512) && 
+              IsJill() && bit7(0xf86bb) == 1 && EventDelta(bit7(0xf870f))
+                      
 )
 
 /////////////////////KEY CHEEVOS///////////////////////////
@@ -237,11 +343,40 @@ achievement(
 )
 
 achievement(
-    title = "Eagle Vs Wolf", description = "Empty water fountain by placing the medals", points = 5,
+    title = "Battery - Name Needed", description = "Obtain the battery to power the Garden elevator", points = 2,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = (IsChris() || IsJill()) && Room() == 0x0619 && 
+              ItemPickup(bit6(0xf86e2))
+)
+
+achievement(
+    title = "Eagle Vs Wolf", description = "Empty water fountain by placing the medals", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0205 && 
               (Delta(bit3(0x0f8702)) + Delta(bit4(0x0f8702))) == 1 && 
               measured(bit3(0x0f8702) + bit4(0x0f8702) == 2) 
+)
+
+achievement(
+    title = "Lab Power - Need Name", description = "Turn On Labratory power", points = 2,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = (IsChris() || IsJill()) && Room() == 0x0411 && 
+              EventDelta(bit1(0xf8704)) 
+)
+
+achievement(
+    title = "Unlock Lab Jail - Need Name", description = "Unlock Lab door using three passcodes", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = (IsChris() || IsJill()) && Room() == 0x0408 && 
+              (Delta(bit2(0xf8707)) + Delta(bit3(0xf8707)) + Delta(bit4(0xf8707))) == 2 && 
+              measured(bit2(0xf8707) + bit3(0xf8707) + bit4(0xf8707) == 3) 
+)
+
+achievement(
+    title = "Escape the Nightmare", description = "Escape from the Spencer Mansion", points = 10,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
+              EventDelta(bit6(0xf86c6)) 
 )
 
 ///////////////Chris Challenges/////////////////////////////
