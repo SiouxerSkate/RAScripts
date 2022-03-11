@@ -100,6 +100,7 @@ function CalcBattleGamePoints() => word(0x0fffa6) + (byte(0x0fffa8) * 6) + (byte
                                    (byte(0x0fffab) * 10) + (byte(0x0fffac) * 15) + (byte(0x0fffad) * 15) + (byte(0x0fffaf) * 150)
                          
 
+
 //////////////////////////////Acheivements////////////////////////////////////////////////////////////
 
 //////////////////////////////Chris Run Acheivements////////////////////////////////////////////////////////////
@@ -117,37 +118,39 @@ achievement(
 )
 
 achievement(
-    title = "Chris Shotgun", description = "AS Chris, Obtain the shotgun(Must place the broken shotgun in its place).", points = 2,
+    title = "This is my BOOM Stick", description = "AS Chris, Obtain the shotgun(Must place the broken shotgun in its place).", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && ItemPrior(bit7(0x0f86dd)) && EventDelta(bit6(0x0f86dd))&& Room() == 0x0016           
 )
 
 achievement(
-    title = "Chris SERUM", description = "As Rebecca, Save Chris with the Serum", points = 5,
+    title = "MEDIC!", description = "As Rebecca, Save Chris with the Serum", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && bit2(0x0f869e) == 1 && EventDelta(bit1(0x0f869e)) && Room() == 0x010E           
 )
 
 achievement(
-    title = "Chris VJOLT", description = "As Rebecca, Use VJolt on Plant 42 roots", points = 5,
+    title = "Rebecca, Chemical Engineer", description = "As Rebecca, Use VJolt on Plant 42 roots", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsRebecca() && EventDelta(bit4(0x0f8703))&& Room() == 0x030f           
 )
 
 achievement(
-    title = "Rebecca Hunter - Need Name", description = "As Chris, Save Rebecca from a Hunter", points = 5,
+    title = "Damsel In Distress", description = "As Chris, Save Rebecca from a Hunter.(You must fight and kill the hunter)", points = 5,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = IsChris() && EventDelta(bit1(0x0f86c2))&& Room() == 0x0606 // Need event delta memory for the rebecca save           
+    trigger = ((EventDelta(bit2(0x0F86A0)) && Room() == 0x0606 && bit7(0x0F86A0) == 0) ||
+              (EventDelta(bit6(0x0F869B)) && Room() == 0x0501 && bit7(0x0F869B) == 0)) &&
+              IsChris()
 )
 
 achievement(
-    title = "Chris Kill YAWN", description = "As Chris, Kill YAWN", points = 5,
+    title = "Snake Wrestler", description = "As Chris, Kill YAWN", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && EventDelta(bit1(0x0f86c2))&& Room() == 0x060C           
 )
 
 achievement(
-    title = "Chris Colt Python", description = "As Chris, Obtain the Colt Python", points = 5,
+    title = "Upgraded Firepower", description = "As Chris, Obtain the Colt Python", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && ItemPickup(bit0(0x0f86f0)) && Room() == 0x050D           
 )
@@ -171,13 +174,14 @@ achievement(
 )
 
 achievement(
-    title = "Best ending Chris - Need Name", description = "As Chris, Finish the game with the best possible outcome(Save Jill and Rebecca)", points = 25,
+    title = "Got All My Girls WIth Me", description = "As Chris, Finish the game with the best possible outcome(Save Jill and Rebecca)", points = 25,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = IsChris() && Room() == 0x0203 && EventDelta(bit6(0xf86c6)) // Need memory for saving Jill and Rebecca alive
+    trigger = IsChris() && Room() == 0x0203 && EventDelta(bit6(0xf86c6)) &&
+              bit7(0x0f869b) == 0 && bit7(0x0f86A0) == 0 && bit4(0x0f869C) == 1
 )
 
 achievement(
-    title = "Secret Costume Chris - Need Name", description = "As Chris, Change costume in the secret room", points = 5,
+    title = "Fresh Till Death", description = "As Chris, Change costume in the secret room", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (Room() ==0x001C || Room() == 0x051C || Room() == 0x0012 || Room() == 0x0512) && 
               DeltaIsChris() && bit7(0xf86bb) == 1 && EventDelta(bit7(0xf870f))
@@ -217,7 +221,7 @@ achievement(
 )
 
 achievement(
-    title = "Jill Vjolt - Need Name", description = "As Jill, Use VJOLT on Plant 42 roots", points = 5,
+    title = "Woman in STEM", description = "As Jill, Use VJOLT on Plant 42 roots", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsJill() && EventDelta(bit4(0x0f8703))&& Room() == 0x030f           
 )
@@ -229,7 +233,7 @@ achievement(
 )
 
 achievement(
-    title = "Jill Kill YAWN", description = "As Jill, Kill YAWN", points = 5,
+    title = "Richard Avenger", description = "As Jill, Kill YAWN", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsJill() && EventDelta(bit1(0x0f86c2))&& Room() == 0x060C           
 )
@@ -253,13 +257,13 @@ achievement(
 )
 
 achievement(
-    title = "Best ending Jill - Need Name", description = "As Jill, Finish the game with the best possible outcome(Save Barry and Chris)", points = 25,
+    title = "Just Me and My Boys", description = "As Jill, Finish the game with the best possible outcome(Save Barry and Chris)", points = 25,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsJill() && Room() == 0x0203 && EventDelta(bit6(0xf86c6)) && bit4(0x0f869c) == 1 && bit4(0x0f869e) == 1 && bit7(0x0f869e) == 1      
 )
 
 achievement(
-    title = "Secret Costume Jill - Need Name", description = "As Jill, Change costume in the secret room", points = 5,
+    title = "Slip Into Something More Comfortable", description = "As Jill, Change costume in the secret room", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (Room() ==0x001C || Room() == 0x051C || Room() == 0x0012 || Room() == 0x0512) && 
               DeltaIsJill() && bit7(0xf86bb) == 1 && EventDelta(bit7(0xf870f))
@@ -270,11 +274,12 @@ achievement(
 
 //Need to find more small keys and put them in the alt chain
 achievement(
-    title = "Small Key", description = "Pick up a small key", points = 1,
+    title = "A Small Feat", description = "Pick up a small key", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && ((ItemPickup(bit2(0x0f86ef)) && Room() == 0x0111)  ||   
               (ItemPickup(bit5(0x0f86e1)) && Room()== 0x001B) || (ItemPickup(bit5(0x0f86e9)) && Room()== 0x0301) ||
-              (ItemPickup(bit5(0x0f86e8)) && Room()== 0x030F) || (ItemPickup(bit3(0x0f86f9)) && Room()== 0x061C))
+              (ItemPickup(bit5(0x0f86e8)) && Room()== 0x030F) || (ItemPickup(bit3(0x0f86f9)) && Room()== 0x061C) || 
+              (ItemPickup(bit4(0x0f86dd)) && Room()== 0x0013))
 )
 
 achievement(
@@ -300,7 +305,7 @@ achievement(
 achievement(
     title = "Unlock the Shield", description = "Unlock all possible doors with the Shield Key", points = 2,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = (IsChris() || IsJill()) && Prior(byte(0x0f8662)) != 0x1f  &&
+    trigger = (IsChris() || IsJill()) && Room() == 0x010E  &&
               Delta(bit0(0x0f86b5)) == 0 && 
               bit0(0x0f86b5) == 1  
 )
@@ -352,17 +357,17 @@ achievement(
 ///////////////Misc Items Cheevos/////////////////////////////
 
 achievement(
-    title = "Green Herbs", description = "Combine 3 green herbs into one", points = 2,
+    title = "Pack the Greens", description = "Combine 3 green herbs into one", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Prior(byte(0x0f8662)) != 0x1f
-              // Need memory for the green herbs 0x4A is value for the G+G+G
+              // Leave as is and dont update local untill we can figure out what is different in RATools
 )
 
 achievement(
     title = "Rainbow Herb", description = "Combine 3 different colored herbs into one", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Prior(byte(0x0f8662)) != 0x1f
-              // Need memory for the green herbs 0x4A is value for the G+R+B
+               // Leave as is and dont update local untill we can figure out what is different in RATools
 )
 
 
@@ -378,7 +383,7 @@ achievement(
     title = "Spencer's House Keeper", description = "Pick up every possible item", points = 10,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Prior(byte(0x0f8662)) != 0x1f 
-               // Need to figure out how to do this
+              // DONT UPDATE THE LOCAL TO KEEP THE HTI CHAIN IN TACT NEED TO FIGURE OUT HOW TO REMAKE IN RATOOLS
 )
 
 
@@ -405,8 +410,7 @@ achievement(
 )
 
 achievement(
-//Popped on seeing enrico so need to check during cutscens and pause if cutscene playing or find all scenes that cause a trigger and add a Room != flag
-    title = "Stomp or Kick", description = "Stomp or Kick off a zombie head", points = 1,
+    title = "Ground and Pound", description = "Stomp or Kick off a zombie head", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = ((IsChris() && byte(0x0f51aa) == 0x04) || (IsJill() && byte(0x0f51aa) == 0x04)) && Room() != 0         
 )
@@ -420,13 +424,13 @@ achievement(
 )
 
 achievement(
-    title = "Box Puzzle - Name Needed", description = "Solve the box puzzle in the Guardhouse", points = 2,
+    title = "Into the Depths", description = "Solve the box puzzle in the Guardhouse", points = 2,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = (IsChris() || IsJill()) && Room() == 0x030d && EventDelta(bit6(0x0f8706))
+    trigger = (IsChris() || IsJill()) && Room() == 0x030d && EventDelta(bit6(0x0f8706)) && bit7(0x0f8706) == 1
 )
 
 achievement(
-    title = "Battery - Name Needed", description = "Obtain the battery to power the Garden elevator", points = 2,
+    title = "Power In the Garden", description = "Obtain the battery to power the Garden elevator", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0619 && 
               ItemPickup(bit6(0xf86e2))
@@ -441,14 +445,14 @@ achievement(
 )
 
 achievement(
-    title = "Lab Power - Need Name", description = "Turn On Labratory power", points = 2,
+    title = "No More Blackout", description = "Turn On Labratory power", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x040f && 
               EventDelta(bit1(0x0f8704)) 
 )
 
 achievement(
-    title = "Unlock Lab Jail - Need Name", description = "Unlock Lab door using three passcodes", points = 5,
+    title = "Jail Break", description = "Unlock Lab door using three passcodes", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0408 && 
               (Delta(bit1(0xf8707)) + Delta(bit2(0xf8707)) + Delta(bit3(0xf8707))) == 2 && 
@@ -475,47 +479,51 @@ achievement(
     title = "Low On Ink", description = "Beat game without saving", points = 25,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
-              EventDelta(bit6(0xf86c6)) 
+              EventDelta(bit6(0xf86c6)) && byte(0xf8689) == 1
 )
 
 achievement(
-    title = "BOW Mansions", description = "Kill all BOWs in the mansion before the Guardhouse", points = 5,
+    title = "Cleanse the Manse", description = "Kill all BOWs in the mansion before the Guardhouse", points = 5,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = (IsChris() || IsJill()) && Room() == 0x0203 &&
-              EnemyDelta() == 1 &&
-              measured(EnemyNum() == 2) 
+    trigger = Room() < 0x0200
+    // DONT UPDATE LOCAL UNTILL FIGURE OUT TO PORT TO RATOOLS
+
 )
 
 achievement(
-    title = "BOW Guardhouse", description = "Kill all BOWs in the garden and Guardhouse before returning to the Mansion", points = 5,
-    id = 0, badge = "0", published = "", modified = "",
-    trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
-              EnemyDelta() == 1 &&
-              measured(EnemyNum() == 2) 
-)
-
-achievement(
-    title = "BOW Mansion and Underground", description = "Kill all BOWs in the second trip to the Mansion and Underground", points = 10,
+    title = "Simple Gardening", description = "Kill all BOWs in the garden and Guardhouse before returning to the Mansion", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
               EnemyDelta() == 1 &&
               measured(EnemyNum() == 2) 
+              // DONT UPDATE LOCAL UNTILL FIGURE OUT TO PORT TO RATOOLS
 )
 
 achievement(
-    title = "BOW Lab", description = "Kill all BOWs in the Labratory", points = 10,
+    title = "Missed A Spot", description = "Kill all BOWs in the second trip to the Mansion and Underground", points = 10,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
+              EnemyDelta() == 1 &&
+              measured(EnemyNum() == 2)
+              // DONT UPDATE LOCAL UNTILL FIGURE OUT TO PORT TO RATOOLS
+)
+
+achievement(
+    title = "Lab Cleanup", description = "Kill all BOWs in the Labratory", points = 10,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
               EnemyDelta() == 1 &&
               measured(EnemyNum() == 2)  
+              // DONT UPDATE LOCAL UNTILL FIGURE OUT TO PORT TO RATOOLS
 )
 
 achievement(
-    title = "BOW All", description = "Kill all BOWs in the game", points = 25,
+    title = "Spencer Cleanser", description = "Kill all BOWs in the game", points = 25,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
               EnemyDelta() == 1 &&
               measured(EnemyNum() == 2) 
+              // DONT UPDATE LOCAL UNTILL FIGURE OUT TO PORT TO RATOOLS
 )
 
 achievement(
@@ -526,35 +534,42 @@ achievement(
 )
 
 achievement(
-    title = "Mansion Knife - Need Name", description = "From beginning of game, Unlock the Crest Door only equipped with Knife", points = 10,
+    title = "Ritual Crest Knife", description = "From beginning of game, Unlock the Crest Door only equipped with Knife", points = 10,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
               EventDelta(bit6(0xf86c6)) 
 )
 
 achievement(
-    title = "Guardhouse Knife - Need Name", description = "Starting at unlocking crest door, Navigate the Guardhouse and kill Plant 42 equipped only with the knife", points = 10,
+    title = "Garden Variety Knife", description = "Starting at unlocking crest door, Navigate the Guardhouse and kill Plant 42 equipped only with the knife", points = 10,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
               EventDelta(bit6(0xf86c6)) 
 )
 
 achievement(
-    title = "Mansion Knife II - Need Name", description = "Starting at First Hunter scene, Open the path to the Labratory equipped only with the knife", points = 25,
+    title = "Cutting A Rug", description = "Starting at First Hunter scene, Open the path to the Labratory equipped only with the knife", points = 25,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
               EventDelta(bit6(0xf86c6)) 
 )
 
 achievement(
-    title = "Lab Knife II - Need Name", description = "Starting on draing water to lab, Compelte the game only equipped with the knife", points = 25,
+    title = "Surgical Knife", description = "Starting on draining water to lab, Compelte the game only equipped with the knife", points = 25,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
               EventDelta(bit6(0xf86c6)) 
 )
 
 achievement(
-    title = "Pecifist run - Need Name", description = "Beat the game without killing any BOWs(only Plant 42, YAWN, and Tyrants)(Jill first zombie ok)", points = 50,
+    title = "Knife In a Tyrant Fight", description = "From beginning of game, Compelte the game only equipped with the knife", 
+    points = 50, id = 0, badge = "0", published = "", modified = "",
+    trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
+              EventDelta(bit6(0xf86c6)) 
+)
+
+achievement(
+    title = "Spencer Pacifist", description = "Beat the game without killing any BOWs(only Plant 42, YAWN, and Tyrants)(Jill first zombie ok)", points = 50,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0203 && 
               EnemyNum() == 3
@@ -563,20 +578,11 @@ achievement(
 ///////////////Chris Challenges/////////////////////////////
 
 achievement(
-    title = "Zombie Clips(Chris)", description = "Grab 2 clips then kill zombie no damage[m]", points = 5,
+    title = "Zombie Sneaker Chris", description = "Grab 2 clips then kill zombie no damage[m]", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && Delta(bit3(0x0f86be)) == 0 && bit3(0x0f86be) == 1 && Room() == 0x0004 &&
               bit0(0x0f86e0) == 0 && bit6(0x0f86e0) == 0 && bit4(0x0f8695) == 0 &&
               PauseLock(Delta(byte(0x0f51ac)) > byte(0x0f51ac), Room() != 0x0004)            
-)
-
-achievement(
-    title = "Nav to Becca", description = "As Chris, from the start of game navigate to first meeting of Rebecca in Medical Room killing at least 9 BOWs no damage[m] ", 
-    points = 5, id = 0, badge = "0", published = "", modified = "",
-    trigger = IsChris() && Room() == 0 && 
-              measured(EnemyNum() == 9) &&
-              PauseLock(Delta(byte(0x0f51ac)) > byte(0x0f51ac), Room() == 0)  
-              //Figure out when to do the room reset           
 )
 
 achievement(
@@ -590,27 +596,17 @@ achievement(
 ///////////////Jill Challenges/////////////////////////////
 
 achievement(
-    title = "Zombie Clips(Jill)", description = "As Jill, Grab 2 clips of Kenneth then have Barry kill zombie no damage[m]", points = 5,
+    title = "Zombie Sneaker Jill", description = "As Jill, Grab 2 clips of Kenneth then have Barry kill zombie no damage[m]", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsJill() && Delta(bit3(0x0f86be)) == 0 && bit3(0x0f86be) == 1 && Room() == 0x0004 &&
               bit0(0x0f86e0) == 0 && bit6(0x0f86e0) == 0 && bit4(0x0f8695) == 0 &&
               PauseLock(Delta(byte(0x0f51ac)) > byte(0x0f51ac), Room() != 0x0004)            
 )
 
-achievement(
-    title = "Nav to Barry", description = "As Jill, from the start of game navigate to meeting of Barry on 2nd florr killing at least 10 BOWs no damage[m]", 
-    points = 5, id = 0, badge = "0", published = "", modified = "",
-    trigger = IsJill() && Room() == 0 && 
-              measured(EnemyNum() == 10) &&
-              PauseLock(Delta(byte(0x0f51ac)) > byte(0x0f51ac), Room() == 0)
-              //Figure out when to do the room reset
-             
-)
-
 ///////////////Rebecca Challenges/////////////////////////////
 
 achievement(
-    title = "Zombie Rebecca", description = "As Rebecca, kill at least 5 BOWs in mansion no damage[m]", points = 5,
+    title = "Rebecca, Zombie Hunter", description = "As Rebecca, kill at least 5 BOWs in mansion no damage[m]", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = IsRebecca() && Delta(bit3(0x0f86be)) == 0 && bit3(0x0f86be) == 1 && Room() == 0x0004 &&
               bit0(0x0f86e0) == 0 && bit6(0x0f86e0) == 0 && bit4(0x0f8695) == 0 &&
@@ -618,17 +614,7 @@ achievement(
 )
 
 achievement(
-    title = "Sharks Rebecca", description = "As Rebecca, Kill the sharks in the guardhouse", 
-    points = 2, id = 0, badge = "0", published = "", modified = "",
-    trigger = IsRebecca() && Room() == 0 && 
-              PauseLock(Delta(byte(0x0f51ac)) > byte(0x0f51ac), Room() == 0)
-              //Figure out when to do the room reset
-              // Need to figure out a way to make hits on killing BOWs
-              
-)
-
-achievement(
-    title = " Rebecca Guardhouse", description = "As Rebecca, Kill all BOWs in the guardhouse", 
+    title = "Pervs and Sharks", description = "As Rebecca, Kill all BOWs in the guardhouse", 
     points = 2, id = 0, badge = "0", published = "", modified = "",
     trigger = IsRebecca() && Room() == 0 && 
               PauseLock(Delta(byte(0x0f51ac)) > byte(0x0f51ac), Room() == 0)
@@ -653,12 +639,12 @@ achievement(
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill() || never(Room() > 0x110) && never(Room() < 0x10e) && always_false()) && 
               DeltaRoom() == 0x0110 && Room() == 0x010e && 
-              bit0(0x0f86be) == 0x00 && once(Delta(bit6(0x0f86ed)) == 0x01) && bit6(0x0f86ed) == 0x00 && 
+              bit7(0x0f86be) == 0x00 && once(Delta(bit6(0x0f86ed)) == 0x01) && bit6(0x0f86ed) == 0x00 && 
               unless(once(Delta(byte(0x0f51ac)) > byte(0x0f51ac)))           
 )
 
 achievement(
-    title = "YAWN 1st no damage", description = "Cause YAWN to flee on first encounter without taking damage", points = 5,
+    title = "Nap Time YAWN", description = "Cause YAWN to flee on first encounter without taking damage", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x0110 &&
               EventDelta(bit7(0x0f86be)) &&  
@@ -672,7 +658,8 @@ achievement(
               once(Delta(bit0(0x0f86c1)) < bit0(0x0f86c1)) && once(Delta(bit1(0x0f86c1)) < bit1(0x0f86c1)) &&
               once(Delta(bit2(0x0f86c1)) < bit2(0x0f86c1)) && once(Delta(bit3(0x0f86c1)) < bit3(0x0f86c1)) &&
               once(Delta(bit4(0x0f86c1)) < bit4(0x0f86c1)) && once(Delta(bit5(0x0f86c1)) < bit5(0x0f86c1)) &&
-              unless(once(Delta(byte(0x0f51ac)) > byte(0x0f51ac)))            
+              unless(once(Delta(byte(0x0f51ac)) > byte(0x0f51ac)))   
+              // DONT UPDATE THE LOCAL TO KEEP THE HTI CHAIN IN TACT NEED TO FIGURE OUT HOW TO REMAKE IN RATOOLS
 )
 
 achievement(
@@ -684,7 +671,7 @@ achievement(
 )
 
 achievement(
-    title = "Hunter need name", description = "Kill first Hunter without taking damage", points = 2,
+    title = "Welcome Back!", description = "Kill first Hunter without taking damage", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x050A &&
               EventDelta(bit5(0x0f86bd)) &&  
@@ -696,6 +683,7 @@ achievement(
     id = 0, badge = "0", published = "", modified = "",
     trigger = ((IsChris() && HunterDelta() == 18 && HunterNum() == 19) || 
                (IsJill())  && HunterDelta() == 15 && HunterNum() == 16) && Room() >= 0x0500
+              // DONT UPDATE THE LOCAL TO KEEP THE HTI CHAIN IN TACT NEED TO FIGURE OUT HOW TO REMAKE IN RATOOLS
 )
 
 achievement(
@@ -721,15 +709,23 @@ achievement(
 )
 
 achievement(
-    title = "Chimera Needs Name", description = "Kill all Chimera in Power Rooms without taking damage or leaving power rooms", points = 5,
+    title = "Faster Than the Spider", description = "Kill Tiger without taking damage", points = 5,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = (IsChris() || IsJill()) && Room() >= 0x060C &&
-              EventDelta(bit1(0x0f86c2)) 
-              // Dont do a local update of this as it will break the hit chain created. Wasnt sure how to recrete with RATools
+    trigger = (IsChris() || IsJill()) && Room() >= 0x020C &&
+              EventDelta(bit6(0x0f86cc)) &&
+              PauseLock(Delta(byte(0x0f51ac)) > byte(0x0f51ac), Room() != 0x020C)
 )
 
 achievement(
-    title = "First Tyrants Need Name", description = "Kill Tyrant(s) without taking damage", points = 10,
+    title = "Chimera Shock", description = "Kill all Chimera in Power Rooms without taking damage or leaving power rooms", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = (IsChris() || IsJill()) && Room() >= 0x060C &&
+              EventDelta(bit1(0x0f86c2)) 
+              // DONT UPDATE THE LOCAL TO KEEP THE HTI CHAIN IN TACT NEED TO FIGURE OUT HOW TO REMAKE IN RATOOLS
+)
+
+achievement(
+    title = "The Ultimate Lifeform", description = "Kill Tyrant(s) without taking damage", points = 10,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() >= 0x0413 &&
               EventDelta(bit7(0x0f86cb)) &&
@@ -737,7 +733,7 @@ achievement(
 )
 
 achievement(
-    title = "Escape sequence BOWs needs name", description = "Kill all BOWs during escape without taking damage", points = 5,
+    title = "Run For Your Life", description = "Kill all BOWs during escape without taking damage", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() >= 0x060C &&
               // Need to figure out this. Especially with Chris having more enemies than Jill
@@ -745,7 +741,7 @@ achievement(
 )
 
 achievement(
-    title = "Tyrant Time - Needs Name", description = "Final Tyrant with 45 seconds or more left till detonation(First playthrough i.e. no unlimited launcher)", points = 25,
+    title = "Speedy Destruction", description = "Final Tyrant with 45 seconds or more left till detonation(First playthrough i.e. no unlimited launcher)", points = 25,
     id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() >= 0x0203 &&
               EventDelta(bit6(0x0f86c6)) && byte(0x0f867c) < 0x87
@@ -755,28 +751,28 @@ achievement(
 ///////////////Battle Mode/////////////////////////////
 
 achievement(
-    title = "Battle Mode - Need Name", description = "Finish Battle Mode", 
+    title = "Boss Rush", description = "Finish Battle Mode", 
     points = 10, id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x070f &&
               EventDelta(byte(0x0ffff6))
 )
 
 achievement(
-    title = "Battle Mode S Jill - Need Name", description = "Complete Battle Mode with an 'S' rank as Jill", 
+    title = "Jill Warrior Princess", description = "Complete Battle Mode with an 'S' rank as Jill", 
     points = 25, id = 0, badge = "0", published = "", modified = "",
     trigger = IsJill() && Room() == 0x070f &&
               EventDelta(byte(0x0ffff6))  && CalcBattleGamePoints() >= 1000          
 )
 
 achievement(
-    title = "Battle Mode S Chris - Need Name", description = "Complete Battle Mode with an 'S' rank as Chris", 
+    title = "Chris Ultimate Warrior", description = "Complete Battle Mode with an 'S' rank as Chris", 
     points = 25, id = 0, badge = "0", published = "", modified = "",
     trigger = IsChris() && Room() == 0x070f &&
               EventDelta(byte(0x0ffff6)) && CalcBattleGamePoints() >= 1000           
 )
 
 achievement(
-    title = "Battle Mode - Knife Handgun Only", description = "Complete Battle Mode equipped with the knife and handgun only", 
+    title = "Bare Bones Battler", description = "Complete Battle Mode equipped with the knife and handgun only", 
     points = 50, id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x070f &&
               EventDelta(byte(0x0ffff6))  &&
@@ -784,7 +780,7 @@ achievement(
 )
 
 achievement(
-    title = "Battle Mode - 5 minutes", description = "Complete Battle Mode in less than 5 minutes", 
+    title = "Like the Flash", description = "Complete Battle Mode in less than 5 minutes", 
     points = 25, id = 0, badge = "0", published = "", modified = "",
     trigger = (IsChris() || IsJill()) && Room() == 0x070f &&
               EventDelta(byte(0x0ffff6)) && word(0x0fffa2) < 0x468e           
@@ -796,4 +792,11 @@ achievement(
     trigger = (IsChris() || IsJill()) && Room() == 0x070c &&
                word(0x0f54b8) == 0xFFFF && word(0x0f5644) == 0xFFFF && word(0x0f57d0) == 0xFFFF &&
                Delta(word(0x0f532c)) != 0xFFFF && word(0x0f532c) == 0xFFFF
+)
+
+achievement(
+    title = "Perfect Boss Rush", description = "Finish Battle Mode without taking damage", 
+    points = 50, id = 0, badge = "0", published = "", modified = "",
+    trigger = (IsChris() || IsJill()) && Room() >= 0x0701 &&
+              EventDelta(byte(0x0ffff6)) &&  PauseLock(Delta(byte(0x0f51ac)) > byte(0x0f51ac), Room() <= 0x0700)
 )
