@@ -11,7 +11,7 @@ function PriorBuilding() => prior(word(0x00ca80))
 function Building() => word(0x00ca80)
 function TriggerMissionComplete(mem) => prev(mem) == 0 && trigger_when(mem == 0xFF)
 function DeathPause() => disable_when(prev(word(0x00cac6)) > word(0x00cac6), until=Building() == 0)
-function BeatTime(val) => word(0x00cafe) < val
+function BeatTime(val) => word(0x00cafe) >= val
 
 
 //////////////////////////////Acheivements////////////////////////////////////////////////////////////
@@ -25,31 +25,31 @@ achievement(
 )
 
 achievement(
-    title = "Level 1 Mission 1", description = "Destroy Radar Site during mission on Alshain", points = 1,
+    title = "Manual Mode", description = "Destroy Radar Site during mission on Alshain", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 1 && MissionComplete(byte(0x004ec1)) && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 1 Mission 2", description = "Destroy the Aerotech Base during mission on Alshain", points = 1,
+    title = "Stop The Airdrops", description = "Destroy the Aerotech Base during mission on Alshain", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 1 && MissionComplete(byte(0x004ec0)) && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 1 Mission 3", description = "Destroy the DCMS Mech and Tank Bays during mission on Alshain", points = 1,
+    title = "Battle Tanks", description = "Destroy the DCMS Mech and Tank Bays during mission on Alshain", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 1 && MissionComplete(byte(0x004ec3)) && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 1 Mission 4", description = "Rescue Star Captain during mission on Alshain", points = 1,
+    title = "He's a Star Man", description = "Rescue Star Captain during mission on Alshain", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 1 && MissionComplete(byte(0x004ec2)) && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 1 Mission 5", description = "Destroy the Power Generators during mission on Alshain", points = 1,
+    title = "Tesla Destruction", description = "Destroy the Power Generators during mission on Alshain", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 1 && MissionComplete(byte(0x004ec5)) && PauseOnAmmoCheat()    
 )
@@ -74,19 +74,19 @@ achievement(
 )
 
 achievement(
-    title = "Level 2 Mission 1", description = "Destroy Radar Site during mission on Alshain", points = 2,
+    title = "Launch Party", description = "Destroy Launch Sites during mission on Satalice", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 0 && MissionComplete(byte(0x004ed1)) && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 2 Mission 2", description = "Destroy the Aerotech Base during mission on Alshain", points = 2,
+    title = "Gatherers, Meet Hunter", description = "Destroy the Material Gathering Stations during mission on Satalice", points = 2,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 0 && MissionComplete(byte(0x004ed0)) && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 2 speedy", description = "Destroy Launch Buildings during mission on Satalice with 45 seconds or more left on the timer", points = 5,
+    title = "Quick Launch", description = "Destroy Launch Sites during mission on Satalice with 45 seconds or more left on the timer", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 0 && TriggerMissionComplete(byte(0x004ed1)) && BeatTime(0x2d) && PauseOnAmmoCheat()    
 )
@@ -111,13 +111,13 @@ achievement(
 )
 
 achievement(
-    title = "Level 3 Mission 1", description = "Destroy Radar Jamming Sites during mission on Ridderkerk", points = 3,
+    title = "I Can See Clearly Now", description = "Destroy Radar Jamming Sites during mission on Ridderkerk", points = 3,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 3 && MissionComplete(byte(0x004ed5)) && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 3 Mission 2", description = "Destroy the Central Research Center during mission on Ridderkerk", points = 3,
+    title = "Central Perks", description = "Destroy the Central Research Center during mission on Ridderkerk", points = 3,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 3 && MissionComplete(byte(0x004ed4)) && PauseOnAmmoCheat()    
 )
@@ -142,7 +142,7 @@ achievement(
 )
 
 achievement(
-    title = "Level 4 Mission 1", description = "Collect Bomb Parts and blow up gate during mission on Avon", points = 5,
+    title = "Bomb Squad", description = "Collect Bomb Parts and blow up gate during mission on Avon", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 2 && MissionComplete(byte(0x004edc)) && PauseOnAmmoCheat()    
 )
@@ -163,17 +163,17 @@ achievement(
 achievement(
     title = "Khan of Clan Wolf", description = "Complete mission on Comstar", points = 25,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = Mission() == 4 && MissionComplete(byte(0x004ee9)) && byte(0x004ee0) == 0xFF && byte(0x004ee3) == 0xFF && PauseOnAmmoCheat()    
+    trigger = Mission() == 4 && MissionComplete(byte(0x004ee9)) && prev(byte(0x004ee0)) == 0xFF && prev(byte(0x004ee3)) == 0xFF && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 5 Mission 1", description = "Destroy Radar Jamming Sites during mission on Comstar", points = 5,
+    title = "I Can See Clearly Now...Part Deux", description = "Destroy Radar Jamming Sites during mission on Comstar", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 4 && MissionComplete(byte(0x004ee0)) && PauseOnAmmoCheat()    
 )
 
 achievement(
-    title = "Level 5 Mission 2", description = "Collect Genetic Canisters during mission on Comstar", points = 5,
+    title = "Genetic Mutation", description = "Collect Genetic Canisters during mission on Comstar", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = Mission() == 4 && MissionComplete(byte(0x004ee3)) && PauseOnAmmoCheat()    
 )
@@ -181,11 +181,11 @@ achievement(
 achievement(
     title = "Thunderbolt Mech Destroyed", description = "Destroy all Buildings and complete mission on Comstar", points = 10,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = Mission() == 4 && MissionComplete(byte(0x004ee9)) && byte(0x004ee0) == 0xFF && byte(0x004ee3) == 0xFF && PriorBuilding() == 0x20 && measured(Building() == 0x21, when=Mission() == 4) && PauseOnAmmoCheat()    
+    trigger = Mission() == 4 && MissionComplete(byte(0x004ee9)) && prev(byte(0x004ee0)) == 0xFF && prev(byte(0x004ee3)) == 0xFF && PriorBuilding() == 0x20 && measured(Building() == 0x21, when=Mission() == 4) && PauseOnAmmoCheat()    
 )
 
 achievement(
     title = "Dominated the 394th Division", description = "Complete mission on Comstar without losing a life", points = 25,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = Mission() == 4 && TriggerMissionComplete(byte(0x004ee9)) && byte(0x004ee0) == 0xFF && byte(0x004ee3) == 0xFF && DeathPause() && PauseOnAmmoCheat()    
+    trigger = Mission() == 4 && TriggerMissionComplete(byte(0x004ee9)) && prev(byte(0x004ee0)) == 0xFF && prev(byte(0x004ee3)) == 0xFF && DeathPause() && PauseOnAmmoCheat()    
 )
