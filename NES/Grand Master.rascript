@@ -13,6 +13,43 @@ function ItemIncrease(mem) => mem > prev(mem)
 function LevelUp(val) => byte(0x0456) == val && prev(byte(0x0456)) == val - 1
 
 
+//////////Stages/////////////
+achievement(
+    title = "Cave", description = "Finish the Cave", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && ItemPickup(byte(0x0430))
+)
+
+achievement(
+    title = "Tower", description = "Finish the Tower", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && ItemPickup(byte(0x0430))
+)
+
+achievement(
+    title = "Castle", description = "Finish the Castle", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && ItemPickup(byte(0x0430))
+)
+
+achievement(
+    title = "Ice Cave", description = "Finish the Ice Cave", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && ItemPickup(byte(0x0430))
+)
+
+achievement(
+    title = "Pyramid", description = "Finish the Pyramid", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && ItemPickup(byte(0x0430))
+)
+
+achievement(
+    title = "Fortress", description = "Finish the Game", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && ItemPickup(byte(0x0430))
+)
+
 /////////////////////////////Equip Cheevos////////////////////////////////////////////////////////////////
 achievement(
     title = "Red Sword", description = "Find the Red Sword", points = 1,
@@ -116,6 +153,12 @@ achievement(
     trigger = PlayingGame() && ItemPickup(byte(0x0437))
 )
 
+achievement(
+    title = "Harp", description = "Find a Harp", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && ItemPickup(byte(0x0434))
+)
+
 /////////////Key Cheevos///////////////////////////
 achievement(
     title = "Cave Key", description = "Find the Key in the Cave", points = 1,
@@ -148,7 +191,13 @@ achievement(
 )
 
 achievement(
-    title = "Fortress Key", description = "Find the Key in the Fortress", points = 1,
+    title = "Half There", description = "Find the Key in third fortress area", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && PickupKey() && Area() == 5
+)
+
+achievement(
+    title = "Final Fortress Key", description = "Find the Key in final fortress area", points = 1,
     id = 0, badge = "0", published = "", modified = "",
     trigger = PlayingGame() && PickupKey() && Area() == 5
 )
@@ -167,7 +216,44 @@ achievement(
 )
 
 achievement(
-    title = "Level 8", description = "Raise Rody to level 8", points = 10,
+    title = "Level 9", description = "Raise Rody to level 9", points = 10,
     id = 0, badge = "0", published = "", modified = "",
-    trigger = PlayingGame() && LevelUp(8)
+    trigger = PlayingGame() && LevelUp(9)
+)
+
+//////////Endings-Events/////////////
+achievement(
+    title = "Meet Terry", description = "Meet Terry before he dies?", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && LevelUp(1)
+)
+
+achievement(
+    title = "Save sister", description = "Save Your sister", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && LevelUp(4)
+)
+
+achievement(
+    title = "Save Terrys sister", description = "Save Terrys sister", points = 5,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && LevelUp(9)
+)
+
+achievement(
+    title = "Best Ending", description = "Defeat Dante and svae teh world", points = 25,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && LevelUp(4)
+)
+
+achievement(
+    title = "Not Best Ending", description = "Damn the world or whatever", points = 10,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && LevelUp(9)
+)
+
+achievement(
+    title = "Cat ", description = "Get Turned into a cat", points = 1,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && LevelUp(9)
 )
