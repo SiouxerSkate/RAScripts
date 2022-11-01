@@ -15,37 +15,43 @@ function LevelUp(val) => byte(0x0456) == val && prev(byte(0x0456)) == val - 1
 
 //////////Stages/////////////
 achievement(
-    title = "Cave", description = "Finish the Cave", points = 1,
+    title = "Cave", description = "Finish the Cave", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = PlayingGame() && ItemPickup(byte(0x0430))
 )
 
 achievement(
-    title = "Tower", description = "Finish the Tower", points = 1,
+    title = "Tower", description = "Finish the Tower", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = PlayingGame() && ItemPickup(byte(0x0430))
 )
 
 achievement(
-    title = "Castle", description = "Finish the Castle", points = 1,
+    title = "Castle", description = "Finish the Castle", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = PlayingGame() && ItemPickup(byte(0x0430))
 )
 
 achievement(
-    title = "Ice Cave", description = "Finish the Ice Cave", points = 1,
+    title = "Ice Cave", description = "Finish the Ice Cave", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = PlayingGame() && ItemPickup(byte(0x0430))
 )
 
 achievement(
-    title = "Pyramid", description = "Finish the Pyramid", points = 1,
+    title = "Pyramid", description = "Finish the Pyramid", points = 5,
     id = 0, badge = "0", published = "", modified = "",
     trigger = PlayingGame() && ItemPickup(byte(0x0430))
 )
 
 achievement(
-    title = "Fortress", description = "Finish the Game", points = 1,
+    title = "Fortress", description = "Finish the Game with the Good Ending", points = 25,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = PlayingGame() && ItemPickup(byte(0x0430))
+)
+
+achievement(
+    title = "Bad Ending", description = "Finish the Game with the Bad Ending", points = 10,
     id = 0, badge = "0", published = "", modified = "",
     trigger = PlayingGame() && ItemPickup(byte(0x0430))
 )

@@ -9,7 +9,7 @@ function PauseLock(compairison, reset) => disable_when(compairison, until=reset)
 function MapID() => dword(0x54bc44)
 function EventID() => dword(0x54ac00)
 
-function InGame() => MapID() != 0x0c && prior(MapID()) != 0x0C && EventID() > 0x19
+function InGame() => MapID() != 0x0c && prior(MapID()) != 0 && EventID() > 0x19
 
 function DefeatBoss(mem) => once(mem == 0) && Delta(mem) == 0x01 && mem == 0x02
 function ItemPickup(mem) => mem > Delta(mem)
@@ -422,4 +422,45 @@ achievement(
     id = 0, badge = "0", published = "", modified = "",
     trigger = InGame() && ItemPickup(byte(0x551392)) && byte(0x55608d) == 0 && byte(0x55608e) == 0
               && byte(0x55608f) == 0 && dword(0x556090) == 0 && byte(0x556095) == 0
+)
+
+/////////////////////////////Bazaar Cheevos//////////////////////////////////////
+achievement(
+    title = "Master Deal Hunter", description = "Obtain all Bazzar Packages at least once", points = 25,
+    id = 0, badge = "0", published = "", modified = "",
+    trigger = InGame() && 
+              (
+              bit0(0x552528) + bit0(0x552529) + bit0(0x55252a) + bit0(0x55252b) + bit0(0x55252c) + bit0(0x55252d) + bit0(0x55252e) + bit0(0x55252f) +
+              bit0(0x552530) + bit0(0x552531) + bit0(0x552532) + bit0(0x552533) + bit0(0x552534) + bit0(0x552535) + bit0(0x552536) + bit0(0x552537) +
+              bit0(0x552538) + bit0(0x552539) + bit0(0x55253a) + bit0(0x55253b) + bit0(0x55253c) + bit0(0x55253d) + bit0(0x55253e) + bit0(0x55253f) +
+              bit0(0x552540) + bit0(0x552541) + bit0(0x552542) + bit0(0x552543) + bit0(0x552544) + bit0(0x552545) + bit0(0x552546) + bit0(0x552547) +
+              bit0(0x552548) + bit0(0x552549) + bit0(0x55254a) + bit0(0x55254b) + bit0(0x55254c) + bit0(0x55254d) + bit0(0x55254e) + bit0(0x55254f) +
+              bit0(0x552550) + bit0(0x552551) + bit0(0x552552) + bit0(0x552553) + bit0(0x552554) + bit0(0x552555) + bit0(0x552556) + bit0(0x552557) +
+              bit0(0x552558) + bit0(0x552559) + bit0(0x55255a) + bit0(0x55255b) + bit0(0x55255c) + bit0(0x55255d) + bit0(0x55255e) + bit0(0x55255f) +
+              bit0(0x552560) + bit0(0x552561) + bit0(0x552562) + bit0(0x552563) + bit0(0x552564) + bit0(0x552565) + bit0(0x552566) + bit0(0x552567) +
+              bit0(0x552568) + bit0(0x552569) + bit0(0x55256a) + bit0(0x55256b) + bit0(0x55256c) + bit0(0x55256d) + bit0(0x55256e) + bit0(0x55256f) +
+              bit0(0x552570) + bit0(0x552571) + bit0(0x552572) + bit0(0x552573) + bit0(0x552574) + bit0(0x552575) + bit0(0x552576) + bit0(0x552577) +
+              bit0(0x552578) + bit0(0x552579) + bit0(0x55257a) + bit0(0x55257b) + bit0(0x55257c) + bit0(0x55257d) + bit0(0x55257e) + bit0(0x55257f) +
+              bit0(0x552580) + bit0(0x552581) + bit0(0x552582) + bit0(0x552583) + bit0(0x552584) + bit0(0x552585) + bit0(0x552586) + bit0(0x552587) +
+              bit0(0x552588) + bit0(0x552589) + bit0(0x55258a) + bit0(0x55258b) + bit0(0x55258c) + bit0(0x55258d) + bit0(0x55258e) + bit0(0x55258f) +
+              bit0(0x552590) + bit0(0x552591) + bit0(0x552592) + bit0(0x552593) + bit0(0x552594) + bit0(0x552595) + bit0(0x552596) + bit0(0x552597) +
+              bit0(0x552598) + bit0(0x552599) + bit0(0x55259a) + bit0(0x55259b) + bit0(0x55259c) + bit0(0x55259d) + bit0(0x55259e) + bit0(0x55259f) +
+              bit0(0x5525a0) + bit0(0x5525a1) + bit0(0x5525a2) + bit0(0x5525a3) + bit0(0x5525a4) + bit0(0x5525a5) + bit0(0x5525a6) + bit0(0x5525a7) -
+              bit1(0x552528) - bit1(0x552529) - bit1(0x55252a) - bit1(0x55252b) - bit1(0x55252c) - bit1(0x55252d) - bit1(0x55252e) - bit1(0x55252f) -
+              bit1(0x552530) - bit1(0x552531) - bit1(0x552532) - bit1(0x552533) - bit1(0x552534) - bit1(0x552535) - bit1(0x552536) - bit1(0x552537) -
+              bit1(0x552538) - bit1(0x552539) - bit1(0x55253a) - bit1(0x55253b) - bit1(0x55253c) - bit1(0x55253d) - bit1(0x55253e) - bit1(0x55253f) -
+              bit1(0x552540) - bit1(0x552541) - bit1(0x552542) - bit1(0x552543) - bit1(0x552544) - bit1(0x552545) - bit1(0x552546) - bit1(0x552547) -
+              bit1(0x552548) - bit1(0x552549) - bit1(0x55254a) - bit1(0x55254b) - bit1(0x55254c) - bit1(0x55254d) - bit1(0x55254e) - bit1(0x55254f) -
+              bit1(0x552550) - bit1(0x552551) - bit1(0x552552) - bit1(0x552553) - bit1(0x552554) - bit1(0x552555) - bit1(0x552556) - bit1(0x552557) -
+              bit1(0x552558) - bit1(0x552559) - bit1(0x55255a) - bit1(0x55255b) - bit1(0x55255c) - bit1(0x55255d) - bit1(0x55255e) - bit1(0x55255f) -
+              bit1(0x552560) - bit1(0x552561) - bit1(0x552562) - bit1(0x552563) - bit1(0x552564) - bit1(0x552565) - bit1(0x552566) - bit1(0x552567) -
+              bit1(0x552568) - bit1(0x552569) - bit1(0x55256a) - bit1(0x55256b) - bit1(0x55256c) - bit1(0x55256d) - bit1(0x55256e) - bit1(0x55256f) -
+              bit1(0x552570) - bit1(0x552571) - bit1(0x552572) - bit1(0x552573) - bit1(0x552574) - bit1(0x552575) - bit1(0x552576) - bit1(0x552577) -
+              bit1(0x552578) - bit1(0x552579) - bit1(0x55257a) - bit1(0x55257b) - bit1(0x55257c) - bit1(0x55257d) - bit1(0x55257e) - bit1(0x55257f) -
+              bit1(0x552580) - bit1(0x552581) - bit1(0x552582) - bit1(0x552583) - bit1(0x552584) - bit1(0x552585) - bit1(0x552586) - bit1(0x552587) -
+              bit1(0x552588) - bit1(0x552589) - bit1(0x55258a) - bit1(0x55258b) - bit1(0x55258c) - bit1(0x55258d) - bit1(0x55258e) - bit1(0x55258f) -
+              bit1(0x552590) - bit1(0x552591) - bit1(0x552592) - bit1(0x552593) - bit1(0x552594) - bit1(0x552595) - bit1(0x552596) - bit1(0x552597) -
+              bit1(0x552598) - bit1(0x552599) - bit1(0x55259a) - bit1(0x55259b) - bit1(0x55259c) - bit1(0x55259d) - bit1(0x55259e) - bit1(0x55259f) -
+              bit1(0x5525a0) - bit1(0x5525a1) - bit1(0x5525a2) - bit1(0x5525a3) - bit1(0x5525a4) - bit1(0x5525a5) - bit1(0x5525a6) - bit1(0x5525a7)
+              ) == 3
 )
