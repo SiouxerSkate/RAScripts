@@ -72,7 +72,7 @@ ItemLookup = {
     "Mirror Shield": ["Constant Reflection[m]", 5, 0xa510808, byte(0x00f35a), 2, 3, " while equipped with the Fire Shield"],
     
     "Blue Mail": ["If I was Green I Would Die", 1, 0xa660d0d, byte(0x00f35b), 0, 1, ""],
-    "Red Mail": ["REDy to Rock", 5, 0xa471212, byte(0x00F359), 1, 2, " while equipped with the Blue Mail"],
+    "Red Mail": ["REDy to Rock[m]", 5, 0xa471212, byte(0x00F359), 1, 2, " while equipped with the Blue Mail"],
     
     "All Bomb Upgrades": ["Bombs Over Hyrule", 5, 0xa470606, byte(0x00f370), 6, 7, ""],
     "All Arrow Upgrades": ["Linkolas", 5, 0xa470606, byte(0x00f371), 6, 7, ""], 
@@ -224,13 +224,13 @@ trigger =  MapID() == 0x0a460404 && MusicIdChange(0x10, 0x14) && byte(0x00F35C) 
 achievement("My Savior", "Bring Zelda To the Sanctuary", 1, trigger) ///DONT UPDATE LOCAL ON THIS. Calibrated with UI tp use ANDNext for the trigger to be perfect
 
 trigger =  MapID() == 0x0a460404 && MusicIdChange(0x10, 0x14) && byte(0x00F35C) == 0 && trigger_when(byte(0x000130) == 0x14) && once(byte(0x00F359) == 0) && once(byte(0x00F34A) == 0) && disable_when(DamageTaken()) && (always_true() || never(MapID() == 0x17d5123)) // Need to test and verify trigger works
-achievement("Super Savior", "From begining of the game bring Zelda to the Sanctuary without taking damage", 10, trigger) 
+achievement("Super Savior[m]", "From begining of the game bring Zelda to the Sanctuary without taking damage", 10, trigger) 
 
 trigger =  MapID() == 0x0a460404 && DeltaMapID() ==  0xa520204 && trigger_when(MapID() ==  0x1072120) && disable_when(DamageTaken()) && (always_true() || never(MapID() == 0x1012420)) 
-achievement("Walk Of the Wizard", "From entry to Hyrule Tower, naviagte to Agahnim's room without taking damage", 10, trigger) ///DONT UPDATE LOCAL ON THIS. Calibrated with UI tp use ANDNext for the trigger to be perfect
+achievement("Walk Of the Wizard[m]", "From entry to Hyrule Tower, naviagte to Agahnim's room without taking damage", 10, trigger) ///DONT UPDATE LOCAL ON THIS. Calibrated with UI tp use ANDNext for the trigger to be perfect
 
 trigger = MapID() == 0xa570d0d && prev(byte(0x00f37a)) == 0 && bit3(0x00f37a) == 1
-achievement("Trampled By Turtle", "Save Zelda at Turtle Rock before saving any other Maiden", 25, trigger)
+achievement("Trampled By Turtle[m]", "Save Zelda at Turtle Rock before saving any other Maiden", 25, trigger)
 
 trigger = MapID() == 0x10e2f20 && DeltaMapID() == 0xa621313 && byte(0x00f35b) == 0
-achievement("It Ain't Easy Being Green", "Beat the game equipped with Green Mail", 25, trigger)
+achievement("It Ain't Easy Being Green[m]", "Beat the game equipped with Green Mail", 25, trigger)
