@@ -10,7 +10,17 @@ function WeakMode() => bit2(0x54aa57)
 function GameMode() => WeakMode() == 1
 function Slot1Level() => prev(byte(0x57d67a)) != 0x00
 function SaveProtection() => GameMode() && Slot1Level()
+function Delta(mem) => prev(mem)
+function Prior(mem) => prior(mem)
+function PauseLock(compairison, reset) => disable_when(compairison, until=reset)
 
+function MapID() => dword(0x54bc44)
+function EventID() => dword(0x54ac00)
+
+function InGame() => MapID() != 0x0c && prior(MapID()) != 0 && EventID() > 0x19
+
+function DefeatBoss(mem) => Delta(mem) == 0x01 && mem == 0x02
+function ItemPickup(mem) => mem > Delta(mem)
 
 
 
@@ -122,12 +132,117 @@ achievement(
               SaveProtection())
 
 
+achievement(
+    "[Weak] - High Summoner", "Unlock the Belias statue in the Sky Pirate's Den by obtaining all 13 Espers", 50,
+    trigger =  SaveProtection() && 
+               Delta(bit4(0x556445)) == 0 &&
+               bit4(0x556445) == 1
+)
 
+achievement(
+    "[Weak] - Radiant Savior", "Unlock the Hell Wyrm statue in the Sky Pirate's Den by defeating Hell Wyrm", 25,
+    trigger =  SaveProtection() &&
+               Delta(bit3(0x556447)) == 0 && 
+               bit3(0x556447) == 1
+)
 
+achievement(
+   "[Weak] - Fell Angel", "Unlock the Ultima statue in the Sky Pirate's Den by defeating Ultima", 25,
+    trigger =  SaveProtection() && 
+               Delta(bit4(0x556447)) == 0 && 
+               bit4(0x556447) == 1   
+)
 
+achievement(
+    "[Weak] - Zodiac Knight", "Unlock the Zodiark statue in the Sky Pirate's Den by defeating Zodiark", 25,
+    trigger =  SaveProtection() && 
+               Delta(bit5(0x556447)) == 0 && 
+               bit5(0x556447) == 1  
+)
 
+achievement(
+    "[Weak] - The Wroth", "Defeat the Esper Adrammelech", 10,
+    trigger =  SaveProtection() &&
+               MapID() == 0x24e &&
+               DefeatBoss(byte(0x556110))
+)
 
+achievement(
+    "[Weak] - The Wroth", "Defeat the Esper Adrammelech", 10,
+    trigger =  SaveProtection() &&
+               MapID() == 0x24e &&
+               DefeatBoss(byte(0x556110))
+)
 
+achievement(
+    "[Weak] - The Impure", "Defeat the Esper Cuchulainn", 10,
+    trigger =  SaveProtection() &&
+               MapID() == 0x156 &&
+               DefeatBoss(byte(0x55610c))
+)
+
+achievement(
+    "[Weak] - The Death Seraph", "Defeat the Esper Zalera", 10,
+    trigger =  SaveProtection() &&
+               MapID() == 0x47 &&
+               DefeatBoss(byte(0x55610d))
+)
+
+achievement(
+    "[Weak] - The Judge-Sal", "Defeat the Esper Exodus", 25,
+    trigger =  SaveProtection() &&
+               MapID() == 0xdf &&
+               DefeatBoss(byte(0x55610a))
+)
+
+achievement(
+    "[Weak] - The Condemmer", "Defeat the Esper Zeromus", 25,
+    trigger =  SaveProtection() &&
+               MapID() == 0x26a &&
+               DefeatBoss(byte(0x55610f))
+)
+
+achievement(
+    "[Weak] - The Walker Of the Wheel", "Defeat the Esper Chaos", 25,
+    trigger =  SaveProtection() &&
+               MapID() == 0x1b6 &&
+               DefeatBoss(byte(0x55610b))
+)
+
+achievement(
+    "[Weak] - Blow Up the Jungle", "Defeat King Bomb", 10,
+    trigger =  SaveProtection() &&
+               MapID() == 0x9e &&
+               DefeatBoss(byte(0x556124))
+)
+
+achievement(
+    "[Weak] - Calm the Sandstorm", "Defeat Earth Tyrant", 10,
+    trigger =  SaveProtection() &&
+               MapID() == 0x162 &&
+               DefeatBoss(byte(0x55611f))
+)
+
+achievement(
+    "[Weak] - Love's Fury", "Use the Medallion of Love and defeat Fury", 10,
+    trigger =  SaveProtection() &&
+               MapID() == 0x1bc &&
+               DefeatBoss(byte(0x556121))
+)
+
+achievement(
+    "[Weak] - Bravery's Honor", "Use the Medallion of Bravery and defeat Humbaba Mistant", 10,
+    trigger =  SaveProtection() &&
+               MapID() == 0x1b9 &&
+               DefeatBoss(byte(0x556123))
+)
+
+achievement(
+    "[Weak] - Great Crystal Debugging", "Defeat Omega Mark XII", 50,
+    trigger =  SaveProtection() &&
+               MapID() == 0x3b5 &&
+               DefeatBoss(byte(0x556127))
+)
 
 
 achievement(
@@ -980,10 +1095,3 @@ for hunt_target in trophyhunts{
     )
        
 }
-
-
-
-
-
-
-
