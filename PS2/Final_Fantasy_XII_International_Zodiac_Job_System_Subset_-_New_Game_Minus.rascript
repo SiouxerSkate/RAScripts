@@ -86,20 +86,24 @@ achievement(
               SaveProtection())
 
 achievement(
+/// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
     "[Weak] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               SaveProtection())
-
+    trigger = WeakMode() == 1 &&
+              mapID() == 200 &&
+              dword(0x9DF404) == 0 &&
+              dword(0x9DF644) == 0 &&
+              dword(0x9DF884) == 0 &&
+              dword(0x9DFAC4) == 0 &&
+              dword(0x9DFD04) == 0 &&
+              unless(word(0x57D5E8) == 0) &&
+              (
+              prev(dword(0x9DF404)) > 0 ||
+              prev(dword(0x9DF644)) > 0 ||
+              prev(dword(0x9DF884)) > 0 ||
+              prev(dword(0x9DFAC4)) > 0 ||
+              prev(dword(0x9DFD04)) > 0
+              )
+)
 achievement(
     "[Weak] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
     trigger = EventID() == 4000 && 
@@ -117,8 +121,8 @@ achievement(
 
 achievement(
     "[Weak] - Is there a Doctor in the House", "Defeat Dr. CId and Famfrit at the Pharos at Ridorana", 25,
-    trigger = mapID() == 668 && 
-              EventID() == 5550 && 
+    trigger = mapID() == 0x29c && 
+              EventID() == 0x15ae && 
               prev(dword(0x9DF884)) > 0 && 
               dword(0x9DF884) == 0 && 
               SaveProtection())
@@ -246,47 +250,134 @@ achievement(
 
 
 achievement(
+/// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
     title = "[Weak] - The Trial Begins!", description = "Complete Trial Mode Level 1", points = 5,
-    trigger = GameMode() && byte(0x8C2F56) == 1 && (prev(dword(0x9DFD04)) > 0 || prev(dword(0x9DF644)) > 0 || prev(dword(0x9DF884)) >
-               0 || prev(dword(0x9DFAC4)) > 0 || prev(dword(0x9DFD04)) > 0) && dword(0x9DF404) == 0 && dword(0x9DF644)
-               == 0 && dword(0x9DF884) == 0 && dword(0x9DFAC4) == 0 && dword(0x9DFD04) == 0 && bit2(0x54AA57) == 0 && 
-              dword(0x54BC44) == 1155
+    trigger = MapID() == 0x483 &&
+              WeakMode() == 1 &&
+              dword(0x9DF404) == 0 &&
+              dword(0x9DF644) == 0 &&
+              dword(0x9DF884) == 0 &&
+              dword(0x9DFAC4) == 0 &&
+              dword(0x9DFD04) == 0 &&
+              (
+              prev(dword(0x9DF404)) > 0 ||
+              prev(dword(0x9DF644)) > 0 ||
+              prev(dword(0x9DF884)) > 0 ||
+              prev(dword(0x9DFAC4)) > 0 ||
+              prev(dword(0x9DFD04)) > 0
+              ) &&
+              (
+                  byte(0x8b8b56) == 1 ||
+                  byte(0x8c2f56) == 1
+              )
 )
 
 achievement(
+/// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
     title = "[Weak] - The Trial Continues!", description = "Complete Trial Mode Level 10", points = 10,
-    trigger = GameMode() && prior(byte(0x8C2F56)) == 9 && prev(dword(0x9DF404)) > 0 && dword(0x9DF404) == 0 && dword(0x54BC44) == 1167 && 
-              bit2(0x54AA57) == 0
+    trigger = MapID() == 0x48f &&
+              WeakMode() == 1 &&
+              prev(dword(0x9df404)) != 0 &&
+              dword(0x9df404) == 0 &&
+              (
+                  prior(byte(0x8b8b56)) == 9 ||
+                  prior(byte(0x8c2f56)) == 9
+              )
+              
 )
 
 achievement(
+/// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
     title = "[Weak] - The Trial Continues! II", description = "Complete Trial Mode Level 25", points = 10,
-    trigger = GameMode() && byte(0x8C2F56) == 5 && dword(0x54BC44) == 1191 && (prev(dword(0x9DF404)) > 0 || prev(dword(0x9DF644)) > 0
-               || prev(dword(0x9DF884)) > 0 || prev(dword(0x9DFAC4)) > 0 || prev(dword(0x9DFD04)) > 0 ||
-               prev(dword(0x9E03C4)) > 0) && dword(0x9DF404) == 0 && dword(0x9DF644) == 0 && dword(0x9DF884) == 0 && 
-              dword(0x9DFAC4) == 0 && dword(0x9DFD04) == 0 && dword(0x9E03C4) == 0 && bit2(0x54AA57) == 0
+    trigger = MapID() == 0x4a7 &&
+              WeakMode() == 1 &&
+              dword(0x9DF404) == 0 &&
+              dword(0x9DF644) == 0 &&
+              dword(0x9DF884) == 0 &&
+              dword(0x9DFAC4) == 0 &&
+              dword(0x9DFD04) == 0 &&
+              dword(0x9e03c4) == 0 &&
+              (
+              prev(dword(0x9DF404)) > 0 ||
+              prev(dword(0x9DF644)) > 0 ||
+              prev(dword(0x9DF884)) > 0 ||
+              prev(dword(0x9DFAC4)) > 0 ||
+              prev(dword(0x9DFD04)) > 0 ||
+              prev(dword(0x9e03c4)) > 0
+              ) &&
+              (
+                  byte(0x8b8b56) == 5 ||
+                  byte(0x8c2f56) == 5
+              )
+              
 )
 
 achievement(
+/// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
     title = "[Weak] - The Trial Continues! III", description = "Complete Trial Mode Level 50", points = 25,
-    trigger = GameMode() && prev(byte(0x8C2F56)) == 0 && prior(byte(0x8C2F56)) == 9 && dword(0x54BC44) == 1231 && 
-              prev(dword(0x9DF404)) > 0 && dword(0x9DF404) == 0 && bit2(0x54AA57) == 0
+    trigger = MapID() == 0x4cf &&
+              WeakMode() == 1 &&
+              prev(dword(0x9df404)) != 0 &&
+              dword(0x9df404) == 0 &&
+              (
+                  prior(byte(0x8b8b56)) == 9 ||
+                  prior(byte(0x8c2f56)) == 9
+              ) &&
+              (
+                  prev(byte(0x8b8b56)) == 0 ||
+                  prev(byte(0x8c2f56)) == 0
+              )
+              
 )
 
 achievement(
+/// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
     title = "[Weak] - The Trial Continues! IV", description = "Complete Trial Mode Level 75", points = 50,
-    trigger = GameMode() && byte(0x8C2F56) == 5 && dword(0x54BC44) == 1271 && (prev(dword(0x9DF404)) > 0 || prev(dword(0x9DF644)) > 0
-               || prev(dword(0x9DFAC4)) > 0 || prev(dword(0x9DF884)) > 0 || prev(dword(0x9DFD04)) > 0) && 
-              dword(0x9DF404) == 0 && dword(0x9DF644) == 0 && dword(0x9DF884) == 0 && dword(0x9DFAC4) == 0 && 
-              dword(0x9DFD04) == 0 && bit2(0x54AA57) == 0
+    trigger = MapID() == 0x4f7 &&
+              WeakMode() == 1 &&
+              dword(0x9DF404) == 0 &&
+              dword(0x9DF644) == 0 &&
+              dword(0x9DF884) == 0 &&
+              dword(0x9DFAC4) == 0 &&
+              dword(0x9DFD04) == 0 &&
+              (
+              prev(dword(0x9DF404)) > 0 ||
+              prev(dword(0x9DF644)) > 0 ||
+              prev(dword(0x9DF884)) > 0 ||
+              prev(dword(0x9DFAC4)) > 0 ||
+              prev(dword(0x9DFD04)) > 0
+              ) &&
+              (
+                  byte(0x8b8b56) == 5 ||
+                  byte(0x8c2f56) == 5
+              )
 )
 
 achievement(
+/// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
     title = "[Weak] - The Trial Ends!", description = "Complete Trial Mode", points = 100,
-    trigger = GameMode() && prev(byte(0x8C2F56)) == 0 && prior(byte(0x8C2F56)) == 9 && dword(0x54BC44) == 1311 && 
-              (prev(dword(0x9DF404)) > 0 || prev(dword(0x9DF644)) > 0 || prev(dword(0x9DF884)) > 0 ||
-               prev(dword(0x9DFAC4)) > 0 || prev(dword(0x9DFD04)) > 0) && dword(0x9DF404) == 0 && dword(0x9DF644) == 0 && 
-              dword(0x9DF884) == 0 && dword(0x9DFAC4) == 0 && dword(0x9DFD04) == 0 && bit2(0x54AA57) == 0
+    trigger = MapID() == 0x51f &&
+              WeakMode() == 1 &&
+              dword(0x9DF404) == 0 &&
+              dword(0x9DF644) == 0 &&
+              dword(0x9DF884) == 0 &&
+              dword(0x9DFAC4) == 0 &&
+              dword(0x9DFD04) == 0 &&
+              (
+              prev(dword(0x9DF404)) > 0 ||
+              prev(dword(0x9DF644)) > 0 ||
+              prev(dword(0x9DF884)) > 0 ||
+              prev(dword(0x9DFAC4)) > 0 ||
+              prev(dword(0x9DFD04)) > 0
+              ) &&
+              (
+                  prior(byte(0x8b8b56)) == 9 ||
+                  prior(byte(0x8c2f56)) == 9
+              ) &&
+              (
+                  prev(byte(0x8b8b56)) == 0 ||
+                  prev(byte(0x8c2f56)) == 0
+              )
 )
 
 

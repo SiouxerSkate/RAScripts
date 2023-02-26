@@ -101,20 +101,26 @@ achievement(
               JobLock("None"))
 
 achievement(
+
     "[Classless] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-               JobLock("None"))
+    trigger =  NoStrongMode() &&
+               JobLock("None") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
+               
 
 achievement(
     "[Classless] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -224,19 +230,23 @@ achievement(
 
 achievement(
     "[White Mage] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("White Mage"))
+    trigger =  NoStrongMode() &&
+               JobLock("White Mage") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[White Mage] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -340,19 +350,23 @@ achievement(
 
 achievement(
     "[Uhlan] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Uhlan"))
+    trigger =  NoStrongMode() &&
+               JobLock("Uhlan") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Uhlan] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -388,24 +402,6 @@ achievement(
               dword(0x9DF404) == 0 && 
               NoStrongMode() &&
               JobLock("Uhlan"))
-              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 achievement(
@@ -475,19 +471,23 @@ achievement(
 
 achievement(
     "[Machinist] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Machinist"))
+    trigger =  NoStrongMode() &&
+               JobLock("Machinist") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Machinist] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -603,19 +603,23 @@ achievement(
 
 achievement(
     "[Red Mage] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Red Mage"))
+    trigger =  NoStrongMode() &&
+               JobLock("Red Mage") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Red Mage] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -727,19 +731,23 @@ achievement(
 
 achievement(
     "[Knight] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Knight"))
+    trigger =  NoStrongMode() &&
+               JobLock("Knight") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Knight] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -851,19 +859,23 @@ achievement(
 
 achievement(
     "[Monk] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Monk"))
+    trigger =  NoStrongMode() &&
+               JobLock("Monk") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Monk] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -980,19 +992,23 @@ achievement(
 
 achievement(
     "[Time Mage] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Time Mage"))
+    trigger =  NoStrongMode() &&
+               JobLock("Time Mage") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Time Mage] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -1111,19 +1127,23 @@ achievement(
 
 achievement(
     "[Breaker] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Breaker"))
+    trigger =  NoStrongMode() &&
+               JobLock("Breaker") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Breaker] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -1230,19 +1250,23 @@ achievement(
 
 achievement(
     "[Archer] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Archer"))
+    trigger =  NoStrongMode() &&
+               JobLock("Archer") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Archer] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -1358,19 +1382,23 @@ achievement(
 
 achievement(
     "[Black Mage] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Black Mage"))
+    trigger =  NoStrongMode() &&
+               JobLock("Black Mage") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Black Mage] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -1478,19 +1506,23 @@ achievement(
 
 achievement(
     "[Samurai] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Samurai"))
+    trigger =  NoStrongMode() &&
+               JobLock("Samurai") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Samurai] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
@@ -1601,19 +1633,23 @@ achievement(
 
 achievement(
     "[Hunter] - Mandragoran Royalty", "Defeat the Mandragoras in Sochen Cave Palace", 10,
-    trigger = (prev(byte(0x556096)) == 1 || 
-               prev(byte(0x556098)) == 1 || 
-               prev(byte(0x55609A)) == 1 ||
-               prev(byte(0x55609C)) == 1 || 
-               prev(byte(0x55609E)) == 1) && 
-               mapID() == 200 && 
-               byte(0x556096) == 2 && 
-               byte(0x556098) == 2 && 
-               byte(0x55609A) == 2 && 
-               byte(0x55609C) == 2 && 
-               byte(0x55609E) == 2 && 
-               NoStrongMode() &&
-              JobLock("Hunter"))
+    trigger =  NoStrongMode() &&
+               JobLock("Hunter") &&
+               mapID() == 200 &&
+               dword(0x9DF404) == 0 &&
+               dword(0x9DF644) == 0 &&
+               dword(0x9DF884) == 0 &&
+               dword(0x9DFAC4) == 0 &&
+               dword(0x9DFD04) == 0 &&
+               unless(word(0x57D5E8) == 0) &&
+               (
+               prev(dword(0x9DF404)) > 0 ||
+               prev(dword(0x9DF644)) > 0 ||
+               prev(dword(0x9DF884)) > 0 ||
+               prev(dword(0x9DFAC4)) > 0 ||
+               prev(dword(0x9DFD04)) > 0
+               ))
+               /// Dont push to local as it may mess up the OrNext chains but this is rascript equivalent
 
 achievement(
     "[Hunter] - Consider Your Bones, Old Man!", "Face Dr. Cid in Archades", 10,
