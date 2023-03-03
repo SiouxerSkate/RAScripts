@@ -22,8 +22,7 @@ Ocarana Of Time					- SNES	finish set
 ------Revision to re master--------
 DKC2					- SNES  Finish revision
 DKC3					- SNES  Finish revision
-Super Mario World 2		- SNES  in progress
-Aria of Sorrow			- GBA Julies Mode(Maybe wait untill I do a revision?)
+Aria of Sorrow			- GBA Julies Mode and nosoul nouse modes once I finish revision
 Super Mario RPG			- SNES need the super jump and the all coins cheevo
 
 
@@ -48,7 +47,7 @@ Alchahest			- SNES Not Started
 
 
 -----Console Quest------
-N64 		- NFL Blitz - For sports quest credit and need claim?
+N64 		- Castlevania 64 for DQ13 revision
 GBC 		- 
 PC Engine	- 
 MSX 		- Hydlide?
@@ -134,19 +133,16 @@ FF12 collab 	- DONE
 
 
 ----Dev Quest 13(set fixer)-----
-Aria of sorrow add nouse and nosoul - Will look more into this and put out a revision vote
+Aria of sorrow add nouse and nosoul - Claimed and Vote shoudl pass so lets get it
 	- Cheeov for any ending NOSOUL mode
 	- Cheevo for beat Good ending NOSOUL mode
 	- Cheevo for beat Good ending NOSOUL mode Hard
-	- Cheevo for collecting all possible souls NOSOUL mode
-	- cheevo to beat an iron golem in NOSOUL mode
 	- Cheevo for beating boss rush NOSOUL mode
 	- Cheevo for NOUSE any ending
 	- Cheevo for NOUSE good ending Normal
 	- cheevo for NOUSE good ending Hard
-	- Look into certain challenges for nouse mode
 	
-Castlevania 64 - maybe for N64 credit
+Castlevania 64 - Have some already made waiting to see if I can claim two revisions at once
 
 Farland story FX for PC-FX
 
@@ -179,7 +175,8 @@ Grind Session	- pS1		- Done
 
 -----DQ 18(subsets)------
 Grind Session   - ps1 - Perfect run Subset
-FFT				- ps1 - No Ramza level up?
+or THPS2
+Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset
 
 
 ----R.P-----
