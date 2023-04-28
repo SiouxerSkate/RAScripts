@@ -1,5 +1,9 @@
 ----Active DEV work----
 Tactics Ogre						- PSP 		- Claimed Wish the set dev quest
+ - Skill Subset for DQ18
+Castlevania 64						- N64		- Claimed for DQ13 2nd set
+Aria of sorrow subset				- GBA		- Claimed for DQ18
+
 
 
 Potential big RPGS
@@ -22,8 +26,7 @@ Ocarana Of Time					- SNES	finish set
 ------Revision to re master--------
 DKC2					- SNES  Finish revision
 DKC3					- SNES  Finish revision
-Super Mario World 2		- SNES  in progress
-Aria of Sorrow			- GBA Julies Mode(Maybe wait untill I do a revision?)
+Aria of Sorrow			- GBA Julius 4 min cheevo
 Super Mario RPG			- SNES need the super jump and the all coins cheevo
 
 
@@ -35,7 +38,7 @@ Portrait of Ruin			- NDS Dracula no damage, dracula lvl 1 cap, nest of evil no i
 ----Cheevs to try in hardcore again--------
 Minish Cap 		- Gyorg Pair bested(Fux the Vaati one)
 Super Metroid 	- Try time cheevs again. 
-Suikoden II 	- Fuck the mole game?
+Suikoden II 	- Fux the mole game?
 
 
 ----Games to Play-------
@@ -48,7 +51,7 @@ Alchahest			- SNES Not Started
 
 
 -----Console Quest------
-N64 		- NFL Blitz - For sports quest credit and need claim?
+N64 		- Castlevania 64 for DQ13 revision
 GBC 		- 
 PC Engine	- 
 MSX 		- Hydlide?
@@ -117,8 +120,6 @@ THPS2 						-
 Chrono Trigger(DS)			-
 Trials of Mana				- Look into
 Star Ocean					- Look into while playing someday
-NBA Jam TE					- Look into
-NBA Jam						- Look Into
 
 
 ----DEV Quest 3 Singles Reduex-----
@@ -134,21 +135,29 @@ FF12 collab 	- DONE
 
 
 ----Dev Quest 13(set fixer)-----
-Aria of sorrow add nouse and nosoul - Will look more into this and put out a revision vote
+Aria of sorrow add nouse and nosoul - DONE
 	- Cheeov for any ending NOSOUL mode
 	- Cheevo for beat Good ending NOSOUL mode
 	- Cheevo for beat Good ending NOSOUL mode Hard
-	- Cheevo for collecting all possible souls NOSOUL mode
-	- cheevo to beat an iron golem in NOSOUL mode
 	- Cheevo for beating boss rush NOSOUL mode
 	- Cheevo for NOUSE any ending
 	- Cheevo for NOUSE good ending Normal
 	- cheevo for NOUSE good ending Hard
-	- Look into certain challenges for nouse mode
 	
-Castlevania 64 - maybe for N64 credit
+Castlevania 64 - Claimed need to work on it
+	- Damagless bossess
+	- No damage and no sub weapon HARD mode
 
-Farland story FX for PC-FX
+Farland story FX for PC-FX - for PC-FX credit 
+
+
+LEGO Island 2 Briksters revenge - for GBC credit
+
+M & M minis madness - for GBC credit
+
+Xtreme Sports - for GBC credit
+
+Alfred's Adventure - for GBC credit
 
 
 ----Dev Quest 14(leaderboards)-----
@@ -166,6 +175,8 @@ Dinosaur land			- Exits cleared withotu grabbing a coin, exits cleared without d
 SM Ascent				- Fastest clear time, Fastest time A, Fastest time B, Fastest time C
 SM Redesign				- Fastest clear time, Fastest escape time,
 Resident Evil			- Fastest clear time, Hi score Jill Battle mode, Highest Score Chris Battle mode
+NBA Jam TE				- Look into
+NBA Jam					- Look Into
 
 
 ----Dev Quest 16(wish set)-----
@@ -178,8 +189,8 @@ Grind Session	- pS1		- Done
 
 
 -----DQ 18(subsets)------
-Grind Session   - ps1 - Perfect run Subset
-FFT				- ps1 - No Ramza level up?
+Tactics Ogre	- psp	- Class and skill mastery - Claimed
+Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset - Claimed
 
 
 ----R.P-----
@@ -194,6 +205,8 @@ FFT PS1 refactor	- Story Done.
 						Need to do Deep Dungeon(END Done), all items(Probably Fine some changed), class mastery . Add Leaderboards. - Jack and Jill need a delta 3 for save protection.
 Warcraft 2			- Lots of stuff done. Just need to test all levels again before publishing.
 						Changed Most - Unto the breach, tome of Sageras, Custom scenarios, 
+						
+FF12 - Statue cheevos refactor to not use the statue bits
 
 
 ----translation patch----

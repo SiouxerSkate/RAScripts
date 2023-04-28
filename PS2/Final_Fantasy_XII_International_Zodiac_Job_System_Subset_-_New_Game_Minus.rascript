@@ -1177,7 +1177,7 @@ trophyhunts = {
 for hunt_target in trophyhunts{
     achievement(
         format("[Weak] - Proof of the Hunt: {0}", hunt_target),
-        format("Defeat {0} and obtain it's Trophy", trophyhunts[hunt_target]["Mob"]),
+        format("Defeat {0} and obtain its Trophy", trophyhunts[hunt_target]["Mob"]),
         points= 10,
         trigger=
         SaveProtection() &&
