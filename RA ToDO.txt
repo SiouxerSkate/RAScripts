@@ -1,6 +1,9 @@
 ----Active DEV work----
 Tactics Ogre						- PSP 		- Claimed Wish the set dev quest
-Castlevani 64						- N64		- Claimed for DQ13 2nd set
+ - Skill Subset for DQ18
+Castlevania 64						- N64		- Claimed for DQ13 2nd set
+Aria of sorrow subset				- GBA		- Claimed for DQ18
+
 
 
 Potential big RPGS
@@ -23,7 +26,7 @@ Ocarana Of Time					- SNES	finish set
 ------Revision to re master--------
 DKC2					- SNES  Finish revision
 DKC3					- SNES  Finish revision
-Aria of Sorrow			- GBA Julies Mode and nosoul nouse modes
+Aria of Sorrow			- GBA Julius 4 min cheevo
 Super Mario RPG			- SNES need the super jump and the all coins cheevo
 
 
@@ -186,11 +189,9 @@ Grind Session	- pS1		- Done
 
 
 -----DQ 18(subsets)------
-Tactics Ogre	- psp	- Class and skill mastery - Requested
-Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset - Requested
+Tactics Ogre	- psp	- Class and skill mastery - Claimed
+Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset - Claimed
 
-Grind Session   - ps1 - Perfect run Subset
-or THPS2
 
 ----R.P-----
 Advanced Golf		 - 
@@ -204,6 +205,8 @@ FFT PS1 refactor	- Story Done.
 						Need to do Deep Dungeon(END Done), all items(Probably Fine some changed), class mastery . Add Leaderboards. - Jack and Jill need a delta 3 for save protection.
 Warcraft 2			- Lots of stuff done. Just need to test all levels again before publishing.
 						Changed Most - Unto the breach, tome of Sageras, Custom scenarios, 
+						
+FF12 - Statue cheevos refactor to not use the statue bits
 
 
 ----translation patch----
