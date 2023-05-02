@@ -9,23 +9,23 @@ function TriggerBitChange(mem) => prev(mem) == 0 && trigger_when(mem == 1)
 function SomaLevelUp(value) => prev(byte(0x01B279)) < value && byte(0x01B279) == value
 function HardMode() => upper(0x080A1) == 0x16
 function DamageTaken() => prev(word(0x1b27a)) > word(0x1b27a)
-function MapID() => byte(0x809f)
+function MapID() => word(0x809e)
 
 
 /////BOSS and SINGLE SOUL CHEEVOS////////
 
-///Dict for Boss/Soul Bits. Key - Name, value - list with bit mem, location, Name of Cheevo, points, damagless points, damageless title, map_id]
+///Dict for Boss/Soul Bits. Key - Name, value - list with bit mem, location, Name of Cheevo, points, damagless points, damageless title, map_id/area_idea]
 StuffLookup = {
-    "Creaking Skull" : [bit1(0x01B3A4), "Castle Corridor", "Creaking Skull Name", 1, 1, "Creaking Skull Damagless Name", 0x0a],
-    "Manticore" : [bit6(0x01B3A6), "Chapel", "Manticore Name", 1, 1, "Manticore Damageless Name", 0x06],
-    "Great Armor" : [bit4(0x01B3A7), "Study", "Great Armor Name", 1, 1, "Great Armor Damageless Name", 0x0f],
-    "Big Golem" : [bit5(0x01B3A8), "Dance Hall", "Big Golem Name", 1, 5, "Big Golem Damageless Name", 0],
-    "Headhunter" : [bit2(0x01B3AD), "Inner Quarters", "Headhunter Name", 1, 5, "Headhunter Damageless Name", 0],
-    "Death" : [bit3(0x01B3AD), "Clock Tower", "Death Name", 5, 10, "Death Damageless Name", 0],
-    "Legion" : [bit4(0x01B3AD), "Underground Cemetery", "Legion Name", 5, 10, "Legion Damageless Name", 0],
-    "Balore" : [bit5(0x01B3AD), "Arena", "Balore Name", 5, 10 , "Balore Damagele ssName", 0],
-    "Graham" : [bit7(0x01B3AD), "Top Floor", "Graham Name", 1, 10, "Graham Damageless Name", 0],
-    "Julius" : [bit2(0x01B3AD), "Floating Garden", "Julius Name", 5, 10, "Julius Damageless Name", 0],
+    "Creaking Skull" : [bit1(0x01B3A4), "Castle Corridor", "Creaking Skull Name", 1, 1, "Creaking Skull Damagless Name", 0x0a00],
+    "Manticore" : [bit6(0x01B3A6), "Chapel", "Manticore Name", 1, 1, "Manticore Damageless Name", 0x0601],
+    "Great Armor" : [bit4(0x01B3A7), "Study", "Great Armor Name", 1, 1, "Great Armor Damageless Name", 0x0f02],
+    "Big Golem" : [bit5(0x01B3A8), "Dance Hall", "Big Golem Name", 1, 5, "Big Golem Damageless Name", 0x1303],
+    "Headhunter" : [bit2(0x01B3AD), "Inner Quarters", "Headhunter Name", 1, 5, "Headhunter Damageless Name", 0x0b04],
+    "Death" : [bit3(0x01B3AD), "Clock Tower", "Death Name", 5, 10, "Death Damageless Name", 0x0706],
+    "Legion" : [bit4(0x01B3AD), "Underground Cemetery", "Legion Name", 5, 10, "Legion Damageless Name", 0x2507],
+    "Balore" : [bit5(0x01B3AD), "Arena", "Balore Name", 5, 10 , "Balore Damagele ssName", 0x108],
+    "Graham" : [bit7(0x01B3AD), "Top Floor", "Graham Name", 1, 10, "Graham Damageless Name", 0x0409],
+    "Julius" : [bit6(0x01B3AD), "Floating Garden", "Julius Name", 5, 10, "Julius Damageless Name", 0x0605],
     "Grave Keeper" : [bit1(0x008360), "", "Grave Keeper Name", 1],
     "Malphas" : [bit3(0x008360), "", "Malphas Name", 1],
     "Skeleton Blaze" : [bit4(0x008360), "", "Skeleton Blaze Name", 1],
@@ -60,17 +60,21 @@ function StuffCheevs()
 }
 StuffCheevs()
 
+///Also this doesnt do what I want so dont update local
 achievement("Chaos Damagless", "Defeat Chaos without taking damage", 50, 
-            trigger=CheatLock() && disable_when(DamageTaken(), until=(MapID() != 0)))//Need to figure out this
+            trigger=TriggerBitChange(bit0(0x01b3ae)) && once(MapID() == 0xb0b) && 
+                    CheatLock() && unless(once(DamageTaken()) ||
+                    (never(MapID() == 0x0d0b)) || (never(byte(0x00809e) != 0x0b))))
+                    
 
 /////ENDING CHEEVOS////////////////
-
-///Dict for ending. Key - type, value - list with prior room id, Cheevo Title, points, hard mode bool, descrition
+////RATools doesnt like this below for some reason....Need to talk to Jamiras
+///Dict for ending. Key - type, value - list with room id, prior room id, Cheevo Title, points, hard mode bool, descrition
 EndingLookup = {
-    "Normal": [139591024, "What a Beautiful Night to Have an Eclipse", 5, false, "Normal"],
-    "Normal-hard": [139591024, "What a Horrible Night to Have an Eclipse", 10, true, "Normal"],
-    "Best": [139605548, "Qwell the Chaos", 10, false, "Best"],
-    "Best-Hard": [139605548, "Chaotic Neutral", 25, true, "Best"],
+    "Normal": [0x8522c54, 0x851fd70, "What a Beautiful Night to Have an Eclipse", 5, false, "Normal"],
+    "Normal-hard": [0x8522c54, 0x851fd70, "What a Horrible Night to Have an Eclipse", 10, true, "Normal"],
+    "Best": [0x8522c54, 0x852362c, "Qwell the Chaos", 10, false, "Best"],
+    "Best-Hard": [0x8522c54, 0x852362c, "Chaotic Neutral", 25, true, "Best"],
 }
 
 function Endings()
@@ -78,22 +82,33 @@ function Endings()
     for key in EndingLookup
     {
         value_list = EndingLookup[key]
-        title = value_list[1]
-        points = value_list[2]
+        title = value_list[2]
+        points = value_list[3]
         mode = ""
-        trigger = once(byte(0x01B266) == 0 && low4(0x0080A1) == 0 && prior(dword(0x008088)) == value_list[0] && dword(0x008088) == 139603028) &&
-                  never(prev(dword(0x008088)) != 139603028) && 
-                  byte(0x008010) == 6 && CheatLock()
-        if value_list[3] == true
+        if value_list[4] == true
         {
             mode = " on Hard mode"
-            trigger = once(byte(0x01B266) == 0 && low4(0x0080A1) == 0 && prior(dword(0x008088)) == value_list[0] && dword(0x008088) == 139603028) &&
-                      never(prev(dword(0x008088)) != 139603028) && 
+            trigger = byte(0x01B266) == 0 && 
+                      low4(0x0080A1) == 0 && 
+                      once(prior(dword(0x008088)) == value_list[1]) && 
+                      once(dword(0x008088) == value_list[0]) &&
                       byte(0x008010) == 6 &&
-                      byte(0x0080A1) == 16 && CheatLock()
+                      byte(0x0080A1) == 16 && 
+                      CheatLock() &&
+                      never(prev(dword(0x008088)) != value_list[0])
         }
-        description = "View the game's " + value_list[4] + " ending scene" + mode
+        else
+        {
+            trigger = byte(0x01B266) == 0 && 
+                      once(prior(dword(0x008088)) == value_list[1]) && 
+                      once(dword(0x008088) == value_list[0]) &&
+                      byte(0x008010) == 6 && 
+                      CheatLock() &&
+                      never(prev(dword(0x008088)) != value_list[0])            
+        }
+        description = "View the game's " + value_list[5] + " ending scene" + mode
         achievement(title, description, points, trigger) 
+
     }
 }
 
