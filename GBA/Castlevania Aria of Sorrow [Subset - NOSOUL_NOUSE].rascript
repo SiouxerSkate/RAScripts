@@ -16,22 +16,22 @@ function MapID() => word(0x809e)
 
 ///Dict for Boss/Soul Bits. Key - Name, value - list with bit mem, location, Name of Cheevo, points, damagless points, damageless title, map_id/area_idea]
 StuffLookup = {
-    "Creaking Skull" : [bit1(0x01B3A4), "Castle Corridor", "Creaking Skull Name", 1, 1, "Creaking Skull Damagless Name", 0x0a00],
-    "Manticore" : [bit6(0x01B3A6), "Chapel", "Manticore Name", 1, 1, "Manticore Damageless Name", 0x0601],
-    "Great Armor" : [bit4(0x01B3A7), "Study", "Great Armor Name", 1, 1, "Great Armor Damageless Name", 0x0f02],
-    "Big Golem" : [bit5(0x01B3A8), "Dance Hall", "Big Golem Name", 1, 5, "Big Golem Damageless Name", 0x1303],
-    "Headhunter" : [bit2(0x01B3AD), "Inner Quarters", "Headhunter Name", 1, 5, "Headhunter Damageless Name", 0x0b04],
-    "Death" : [bit3(0x01B3AD), "Clock Tower", "Death Name", 5, 10, "Death Damageless Name", 0x0706],
-    "Legion" : [bit4(0x01B3AD), "Underground Cemetery", "Legion Name", 5, 10, "Legion Damageless Name", 0x2507],
-    "Balore" : [bit5(0x01B3AD), "Arena", "Balore Name", 5, 10 , "Balore Damagele ssName", 0x108],
-    "Graham" : [bit7(0x01B3AD), "Top Floor", "Graham Name", 1, 10, "Graham Damageless Name", 0x0409],
-    "Julius" : [bit6(0x01B3AD), "Floating Garden", "Julius Name", 5, 10, "Julius Damageless Name", 0x0605],
-    "Grave Keeper" : [bit1(0x008360), "", "Grave Keeper Name", 1],
-    "Malphas" : [bit3(0x008360), "", "Malphas Name", 1],
-    "Skeleton Blaze" : [bit4(0x008360), "", "Skeleton Blaze Name", 1],
-    "Galamoth" : [bit1(0x008361), "", "Galamoth Name", 1],
-    "Kicker Skeleton" : [high4(0x01B393), "", "Kicker Skeleton Name", 1],
-    "Hippogryph" : [bit5(0x008360), "", "Hippogryph Name", 1],
+    "Creaking Skull" : [bit1(0x01B3A4), "Castle Corridor", "Croaking Creaker", 1, 1, "Inside the Skull", 0x0a00],
+    "Manticore" : [bit6(0x01B3A6), "Chapel", "Holy Beast", 1, 1, "Count of Manticoro", 0x0601],
+    "Great Armor" : [bit4(0x01B3A7), "Study", "Armor Study", 1, 1, "A Great Escapade", 0x0f02],
+    "Big Golem" : [bit5(0x01B3A8), "Dance Hall", "Dance of the Golem", 1, 5, "Bigger They Are", 0x1303],
+    "Headhunter" : [bit2(0x01B3AD), "Inner Quarters", "Inner Hunter", 1, 5, "Good Head On Your Shoulders", 0x0b04],
+    "Death" : [bit3(0x01B3AD), "Clock Tower", "Its Time to Die", 5, 10, "Dont Fear the Reaper", 0x0706],
+    "Legion" : [bit4(0x01B3AD), "Underground Cemetery", "Legion of Souls", 5, 10, "Underground Cremains", 0x2507],
+    "Balore" : [bit5(0x01B3AD), "Arena", "Going Rounds", 5, 10 , "Arena TKO", 0x108],
+    "Graham" : [bit7(0x01B3AD), "Top Floor", "Top of the Morning", 1, 10, "Missionary Man", 0x0409],
+    "Julius" : [bit6(0x01B3AD), "Floating Garden", "Belmont Beater", 5, 10, "Kill the Vampire Killer", 0x0605],
+    "Grave Keeper" : [bit1(0x008360), "", "Back Dashery", 1],
+    "Malphas" : [bit3(0x008360), "", "Crow Headed", 1],
+    "Skeleton Blaze" : [bit4(0x008360), "", "Blaze the Nugz", 1],
+    "Galamoth" : [bit1(0x008361), "", "10,000 Year Plan", 1],
+    "Kicker Skeleton" : [high4(0x01B393), "", "Kicky Kicky Boom Boom", 1],
+    "Hippogryph" : [bit5(0x008360), "", "Take to the Skies", 1],
 }
 
 function StuffCheevs()
