@@ -14,18 +14,18 @@ function MapID() => word(0x809e)
 
 /////BOSS and SINGLE SOUL CHEEVOS////////
 
-///Dict for Boss/Soul Bits. Key - Name, value - list with bit mem, location, Name of Cheevo, points, damagless points, damageless title, map_id/area_idea]
+///Dict for Boss/Soul Bits. Key - Name, value - list with bit mem, location, Name of Cheevo, points, damagless points, damageless title, map_id/area_idea, level_cap]
 StuffLookup = {
-    "Creaking Skull" : [bit1(0x01B3A4), "Castle Corridor", "Croaking Creaker", 1, 1, "Inside the Skull", 0x0a00],
-    "Manticore" : [bit6(0x01B3A6), "Chapel", "Holy Beast", 1, 1, "Count of Manticoro", 0x0601],
-    "Great Armor" : [bit4(0x01B3A7), "Study", "Armor Study", 1, 1, "A Great Escapade", 0x0f02],
-    "Big Golem" : [bit5(0x01B3A8), "Dance Hall", "Dance of the Golem", 1, 5, "Bigger They Are", 0x1303],
-    "Headhunter" : [bit2(0x01B3AD), "Inner Quarters", "Inner Hunter", 1, 5, "Good Head On Your Shoulders", 0x0b04],
-    "Death" : [bit3(0x01B3AD), "Clock Tower", "Its Time to Die", 5, 10, "Dont Fear the Reaper", 0x0706],
-    "Legion" : [bit4(0x01B3AD), "Underground Cemetery", "Legion of Souls", 5, 10, "Underground Cremains", 0x2507],
-    "Balore" : [bit5(0x01B3AD), "Arena", "Going Rounds", 5, 10 , "Arena TKO", 0x108],
-    "Graham" : [bit7(0x01B3AD), "Top Floor", "Top of the Morning", 1, 10, "Missionary Man", 0x0409],
-    "Julius" : [bit6(0x01B3AD), "Floating Garden", "Belmont Beater", 5, 10, "Kill the Vampire Killer", 0x0605],
+    "Creaking Skull" : [bit1(0x01B3A4), "Castle Corridor", "Croaking Creaker", 1, 1, "Inside the Skull", 0x0a00, 3],
+    "Manticore" : [bit6(0x01B3A6), "Chapel", "Holy Beast", 1, 1, "Count of Manticoro", 0x0601, 8],
+    "Great Armor" : [bit4(0x01B3A7), "Study", "Armor Study", 1, 1, "A Great Escapade", 0x0f02, 12],
+    "Big Golem" : [bit5(0x01B3A8), "Dance Hall", "Dance of the Golem", 1, 5, "Bigger They Are", 0x1303, 15],
+    "Headhunter" : [bit2(0x01B3AD), "Inner Quarters", "Inner Hunter", 1, 5, "Good Head On Your Shoulders", 0x0b04, 18],
+    "Death" : [bit3(0x01B3AD), "Clock Tower", "Its Time to Die", 5, 10, "Dont Fear the Reaper", 0x0706, 25],
+    "Legion" : [bit4(0x01B3AD), "Underground Cemetery", "Legion of Souls", 5, 10, "Underground Cremains", 0x2507, 28],
+    "Balore" : [bit5(0x01B3AD), "Arena", "Going Rounds", 5, 10 , "Arena TKO", 0x108, 32],
+    "Graham" : [bit7(0x01B3AD), "Top Floor", "Top of the Morning", 1, 10, "Missionary Man", 0x0409, 40],
+    "Julius" : [bit6(0x01B3AD), "Floating Garden", "Belmont Beater", 5, 10, "Kill the Vampire Killer", 0x0605, 45],
     "Grave Keeper" : [bit1(0x008360), "", "Back Dashery", 1],
     "Malphas" : [bit3(0x008360), "", "Crow Headed", 1],
     "Skeleton Blaze" : [bit4(0x008360), "", "Blaze the Nugz", 1],
@@ -53,7 +53,7 @@ function StuffCheevs()
             title = value_list[5]
             points = value_list[4]
             description = "Defeat " + key + " in the " + value_list[1] + " without taking damage"
-            trigger= TriggerBitChange(value_list[0]) && CheatLock() && disable_when(DamageTaken(), until=(MapID() != value_list[6]))
+            trigger= TriggerBitChange(value_list[0]) && CheatLock() && byte(0x01B279) <= value_list[7] && disable_when(DamageTaken(), until=(MapID() != value_list[6]))
             achievement(title, description, points, trigger)
         }
     }    
@@ -62,7 +62,8 @@ StuffCheevs()
 
 ///Also this doesnt do what I want so dont update local
 achievement("Chaos Damagless", "Defeat Chaos without taking damage", 25, 
-            trigger=TriggerBitChange(bit0(0x01b3ae)) && once(MapID() == 0xb0b) && 
+            trigger=TriggerBitChange(bit0(0x01b3ae)) && once(MapID() == 0xb0b) &&
+                    byte(0x01B279) <= 53 &&	
                     CheatLock() && unless(once(DamageTaken()) ||
                     (never(MapID() == 0x0d0b)) || (never(byte(0x00809e) != 0x0b))))
                     
