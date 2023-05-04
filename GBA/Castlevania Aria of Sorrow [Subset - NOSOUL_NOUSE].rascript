@@ -52,7 +52,7 @@ function StuffCheevs()
         {
             title = value_list[5]
             points = value_list[4]
-            description = "Defeat " + key + " in the " + value_list[1] + " without taking damage"
+            description = "Defeat " + key + " in the " + value_list[1] + " without taking damage(LVL <=" + value_list[7] + ")"
             trigger= TriggerBitChange(value_list[0]) && CheatLock() && byte(0x01B279) <= value_list[7] && disable_when(DamageTaken(), until=(MapID() != value_list[6]))
             achievement(title, description, points, trigger)
         }
@@ -61,9 +61,9 @@ function StuffCheevs()
 StuffCheevs()
 
 ///Also this doesnt do what I want so dont update local
-achievement("Chaos Damagless", "Defeat Chaos without taking damage", 25, 
+achievement("Chaos Damagless", "Defeat Chaos without taking damage(LVL <= 53)", 25, 
             trigger=TriggerBitChange(bit0(0x01b3ae)) && once(MapID() == 0xb0b) &&
-                    byte(0x01B279) <= 53 &&	
+                    byte(0x01B279) <= 55 &&	
                     CheatLock() && unless(once(DamageTaken()) ||
                     (never(MapID() == 0x0d0b)) || (never(byte(0x00809e) != 0x0b))))
                     
