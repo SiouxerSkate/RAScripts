@@ -200,7 +200,7 @@ function ObtainItem(mem) => prev(byte(mem)) == 0 && byte(mem) == 1
 ////key = Name of Title which will be name of cheevo
 ////value = [cheevo points, location hex value, Title hex values[list], Cheevo Description]
 SingleTitleDict = {
-    "Hero of Golyat":                 [1, 0x19, 0x01, "Recued Duke Ronway from imprisonment in Almorica Castle."],
+    "Hero of Golyat":                 [1, 0x19, 0x01, "Rescued Duke Ronway from imprisonment in Almorica Castle."],
     "Corpse Dancer":                  [5, 0x15, 0x02, "Confronted the Necromancer Nybeth at Qadriga Fortress and put an end to his dark experiments."],
     "The Merciful":                   [5, 0x0C, 0x09, "Came to Arycelle's aid on the Xeod Moors, even though she had once sought to take your life."],
     "Piratesbane":                    [5, 0x15, 0x12, "Saved Xapan the Mercenary from pirates at Qadriga Fortress."],

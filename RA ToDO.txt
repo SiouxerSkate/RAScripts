@@ -1,6 +1,7 @@
 ----Active DEV work----
 Tactics Ogre						- PSP 		- Claimed Wish the set dev quest
  - Skill Subset for DQ18
+Rampage World Tour					- N64
 
 Potential big RPGS
 Phantom Brave						- PS2		- Save for RPG quest?
@@ -8,34 +9,32 @@ Disgae								- PS2		- Save for RPG quest?
 Dsigae2								- PS2       - Save for RPG quest?
 
 ----Games to Finish----
-RE4 							- PS2	in progress
-FF8								- PS1   in progress
-Super Mario 64					- N64   finish set
-FF7								- PS1   finish set
-Trials of Mana					- SNES  finish set
-Parallel Worlds					- SNES  finish set
-Mario Kart						- SNES  finish set
-Ocarana Of Time					- SNES	finish set
+FF8								- PS1   in progress..working though story for revision contents. Then need to dig up the save for no leeling for that final cheev
+Super Mario 64					- N64   finish set...need to look at the set again
+FF7								- PS1   in progress...Doing the llG run now with plan to get Barret date. Then just need gold saucer shit
+Trials of Mana					- SNES  finish set...no clue may need to do a new run through with just teh characters I need
+Parallel Worlds					- SNES  finish set...use dat guide but the 3 hearts is gonna be a brute
+Mario Kart						- SNES  finish set...Just need 150 cc 
+Ocarana Of Time					- SNES	finish set...working on it slowly
 
 ------Revision to re master--------
 DKC3					- SNES  Finish revision when it drops
-Link to the past		- SNES finish revision when it drops
-Aria of Sorrow			- GBA Julius 4 min cheevo
-Super Mario RPG			- SNES need the super jump and the all coins cheevo
+Aria of Sorrow			- GBA Julius 4 min cheevo...Need to shave off like 30 seconds
+Super Mario RPG			- SNES need the super jump and the all coins cheevo...Use the metronome
 
 
 -----Cheevs to finish(Less than 5 in a set Maybe even in Softcore!)-----
-Super Mario All stars		- SNEs Need the lost levels quickest route and beat mario 2 in oen go
-Portrait of Ruin			- NDS Dracula no damage, dracula lvl 1 cap, nest of evil no items
+Super Mario All stars		- SNEs Need the lost levels quickest route and beat mario 2 in one go
+Portrait of Ruin			- NDS Dracula no damage, dracula lvl 1 cap, nest of evil no items - Maybe possible with more tries...didnt really try them
 
 
 ----Cheevs to try in hardcore again--------
-Minish Cap 		- Gyorg Pair bested(Fux the Vaati one)
+Minish Cap 		- Fux the Vaati one
 Super Metroid 	- Try time cheevs again. 
 Suikoden II 	- Fux the mole game?
 DKC2			- The Poison Pong. Dat last part doe
 Mega Man X 		- ZERO Mode
-RE4				- Neck Breaker Ballet
+RE4				- Neck Breaker Ballet...FUCKME
 
 
 ----Games to Play-------
@@ -50,10 +49,45 @@ Suikoden 4			- PS2
 
 
 
------Console Quest------
-GBC 		- 
-PC Engine	- 
-MSX 		- Hydlide?
+-----Console Quest------NEEDS TTO BE SOLE OR MAJORITY DEV !!!
+N64							- Rampage World Tour - Claimed
+GBC 						- Star Ocean Blue Sphere, Quest for Camelot
+PC Engine					- Parasol Stars
+Sega CD						- Dune
+Sega 32X					- 
+Atari Lynx					- 
+Neo Geo Pocket Color		-	 
+Game Gear					-
+Atari Jaguar				-
+Magnavox Odyseey2			-
+Pokemon Mini				-
+Atari 2600					-
+Arcade						-
+Virtual Boy					- 3-D Tetris
+MSX 						- Hydlide?
+SG-1000						-
+Armstrad CPC				-
+Apple II					-
+Dreamcast					-
+3DO							-
+ColecoVision				-
+Intellisivsion				-
+Vectrex						-
+PC-FX						-
+Atari 7800					-
+Fairchild Channel F			-
+Watara Supervision			-
+Mega Duck					-
+Arduboy						-
+WASM-4						-
+Arcadia 2001				-
+Interton VC 4000			-
+Elektor TV Games Computer	-
+PC Engine CD				-
+Atari Jaguar CD				-
+Nintendo Dsi				-
+Uzebox						-
+Gamecube					- Blood Omen 2
 
 
 ----Revisions-----
@@ -73,7 +107,7 @@ Doom Troppers		- Megadrive
 
 
 
------Dev Quest 5(trigger happy)-----
+-----Dev Quest 5(trigger happy)----- === Things are changing with this quest so I likely will have what I need to fulfill it.
 AVP(SNES)					- DONE
 Minish Cap					- DONE
 FF7 						- DONE
@@ -137,12 +171,6 @@ Trials of Mana				- Look into
 Star Ocean					- Look into while playing someday
 
 
-----DEV Quest 3 Singles Reduex-----
-Doom Troopers - The One Solar System
-Inido way of the ninja - Plenty
-
-
-
 ----Dev Quest 10(it takes two)----
 Need to talk to people about collabs
 FF12 collab 	- DONE
@@ -165,18 +193,8 @@ Castlevania 64 - DONE
 	- No damage in tower or garden runnign
 	- No dying and skip 2 bosses in tower
 
+Zero the Kamikazee squirrel - SNES need to check out
 
-
-Farland story FX for PC-FX - for PC-FX credit 
-
-
-LEGO Island 2 Briksters revenge - for GBC credit
-
-M & M minis madness - for GBC credit
-
-Xtreme Sports - for GBC credit
-
-Alfred's Adventure - for GBC credit
 
 
 ----Dev Quest 14(leaderboards)-----
@@ -212,6 +230,45 @@ Tactics Ogre	- psp	- Class and skill mastery - Claimed
 Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset - Done
 
 
+----DQ 19 Genre wheel---
+
+
+----Genre Conqurer-----
+
+
+
+
+
+----Alphadev a bet-----
+A	- Aline vs Predator(SNES)
+B	- Blood Omen: Legacy of Kain(PS1)
+C 	- Chrono Trigger(DS)
+D	- 
+E	-
+F	- Final fantasy XII(PS2)
+G	- Grand Master(NES)
+H	- Hydlide(NES)
+I	-
+J	-
+K	- Kaze No Klonoa: Moonlight Museum(Wonderswan)
+L	- Legend of Zelda: Echoes of the Past(SNES)
+M	- Mario Golf: Advanced Tour(GBA)
+N	- NBA Jam TE(GB)
+O	- Ogre Battle(SNES)
+P	-
+Q	-
+R	- Resident Evil(Saturn)
+S	-
+T	- Tony Hawk Pro KSater 2(PS1)
+U	-
+V	- Vandal Hearts(PS1)
+W	- Wonder Boy(Master System)
+X	- Xenogears(PS1)
+Y	-
+Z	-
+3	- 3-D Tetris
+
+
 ----R.P-----
 Advanced Golf		 - 
 
@@ -223,9 +280,6 @@ Battletoads Genesis - Need to protect from last life
 Front Mission 		- Need to protect against in-game save.
 FFT PS1 refactor	- Story Done. 
 						Need to do Deep Dungeon(END Done), all items(Probably Fine some changed), class mastery . Add Leaderboards. - Jack and Jill need a delta 3 for save protection.
-Warcraft 2			- Lots of stuff done. Just need to test all levels again before publishing.
-						Changed Most - Unto the breach, tome of Sageras, Custom scenarios, 
-						
 FF12 - Statue cheevos refactor to not use the statue bits
 
 
