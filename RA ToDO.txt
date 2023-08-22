@@ -1,10 +1,6 @@
 ----Active DEV work----
 Tactics Ogre						- PSP 		- Claimed Wish the set dev quest
  - Skill Subset for DQ18
-Castlevania 64						- N64		- Claimed for DQ13 2nd set
-Aria of sorrow subset				- GBA		- Claimed for DQ18
-
-
 
 Potential big RPGS
 Phantom Brave						- PS2		- Save for RPG quest?
@@ -13,19 +9,17 @@ Dsigae2								- PS2       - Save for RPG quest?
 
 ----Games to Finish----
 RE4 							- PS2	in progress
-Castlevania Orde ror eccelsia	- NDS	in progress
+FF8								- PS1   in progress
 Super Mario 64					- N64   finish set
-FF8								- PS1   finish set
 FF7								- PS1   finish set
-Alter of Sorrow					- GBA   finish set
 Trials of Mana					- SNES  finish set
 Parallel Worlds					- SNES  finish set
 Mario Kart						- SNES  finish set
 Ocarana Of Time					- SNES	finish set
 
 ------Revision to re master--------
-DKC2					- SNES  Finish revision
-DKC3					- SNES  Finish revision
+DKC3					- SNES  Finish revision when it drops
+Link to the past		- SNES finish revision when it drops
 Aria of Sorrow			- GBA Julius 4 min cheevo
 Super Mario RPG			- SNES need the super jump and the all coins cheevo
 
@@ -39,19 +33,24 @@ Portrait of Ruin			- NDS Dracula no damage, dracula lvl 1 cap, nest of evil no i
 Minish Cap 		- Gyorg Pair bested(Fux the Vaati one)
 Super Metroid 	- Try time cheevs again. 
 Suikoden II 	- Fux the mole game?
+DKC2			- The Poison Pong. Dat last part doe
+Mega Man X 		- ZERO Mode
+RE4				- Neck Breaker Ballet
 
 
 ----Games to Play-------
-Alundra				- PS1 Not started
-Star Ocean			- SNES Not Started
-Star Ocean II		- PS1 Not Started
-Star Ocean EOT		- PS2 Not Started
-Live-a-live			- SNES Not Started
-Alchahest			- SNES Not Started
+Alundra				- PS1
+Star Ocean			- SNES
+Star Ocean II		- PS1
+Star Ocean EOT		- PS2
+Live-a-live			- SNES
+Alchahest			- SNES
+Suikoden 3			- PS2
+Suikoden 4			- PS2
+
 
 
 -----Console Quest------
-N64 		- Castlevania 64 for DQ13 revision
 GBC 		- 
 PC Engine	- 
 MSX 		- Hydlide?
@@ -64,10 +63,11 @@ THPS2(PS1)	- Revision with found pointers
 ----DevQuest2 Remastered-----
 Adventures of lolo 			- NES
 Secret Of Evermore		   	- SNES
+Mega Man Xtreme2			- GBA
+Mortal Kombat 2				- Game gear
 
 
-
-----DevQuest 3 remasterd-----
+----DevQuest 3 remasterd may not be a thing-----
 Mr. Gimmick			- NES
 Doom Troppers		- Megadrive
 
@@ -93,15 +93,31 @@ Resident Evil Survivor		- DONE
 Doom troopers(genesis)		- DONE
     Trigger : Master Bones, Poor Skeleton, Tin Can, Cyber Ifrit, Demon In Purple Pants, That's a Big Gun, Red Orc, Lord of War, Trusty Weapon, Real Professional, Not Brutal enough, A True Trooper, The Strongest Wimp, Time is Running Out, Trusty Companion, Jungle Predator, 
 	Mesaured: Pocket Change, Crucshing the Dark Legion, Dark Dark Symmetry
+Gunstar Super Hereos		- DONE
+     Trigger : A perfect Dance, Bested Pink, Bested Orange, Fifty Shades of Green, Speedrunning Moon 1, Speedrunning Moon 2, Speedrunning Moon 3, Speed runnign moon 4, speedrun G-arc, speedrun earth, bested robot earth
+	 Fix - Need to fix casino bosses. They pop on death
+					
+Legacy Of Kain				- DONE
+	Trigger : Saught Not His Wisdom But His Life[m], A Sobering Experience[m], For Blood Is the Life[m], Far Larger Inside Than Out[m], Who Was I To Reject Such an Invitation[m], Lightning Fast Full Moon[m], Odd Little Man[m], When Coincidence Is Too Convenient[m]
+	Mesaured: Forced to the Road[m], For Blood Is the Life[m], Indiana Kain and the Temple Of Doom[m], Nosgoth Blood Hunter, Displace Their Souls, Ample Time to Feed, Leave Only Scorched Remains, Havoc and Mailce, Escalate To A Murderous Rage, Come Drink From Us, Count Of the Skies, 
 
+FFT(PSP)					- DONE
+    Trigger: Good Judge Of Character, Tis Heaven's Will, Slum Rat Millionaire, Seek Out the Rats, What Fuels Your Hatred, Wiegraf! Coward!, At the Hands of Milksop Rabble, 
+	         Wiegraf's Mount, Dycedarg's Plot, I Have No Stone, I Have No Stone, Meet the Executioner, Rent the Executioner, Barbarians At the Gate, Burn , Lucavi, Burn[m],
+			 Suspicion of Heresy, Acts of Heresy, It Is You Who Churn the Wave, Hang Up the Chick Habit, Siblings Quarrel, Stoned Woods, The Gigas, Brother Avenger, Rent the Divine, 
+			 True Heretic, Green Winds Howl, Bessalat Sluice, Warm Welcome, Beyond the Viel, Rend the Vampire, Call For Mama, Traitor's Cloak, Brother's Quarrel, Black Metal,
+			 Knights Templar Treasures, Kinslayer, Pilfer the Brigands, Take Her and Your Freedom, Die For Your Liege, Zodiark Brave, Zodiac Brave, Your Bones Rest in the Dark,
+			 The Necrohol, This Dead City Will Be Your Resting Place, Zodiac Brave
+                             
+	Measured: Museum Curator, World Of Wonder, Errand Boy, The Meager Treasure Hunter[m], The Manipulative Treasure Hunter[m], The Valiant Treasure Hunter[m],
+	          Coal Covered Treasure Hunter[m], The Lovely Treasure Hunter[m], Special Treasure Hunter[m], Midlight's Treasure Hunter, Master Treasure Hunter,
 
-Warcraft 2					- In progress
+Warcraft 2					- Done need to test but gonna trust myself
     Triggers - Custoim scenarios, Ambush At Tarren Mill, Ready To Serve, Foot The Bill, Home On the Range, They Came From the Skies, A Knights Tale, Wiazrd Fight
 	More Triggers - Raid Of Hilsbrad, Into the Badlands, Ready To Work, Doing All The Grunt Work, Going Berserker, Dragon Force, Death do us part, Good Ole Fashioned Ogre Battle
 
-Gunstar Super Hereos		- Needs speedrun earth, bested robot earth, Shoot Dont Jumnp, 
-                    Trigger : A perfect Dance, Bested Pink, Bested Orange, Fifty Shades of Green, Speedrunning Moon 1, Speedrunning Moon 2, Speedrunning Moon 3, Speed runnign moon 4, speedrun G-arc
-					Fix - Need to fix casino bosses. They pop on death, Red weapons
+
+
 
 Mr Gimick(NES)				- In Progress Look at all special items and fix single condition cheevos
                     Trigger: Shining Star, Cheep Cheep, Special Lamp
@@ -111,8 +127,7 @@ Demon's Crest(SNES)			- In Progress, Add measured and trigger to stuff
 					Trigger: Lazy Arremer I, II, III, Earth Gargoyle vs Ovnunu, Fire Gargoyle vs Flame Lord, Aerial Gargoyle vs flier, Legendary Gargoyle vs Crawler, Tidal gargoyle ve legendary Arma, Firebrand vs Firebrand I, Good Start, Arma, Arma Agian, I think I broke it, Stop Mocking me, Headshot, Under the sea, Nice mullet, Phallanx II, Phalanx last, Professional Arremer
                     Measured Done: 
 					Trigger Done: Firebrand Vs Phalanx I, Phalanx's Second form, 
-					
-Inindo Way Of the Ninja(SNES)	- In progress
+
 
 13 orbs						-
 super metroid Redesign		-
@@ -144,9 +159,13 @@ Aria of sorrow add nouse and nosoul - DONE
 	- Cheevo for NOUSE good ending Normal
 	- cheevo for NOUSE good ending Hard
 	
-Castlevania 64 - Claimed need to work on it
+Castlevania 64 - DONE
 	- Damagless bossess
-	- No damage and no sub weapon HARD mode
+	- Fountain
+	- No damage in tower or garden runnign
+	- No dying and skip 2 bosses in tower
+
+
 
 Farland story FX for PC-FX - for PC-FX credit 
 
@@ -190,14 +209,15 @@ Grind Session	- pS1		- Done
 
 -----DQ 18(subsets)------
 Tactics Ogre	- psp	- Class and skill mastery - Claimed
-Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset - Claimed
+Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset - Done
 
 
 ----R.P-----
 Advanced Golf		 - 
 
 
-----old work fix-----
+----old work fix----- 
+Legacy of Kain		- Add the Ship Cheevo
 GBA Golf			- Need to protect from playing from the menu
 Battletoads Genesis - Need to protect from last life
 Front Mission 		- Need to protect against in-game save.
