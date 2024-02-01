@@ -1,7 +1,7 @@
 ----Active DEV work----
-Tactics Ogre						- PSP 		- Claimed Wish the set dev quest
- - Skill Subset for DQ18
 Rampage World Tour					- N64
+Guantlet Legends					= Dreamcast
+Destiny of an Emperor				- NES
 
 Potential big RPGS
 Phantom Brave						- PS2		- Save for RPG quest?
@@ -10,43 +10,30 @@ Dsigae2								- PS2       - Save for RPG quest?
 
 ----Games to Finish----
 FF8								- PS1   in progress..working though story for revision contents. Then need to dig up the save for no leeling for that final cheev
-Super Mario 64					- N64   finish set...need to look at the set again
+Ocarana Of Time					- SNES	in progress...working on it slowly
 FF7								- PS1   in progress...Doing the llG run now with plan to get Barret date. Then just need gold saucer shit
 Trials of Mana					- SNES  finish set...no clue may need to do a new run through with just teh characters I need
 Parallel Worlds					- SNES  finish set...use dat guide but the 3 hearts is gonna be a brute
 Mario Kart						- SNES  finish set...Just need 150 cc 
-Ocarana Of Time					- SNES	finish set...working on it slowly
+Super Mario 64					- N64   finish set...need to look at the set again
 
 ------Revision to re master--------
-DKC3					- SNES  Finish revision when it drops
+DKC3					- SNES  need a few hard challenges
 Aria of Sorrow			- GBA Julius 4 min cheevo...Need to shave off like 30 seconds
 Super Mario RPG			- SNES need the super jump and the all coins cheevo...Use the metronome
 
 
 -----Cheevs to finish(Less than 5 in a set Maybe even in Softcore!)-----
-Super Mario All stars		- SNEs Need the lost levels quickest route and beat mario 2 in one go
+Super Mario All stars		- SNEs beat mario 2 in one go
 Portrait of Ruin			- NDS Dracula no damage, dracula lvl 1 cap, nest of evil no items - Maybe possible with more tries...didnt really try them
 
 
 ----Cheevs to try in hardcore again--------
 Minish Cap 		- Fux the Vaati one
 Super Metroid 	- Try time cheevs again. 
-Suikoden II 	- Fux the mole game?
 DKC2			- The Poison Pong. Dat last part doe
-Mega Man X 		- ZERO Mode
+Mega Man X 		- ZERO Mode - NOPE
 RE4				- Neck Breaker Ballet...FUCKME
-
-
-----Games to Play-------
-Alundra				- PS1
-Star Ocean			- SNES
-Star Ocean II		- PS1
-Star Ocean EOT		- PS2
-Live-a-live			- SNES
-Alchahest			- SNES
-Suikoden 3			- PS2
-Suikoden 4			- PS2
-
 
 
 -----Console Quest------NEEDS TTO BE SOLE OR MAJORITY DEV !!!
@@ -87,27 +74,24 @@ PC Engine CD				-
 Atari Jaguar CD				-
 Nintendo Dsi				-
 Uzebox						-
-Gamecube					- Blood Omen 2
-
+Gamecube					- Blood Omen 2 - Claimed for rollout?
+Neo Geo CD 					- Double Dragon - Done
 
 ----Revisions-----
 THPS2(PS1)	- Revision with found pointers
+Warcrat 2 	- Add cheevos for each sceanrio
 
 
 ----DevQuest2 Remastered-----
+Destiny of an Emperoro		- NES - Claimed
+
+
 Adventures of lolo 			- NES
-Secret Of Evermore		   	- SNES
 Mega Man Xtreme2			- GBA
 Mortal Kombat 2				- Game gear
 
 
-----DevQuest 3 remasterd may not be a thing-----
-Mr. Gimmick			- NES
-Doom Troppers		- Megadrive
-
-
-
------Dev Quest 5(trigger happy)----- === Things are changing with this quest so I likely will have what I need to fulfill it.
+-----Dev Quest 5(trigger happy)----- DONE
 AVP(SNES)					- DONE
 Minish Cap					- DONE
 FF7 						- DONE
@@ -149,26 +133,6 @@ FFT(PSP)					- DONE
 Warcraft 2					- Done need to test but gonna trust myself
     Triggers - Custoim scenarios, Ambush At Tarren Mill, Ready To Serve, Foot The Bill, Home On the Range, They Came From the Skies, A Knights Tale, Wiazrd Fight
 	More Triggers - Raid Of Hilsbrad, Into the Badlands, Ready To Work, Doing All The Grunt Work, Going Berserker, Dragon Force, Death do us part, Good Ole Fashioned Ogre Battle
-
-
-
-
-Mr Gimick(NES)				- In Progress Look at all special items and fix single condition cheevos
-                    Trigger: Shining Star, Cheep Cheep, Special Lamp
-					
-Demon's Crest(SNES)			- In Progress, Add measured and trigger to stuff
-					Mesaured: IM Rich!!!, Long Live Firebrand, Student, Alchemist, Ready For any situation, Gargoyles Quest, 
-					Trigger: Lazy Arremer I, II, III, Earth Gargoyle vs Ovnunu, Fire Gargoyle vs Flame Lord, Aerial Gargoyle vs flier, Legendary Gargoyle vs Crawler, Tidal gargoyle ve legendary Arma, Firebrand vs Firebrand I, Good Start, Arma, Arma Agian, I think I broke it, Stop Mocking me, Headshot, Under the sea, Nice mullet, Phallanx II, Phalanx last, Professional Arremer
-                    Measured Done: 
-					Trigger Done: Firebrand Vs Phalanx I, Phalanx's Second form, 
-
-
-13 orbs						-
-super metroid Redesign		-
-THPS2 						- 
-Chrono Trigger(DS)			-
-Trials of Mana				- Look into
-Star Ocean					- Look into while playing someday
 
 
 ----Dev Quest 10(it takes two)----
@@ -217,7 +181,8 @@ NBA Jam					- Look Into
 
 
 ----Dev Quest 16(wish set)-----
-Tactics Ogre - PSP - Claimed
+Tactics Ogre - PSP - DONE for part 1
+Need game for part 2
 
 
 ----Dev Quest 17(sports)----
@@ -226,24 +191,45 @@ Grind Session	- pS1		- Done
 
 
 -----DQ 18(subsets)------
-Tactics Ogre	- psp	- Class and skill mastery - Claimed
+Tactics Ogre	- psp	- DONE
 Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset - Done
 
 
 ----DQ 19 Genre wheel---
+Hack N Slash
+Gauntlet Legends	- Dreamcast	- Claimed
 
 
-----Genre Conqurer-----
+----Genre Conqurer-------
+Action-Adventure	- Legacy of Kain(PS1)		- DONE
+Action 				- Wonderboy(Master Sys)		- DONE
+Adventure   		- Hydlide II: Shrine(Pc8800)- DONE
+Arcade				- Rampage World Tour		- Claimed
+Board and Card		-
+Educational			-
+Fighting			- Double Dragon(Neo Geo CD)	- DONE
+Horror				- Resident Evil(Saturn)		- DONE
+Party or Minigames	-
+Platforming			- Kloanoa(WonderswaN)		- DONE
+Puzzle				-
+Racing				-
+Rythm				-
+Role-Plaing Gmae	- Final Fantasy 12(PS2)		- DONE
+Shooter				-
+Simulation			-
+Sports				- Tony Hawk 2(PS1)			- DONE
+Strategy			- Ogre Battle(SNES)			- DONE
 
+----Sub Genre----------Need list of subs btu probably nto gonna care about it
 
 
 
 
 ----Alphadev a bet-----
-A	- Aline vs Predator(SNES)
+A	- Alien vs Predator(SNES)
 B	- Blood Omen: Legacy of Kain(PS1)
 C 	- Chrono Trigger(DS)
-D	- 
+D	- Double Dragon(Neo Geo CD)
 E	-
 F	- Final fantasy XII(PS2)
 G	- Grand Master(NES)
@@ -263,10 +249,10 @@ T	- Tony Hawk Pro KSater 2(PS1)
 U	-
 V	- Vandal Hearts(PS1)
 W	- Wonder Boy(Master System)
-X	- Xenogears(PS1)
+X	- Xenogears(PS1)(probably wont count as not enough cheevos)
 Y	-
 Z	-
-3	- 3-D Tetris
+3	- 3-D Tetris(Need claim)
 
 
 ----R.P-----
@@ -280,17 +266,23 @@ Battletoads Genesis - Need to protect from last life
 Front Mission 		- Need to protect against in-game save.
 FFT PS1 refactor	- Story Done. 
 						Need to do Deep Dungeon(END Done), all items(Probably Fine some changed), class mastery . Add Leaderboards. - Jack and Jill need a delta 3 for save protection.
-FF12 - Statue cheevos refactor to not use the statue bits
+
+
+FF12 - Statue cheevos refactor to not use the statue bits - Done for now
+	- Plunderer, , Mistwalker, Assault Striker, Spellsinger, Premier Prestidigitator, Master Thief, Blood Dancer, Record Breaker, Exemplar, Spendthrift, Privateer, Wayfarer, - DONE 
+	Added description - Cartopher, collector, Runeweaver, Jack-of-All-Trades, Conqueror, High Summoner, Scrivener, Radiant Savior, Fell Angel, Zodiac Knight,
 
 
 ----translation patch----
-Front Mission  			- in DMs
-Chrono TriggerDS 		- Spanish, Portugese, see forum
-Legacy of Kain 	 		- EU version and French version
-Final Fantasy Tactics	- smart encounters hack
-Xenogears 				- different translations, Potugese
-Front Mission			- find translation
-Tactics Ogre			- One Vision Mod
+Front Mission  				- in DMs
+Chrono TriggerDS 			- Spanish, Portugese, see forum
+Legacy of Kain 	 			- EU version and French version
+Final Fantasy Tactics		- smart encounters hack
+Final Fantasy Tactics(PSP)	- Spanish
+Xenogears 					- different translations, Potugese
+Tactics Ogre				- EU 
 
 
 ------------Devember tix---------
+
+https://retroachievements.org/game/14050 i fnoone beats me to it

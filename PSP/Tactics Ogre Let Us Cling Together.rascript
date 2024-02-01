@@ -187,12 +187,22 @@ rich_presence_display("Denam, '{0}', is fighting for Valeria at {1}, {2} days in
 
 //////////FUNCTION DEFINITION//////////
 function Location() => word(0xafd956)
-function Title() => word(0x00b10fb8)
-function DeltaTitle() => prev(word(0xb100fb8))
+function SecondaryLocation() => word(0x00acb784)
+function Title() => byte(0x00b10fb8)
+function DeltaTitle() => prev(Title())
 function AlliesIncapacitated() => word(0x00b10d84)
 function AlliesSlain() => word(0x00b10d88)
 function ChariotUsed() => word(0x00b10d7c) == word(0x00b10d80) == word(0x00b10d78)
 function ObtainItem(mem) => prev(byte(mem)) == 0 && byte(mem) == 1
+function RightHand() => word(0x00ad84f8)
+function LeftHand() => word(0x00ad84fa)
+function FirstArmor() => word(0x00ad84fc)
+function SecondArmor() => word(0x00ad84fe)
+function NoChariot() => dword(0x00b10d7c) == dword(0x00b10d80)
+function NoAlliesIncaped() => dword(0x00b10d84) == 0x00
+function NoAlliesSlain() => dword(0x00b10d88) == 0x00
+function InBattle() => prev(byte(0xd40050)) == 1
+function NotInBattle() => prev(byte(0xd40050)) == 0
 //////////CHEEVO DEFINITION//////////
 
 /////////TITLE CHEEVOS///////////////
@@ -200,38 +210,37 @@ function ObtainItem(mem) => prev(byte(mem)) == 0 && byte(mem) == 1
 ////key = Name of Title which will be name of cheevo
 ////value = [cheevo points, location hex value, Title hex values[list], Cheevo Description]
 SingleTitleDict = {
-    "Hero of Golyat":                 [1, 0x19, 0x01, "Rescued Duke Ronway from imprisonment in Almorica Castle."],
-    "Corpse Dancer":                  [5, 0x15, 0x02, "Confronted the Necromancer Nybeth at Qadriga Fortress and put an end to his dark experiments."],
-    "The Merciful":                   [5, 0x0C, 0x09, "Came to Arycelle's aid on the Xeod Moors, even though she had once sought to take your life."],
-    "Piratesbane":                    [5, 0x15, 0x12, "Saved Xapan the Mercenary from pirates at Qadriga Fortress."],
+    "Hero of Golyat":                 [01, 0x19, 0x01, "Rescued Duke Ronway from imprisonment in Almorica Castle."],
+    "Corpse Dancer":                  [05, 0x15, 0x02, "Confronted the Necromancer Nybeth at Qadriga Fortress and put an end to his dark experiments."],
+    "The Merciful":                   [05, 0x0C, 0x09, "Came to Arycelle's aid on the Xeod Moors, even though she had once sought to take your life."],
+    "Piratesbane":                    [05, 0x15, 0x12, "Saved Xapan the Mercenary from pirates at Qadriga Fortress."],
     "Hand of Justice":                [10, 0x13, 0x13, "Defeated Galgastani High Commander Gatialo at Tynemouth Hill."],
     "Leader of Men":                  [10, 0x19, 0x16, "Struck down Sir Leonar after he slew Duke Ronwey, becoming the leader of the Resistance."],
-    "Man of Deeds":                   [5, 0x0B, 0x1D, "Recaptured Coritanae Keep from the remnants of the Galgastani army to prevent the suffering of innocents."],
-    "Untarnished Hero":               [5, 0x05, 0x1E, "Defeated Sir Xaebos, commander of the remnants of the Galgastani army, at Brigantys."],
+    "Man of Deeds":                   [05, 0x0B, 0x1D, "Recaptured Coritanae Keep from the remnants of the Galgastani army to prevent the suffering of innocents."],
+    "Untarnished Hero":               [05, 0x05, 0x1E, "Defeated Sir Xaebos, commander of the remnants of the Galgastani army, at Brigantys."],
     "The Unflinching":                [10, 0x0A, 0x1F, "Saved the blind swordsman Hobyrim from the Resistance on the Bahanna Highlands."],
-    "Arbiter of the Game":            [5, 0x0B, 0x20, "Slew Sir Leonar at Coritanae Keep and learned of Duke Ronwey's plot."],
-    "He of Open Eyes":                [15, 0x0B, 0x21, "Slew Sir Leonar in a duel at Coritanae Keep and learned of Duke Ronwey's plot."],
-    "Dark Knight Scourge":            [10, 0x0F, 0x22, "Defeated Oz at Boed Fortress and put the Dark Knights to rout."],
+    "Arbiter of the Game":            [05, 0x0B, 0x20, "Slew Sir Leonar at Coritanae Keep and learned of Duke Ronwey's plot."],
+    "He of Open Eyes":                [05, 0x0B, 0x21, "Slew Sir Leonar in a duel at Coritanae Keep and learned of Duke Ronwey's plot."],
+    "Dark Knight Scourge":            [10, 0x20, 0x22, "Defeated Oz at Boed Fortress and put the Dark Knights to rout."],
     "Dark Knight Slayer":             [25, 0x020, 0x17, "Slew the Dark Knight Oz at Boed Fortress and rescued Cerya."],
     "Southron Liberator(C)":          [10, 0x0F, 0x28, "Drove the Dark Knights from Phidoch castle and wrested control of the south of Valeria."],
-    "Savior of the Dead":             [5, 0x09, 0x18, "Saved Sir Dievold and Oelias from a horde of undead at Port Asyton."],
-    "Freer of Souls":                 [5, 0x06, 0x19, "Defeated the Necromancer Nybeth at Ndamsa Fortress and freed the soul of Sir Gildas."],
-    "Slayer of the Dying":            [5, 0x0B, 0x1A, "Defeated Sir Xaebos, commander of the Galgastani army remnants, at Coritanae Keep."],
-    "Miracle Worker":                 [5, 0x15, 0x1B, "Rescued Sir Leonar from Imprisonment in Qadriga Fortress."],
+    "Savior of the Dead":             [05, 0x09, 0x18, "Saved Sir Dievold and Oelias from a horde of undead at Port Asyton."],
+    "Freer of Souls":                 [05, 0x06, 0x19, "Defeated the Necromancer Nybeth at Ndamsa Fortress and freed the soul of Sir Gildas."],
+    "Slayer of the Dying":            [05, 0x0B, 0x1A, "Defeated Sir Xaebos, commander of the Galgastani army remnants, at Coritanae Keep."],
+    "Miracle Worker":                 [05, 0x15, 0x1B, "Rescued Sir Leonar from Imprisonment in Qadriga Fortress."],
     "Defender of Almorica":           [10, 0x1A, 0x1C, "Drove the remnants of the Galgastani army out of hiding in Golyat."],
     "Southron Liberator(N)":          [10, 0x0F, 0x28, "Drove the Dark Knights from Phidoch castle and wrested control of the south of Valeria."],
-    "The Conqueror":                  [5, 0x0B, 0x25, "Took Coritanae Keep and brought Hierophant Balbatos to justice."],
-    "Destroyer or Galgastan":         [5, 0x19, 0x26, "Defeated Sir Xaebos, commander of the Galgastani army remnants, at Almorica Castle."],
+    "The Conqueror":                  [05, 0x0B, 0x25, "Took Coritanae Keep and brought Hierophant Balbatos to justice."],
+    "Destroyer or Galgastan":         [05, 0x19, 0x26, "Defeated Sir Xaebos, commander of the Galgastani army remnants, at Almorica Castle."],
     "He Who Walks In Darkness":       [10, 0x17, 0x27, "Defeated the Bakram forces under the command of Dark Knight Ozma and rescued the blind swordsman Hobyrim at the Arkhaiopolis of Rhime."],
     "Southron Liberator(L)":          [10, 0x0F, 0x28, "Drove the Dark Knights from Phidoch castle and wrested control of the south of Valeria."],
-    "Blood-stained Hero":             [5, 0x05, 0x29, "Journeyed to Brigantys Castle to parley with the Order of Philaha, but you were unable to avoid bloodshed."],
-    "Man of Peace":                   [5, 0x05, 0x2A, "Journeyed to Brigantys Castle, alone and unarmed, to parley with the Order of Philaha."],
-    "Ruler of Valeria":               [5, 0x0F, 0x31, "Allowed Catiua to die before the final battle at the Royal City of Heim."],
+    "Blood-stained Hero":             [05, 0x05, 0x29, "Journeyed to Brigantys Castle to parley with the Order of Philaha, but you were unable to avoid bloodshed."],
+    "Man of Peace":                   [05, 0x05, 0x2A, "Journeyed to Brigantys Castle, alone and unarmed, to parley with the Order of Philaha."],
+    "Ruler of Valeria":               [05, 0x0F, 0x31, "Allowed Catiua to die before the final battle at the Royal City of Heim."],
     "Dynast-King Slayer":             [50, 0x21, 0x36, "Defeat Dorgalua, the Dynast-King, as he returned from the Abyss."],
     "The Tragic King":                [10, 0x21, 0x56, "Finish the main campaign with the 'Bad/Assassin Ending'."],
     "The Bloodbound":                 [10, 0x21, 0x57, "Finish the main campaign with the 'Neutral Ending'."],
     "Savior of Valeria":              [10, 0x21, 0x58, "Finish the main campaign with the 'Good Ending'."],
-    "Captain of Fate":                [50, 0x21, 0x59, "Complete the main campaign on all three routes."],
     "Hero King Unscathed[m]":         [50, 0x1F, 0x64, "Complete main campaign without any units falling(no HP to 0)."],
     "Slayer of the Wind Watch":       [10, 0x06, 0x50, "Defeated the Guardian Vainateya and Complete the Wind Sanctum."],
     "Slayer of the Earth Watch":      [10, 0x24, 0x51, "Defeated the Guardian Nathalork and Complete the Earth Sanctum."],
@@ -239,7 +248,7 @@ SingleTitleDict = {
     "Slayer of the Water Watch":      [10, 0x1B, 0x53, "Defeated the Guardian Tlaloc and Complete the Water Sanctum."],
     "Slayer of the Fire Watch":       [10, 0x20, 0x54, "Defeated the Guardian Ifrit and Complete the Fire Sanctum."],
     "Slayer of the Ice Watch":        [10, 0x2B, 0x55, "Defeated the Guardian Lygenstzel and Complete the Ice Sanctum."],
-    "He Who Walks the Deeps":         [5, 0x01, 0x34, "Discovered the secret door on the third level of the palace of the dead, allowing access to the depths below."],
+    "He Who Walks the Deeps":         [05, 0x01, 0x34, "Discovered the secret door on the third level of the palace of the dead, allowing access to the depths below."],
     "Necromancer Scourge":            [50, 0x01, 0x35, "Defeated the Necromancer Nybeth who had embraced death and become a lich."],
     "Slayer of the Necromancer Lord": [50, 0x01, 0x4E, "Defeated Blackmoor, the necromancer lord."],
     "Slayer of One":                  [10, 0x01, 0x41, "Defeated Vija, one of the Twelve Heavenly Generals"],
@@ -269,7 +278,7 @@ function StoryTitleCheevos()
     for key in SingleTitleDict
     {
         value_list = SingleTitleDict[key]
-        trigger = Location() == value_list[1] && DeltaTitle() != value_list[2] && Title() == value_list[2]
+        trigger = Location() == value_list[1] && DeltaTitle() != 0 && DeltaTitle() != value_list[2] && Title() == value_list[2]
         achievement(title=key, description=value_list[3], points=value_list[0], trigger=trigger)
     }
 }
@@ -280,14 +289,14 @@ StoryTitleCheevos()
 
 
 MultiTitleDict = {
-    "Freedom Of Choice":                     [5, 0x17, [0x03, 0x04, 0x05, 0x06], "Choose the fate of Cistina at Arkhaiopolis of Rhime."],
-    "There is Blood On My Hands":            [5, 0x0D, [0x07, 0x08], "Complete Chapter 1."],
-    "Old Friends Quarrel":                   [5, 0x13, [0x0A, 0x0B], "Defeat Vyce at Tynemouth and choose Arycelle's fate."],
-    "Liberation Front?":                     [5, 0x15, [0x0C, 0x0D], "Choose if you want to help the Liberation Front."],
-    "Revolutionary":                         [5, 0x20, [0x0E, 0x0F], "Make a descion about befriending the Liberation Front."],
+    "Freedom Of Choice":                     [05, 0x17, [0x03, 0x04, 0x05, 0x06], "Choose the fate of Cistina at Arkhaiopolis of Rhime."],
+    "There is Blood On My Hands":            [05, 0x0D, [0x07, 0x08], "Complete Chapter 1."],
+    "Old Friends Quarrel":                   [05, 0x13, [0x0A, 0x0B], "Defeat Vyce at Tynemouth and choose Arycelle's fate."],
+    "Liberation Front?":                     [05, 0x15, [0x0C, 0x0D], "Choose if you want to help the Liberation Front."],
+    "Revolutionary":                         [05, 0x20, [0x0E, 0x0F], "Make a descion about befriending the Liberation Front."],
     "The World Can Be Put To Rights":        [10, 0x19, [0x10, 0x11], "Complete Ch2 on the Chaos Route."],
-    "A Ronwey Descision":                    [5, 0x00, [0x14, 0x15], "Heard out Sir Leonar's plot and made your desicion about the future of the Resistance."],
-    "Man of Action":                         [5, 0x05, [0x23, 0x24], "Complete the battle at Briganty's Great Hall and make a choice about the people of Galgastan."],
+    "A Ronwey Descision":                    [05, 0x17, [0x14, 0x15], "Heard out Sir Leonar's plot and made your desicion about the future of the Resistance."],
+    "Man of Action":                         [05, 0x05, [0x23, 0x24], "Complete the battle at Briganty's Great Hall and make a choice about the people of Galgastan."],
     "A Sister's Fate":                       [10, 0x1C, [0x2B, 0x2C, 0x2D], "Compelte the battles at Barnicia Castle and choose Catiua's fate."],
     "Bringer Of Change":                     [10, 0x1F, [0x2E, 0x2F, 0x30], "Defeat Brantyn at the Royal City Of Heim and decide the future of Valeria."],
     "He Who Visited the Pirate's Graveyard": [10, 0x27, [0x32, 0x33], "Decide what to do with the treasure of the Pirate's Graveyard."],
@@ -309,22 +318,81 @@ function MultiTitleCheevos()
     for key in MultiTitleDict
     {
         value_list = MultiTitleDict[key]
-        achievement(title=key, description=value_list[3], points=value_list[0], trigger=Location() == value_list[1] && ProcessTitleList(value_list[2]))
+        achievement(title=key, description=value_list[3], points=value_list[0], trigger=Location() == value_list[1] && DeltaTitle() != 0 && ProcessTitleList(value_list[2]))
     }
 }
 
 MultiTitleCheevos()
 
 
+///No Chariot/Deaths/Incap Cheevos for CH1, CH2, Ch3, Ch4
+ExtraChapterList = ["No Chariot", "No Dying", "No HP 0"]
 
-//////Title Cheevos that needs extra logic - Endings and Misc since it may not be guartneed as the showing Title since multiple ones could potentially unlock at once///////
-//////
+//Dict Key=Chapter value=[points, Location Value, [of possible titles for completing ch], Init Title]
+NoXXXDict = {
+    "Chapter 1": [01, 0x0D, [0x07, 0x08], " Warrior"],
+    "Chapter 2": [05, 0x19, [0x10, 0x11, 0x16], " Knight"],
+    "Chapter 3": [05, 0x0F, [0x22, 0x28], " Lord"],
+    "Chapter 4": [10, 0x21, [0x36], " King"],
+}
 
-///    /// Need to figure out how this will work with the location
-///   "Concord King[m]": [25, 0x21, [0x56, 0x5A], "Complete main campaign without using Chariot Tarot or retreating."],  /// Need to pop on killing last boss with and check for 0 deatsh
-///   "The Unbloodied Depth Dweller[m]": [25, 0x01, [0x35, 0x5B], "Traverse throug Palace of the Dead without any units dying(No Death Counter to 0)"], //need to pop on death of nybeth
-///   "The Unscathed Depth Dweller[m]": [100, 0x01, [0x35, 0x5B], "Traverse throug Palace of the Dead without any units falling(No HP to 0)"], //need to pop on death of nybeth
+function ExtraChapterCheevos(){
+    for i in ExtraChapterList
+    {
+        if i == "No Chariot"
+        {
+            description = " without using Chariot Tarot or retreating(any route)."
+            init_trigger = NoChariot()
+            start_title = "Concord"
+            end_title = ""
+        }
+        else if i == "No Dying"
+        {
+            description = " without any units being incapacitated(any route)."
+            init_trigger = NoAlliesIncaped()
+            start_title = "Concord"
+            end_title = " Unbloodied"
+        }
+        else if i == "No HP 0"
+        {
+            description = " without any units being slain(No HP to 0)(any route)."
+            init_trigger = NoAlliesSlain()
+            start_title = "Hero"
+            end_title = " Unscathed"
+        }
+        process = 1
+        for key in NoXXXDict
+        {
+            if key == "Chapter 4" && i != "No Chariot"
+            {
+                process = 0
+            }
+            if process == 1
+            {
+                value_list = NoXXXDict[key]
+                achievement(title=start_title + value_list[3] + end_title + "[m]", 
+                            description="Complete " + key + description, points=value_list[0], 
+                            trigger=Location() == value_list[1] && DeltaTitle() != 0 && init_trigger && ProcessTitleList(value_list[2])
+                            )
+            }
 
+        }
+    }
+}
+
+ExtraChapterCheevos()
+
+///For Chapter things like no chariot and no deaths
+//"There is Blood On My Hands":            [05, 0x0D, [0x07, 0x08], "Complete Chapter 1."], - 1
+
+/// "Leader of Men":                       [10, 0x19, 0x16, "Struck down Sir Leonar after he slew Duke Ronwey, becoming the leader of the Resistance."], - 2L
+/// "The World Can Be Put To Rights":      [10, 0x19, [0x10, 0x11], "Complete Ch2 on the Chaos Route."], - 2C
+
+///"Southron Liberator(N)":                [10, 0x0F, 0x28, "Drove the Dark Knights from Phidoch castle and wrested control of the south of Valeria."], - 3N
+///"Southron Liberator(L)":                [10, 0x0F, 0x28, "Drove the Dark Knights from Phidoch castle and wrested control of the south of Valeria."], - 3L
+///"Dark Knight Scourge":                  [10, 0x0F, 0x22, "Defeated Oz at Boed Fortress and put the Dark Knights to rout."], - 3C
+
+///"Dynast-King Slayer":                   [50, 0x21, 0x36, "Defeat Dorgalua, the Dynast-King, as he returned from the Abyss."], - 4
 
 
 
@@ -334,67 +402,496 @@ MultiTitleCheevos()
 ////value = [cheevo points, location hex value, character hex value, Cheevo Title]
 
 CharDict = {
-	"Canopus":  [1, 0x00, 0x00, "Wings Of Victory"]
+    "Canopus":  [01, 0x13, 0x06, "The Windcaller", ""],
+    "Donalto":  [01, 0x14, 0x10, "The Abuna", ""],
+    "Xapan":    [01, 0x15, 0x17, "The Mercenary", ""],
+    "Arcyelle": [01, 0x19, 0x13, "The Thunder Maiden", ""], //Needs multiple map IDS? Also need 0x13 Its in the local but need to figure out ornext here
+    "Cistina":  [05, 0x20, 0x0B, "The Warrior", ""],
+    "Jeunan":   [01, 0x05, 0x15, "The Wyrmknight", ""],
+    "Ravness":  [05, 0x0a, 0x21, "Dame Loxaerion", ""],
+    "Vyce":     [01, 0x19, 0x02, "Friends Reunited", ""],
+    "Hobyrim":  [05, 0x0A, 0x14, "Songs Of Steel", ""],   // Needs multiple Map IDS 0x15, 0x17, 
+    "Chamus":   [01, 0x15, 0x88, "The Spellbinder", ""],
+    "Dievold":  [01, 0x09, 0x18, "The Necroson", ""],
+    "Oelias":   [01, 0x09, 0x18, "The Necrodaughter", ""],
+    "Mirdyn":   [01, 0x19, 0x07, "Sir Walhorn", ""],
+    "Guildas":  [01, 0x19, 0x08, "Sir Byrne", ""],
+    "Cerya":    [10, 0x20, 0x09, "The Warrior Sister", ""],
+    "Olivya":   [01, 0x05, 0x0C, "The Sibyl", ""],
+    "Cressida": [05, 0x1A, 0x1D, "The Necroprentice", ""],
+    "Sherri":   [01, 0x0D, 0x0A, "The Magus Phoraena", ""],
+    "Ozma":     [05, 0x14, 0x1E, "The Dark Knight Commander", ""],
+    "Azelstan": [05, 0x27, 0x22, "The Dread Pirate", ""],  
+    "Catiua":   [05, 0x0f, 0x03, "The Princess", ""],
+    "Lindl":    [05, 0x23, 0x1F, "The Fusilier", ""],
+    "Ocionne":  [05, 0x2b, 0x16, "The Wyrmcaller", ""],
+    "Ganpp":    [05, 0x22, 0x1B, "The Beastmaster", ""],
+    "Rudlum":   [01, 0x01, 0x1A, "The Magus", ""],
+    "Iuria":    [05, 0x27, 0x1C, "The Songstress", ""],
+    "Warren":   [05, 0x1f, 0x05, "The Star Seer", ""],
+    "Lanselot": [05, 0x1f, 0x04, "The Holy Knight", ""],
+    "Deneb":    [50, 0x2A, 0x0D, "The Wicce", " as the Wicce class"],
 }
 
-/////Single Item Colection Cheevos////////
-/////Item Dict - Used for cheevo for grabbing certain items. 
-/////Key - Name of Item
-/////value = [location hex value, memory location of item, Cheevo Title, "Obtain" or "Craft" with "a" or "an"]
-
-SingleItemDict = {
-    "Huitzilopochtli's Rays":   [5, 0x01, 0xae812b, "God Of Sun and Harvest", "Obtain a ", ""],
-    "Assassin Blade":           [5, 0x01, 0xae8144, "Blackened Blade", "Obtain an ", ""],
-    "Leksar's Beloved":         [5, 0x00, 0xae8165, "Freerer of Shackles", "Obtain a ", ""],
-    "Moon Blade":               [5, 0x01, 0xae8180, "Crescent Blade of the Green Dragon", "Obtain a ", ""],
-    "Rune Axe":                 [5, 0x00, 0xae819b, "The Gleaming Blade", "Obtain a ", ""],
-    "Dark Spear":               [5, 0x01, 0xae81b6, "Conduit For Sorrow and Despair", "Obtain a ", ""],
-    "Walitas":                  [5, 0x01, 0xae81d1, "Great Father Philaha", "Obtain a ", ""],
-    "Shimmer Sword":            [5, 0x01, 0xae81ec, "Fallen Star of the East", "Obtain a ", ""],
-    "Sweepblade":               [5, 0x01, 0xae8207, "Blood-Red Temper", "Obtain a ", ""],
-    "Wiseman's Staff":          [5, 0x01, 0xae8220, "Lore Master", "Obtain a ", ""],
-    "Cat o' Nine Tails":        [5, 0x01, 0xae822a, "Slave Master", "Obtain a ", ""],
-    "Gran Grimoire":            [5, 0x01, 0xae8234, "Transcedental Meditation", "Obtain a ", ""],
-    "Livela's Harp":            [5, 0x00, 0xae823e, "Divine Song of God", "Obtain a ", ""],
-    "Rahula":                   [5, 0x00, 0x0, "Aditi's Dart", "Obtain a ", ""],
-    "Centeotl's Rib":           [5, 0x00, 0xae8263, "Belly of the Magewyrm", "Obtain a ", ""],
-    "Raed":                     [5, 0x01, 0xae827e, "Ylmarch's Lightning", "Obtain a ", ""],
-    "Longgun":                  [5, 0x01, 0xae8288, "Sniper Rifle", "Obtain a ", ""],
-    "Urchin Bola +1":           [5, 0x00, 0xae836e, "Slinging Stones", "Craft an ", ""],
-    "Medusa Shield":            [5, 0x00, 0xae82ba, "Malevolent Gaze", "Craft a ", ""],
-    "Freude Helm":              [5, 0x00, 0xae82ca, "Helm Of the Blessed", "Obtain a ", ""],
-    "Garb of Sages":            [5, 0x00, 0xae82f5, "Magical Threads", "Obtain a ", ""],
-    "Daedalus Bracers":         [5, 0x00, 0xae830e, "Arm of the Dragon Lord", "Craft a ", ""],
-    "Snipe Gators":             [5, 0x01, 0x00, "Ganta Boots", "Obtain a ", ""],
-    "Heaven's Fork":            [5, 0x00, 0xae8544, "Heavenly Communion", "Obtain the ", ""],
-    "Ambicion":                 [50, 0x19, 0xae8160, "Times of Turmoil and War", "Obtain an ", " by defeating Dark Knight Lanselot with just Denam, Catuia, and Vyce during the CODA fight"],
-    "Reaver Ring":              [10, 0x25, 0xae835d, "Tale of Mann Maceux", "Steal a ", ""],
-}
-
-
-function SingleItemCheevos()
+function ProcessRecruits(char_val)
 {
-    for key in SingleItemDict
+    trigger = always_false()
+    mem_base = 0x00d40130
+    alliegance_offset = 0x52
+    class_offset = 0x49
+    char_offset = 0x48C
+    for i in range(0, 48)
     {
-        ////Unlock Level
-        value_list = SingleItemDict[key]
-        title = value_list[3]
-        description = value_list[4] + key + value_list[5]
-        points = value_list[0]
-        location_val = value_list[1]
-        if location_val == 0
-            location_trigger = Location() != location_val
+        mem_char = mem_base + (char_offset * i)
+        if char_val == 0x22
+        {
+            trigger = trigger || (byte(mem_char) == char_val && byte(mem_char + alliegance_offset) == 0x13 && prev(byte(mem_char + alliegance_offset)) != 0x13)
+        }
+        else if char_val == 0x0D
+        {
+            trigger = trigger || (prev(byte(mem_char)) != char_val && byte(mem_char) == char_val && byte(mem_char + alliegance_offset) == 0x13 && byte(mem_char + class_offset) == 0x3D)
+        }
         else
-            location_trigger = Location() == location_val
-        trigger = ObtainItem(value_list[2]) && location_trigger
-        achievement(title, description, points, trigger)
+        {
+            trigger = trigger || (prev(byte(mem_char)) != char_val && byte(mem_char) == char_val && byte(mem_char + alliegance_offset) == 0x13)
+        }
+    }
+    return trigger
+}
+
+
+function RecruitCheevos()
+{
+    for key in CharDict
+    {
+        value_list = CharDict[key]
+        achievement(title=value_list[3], description="Recruit " + key + value_list[4] + ".", points=value_list[0], trigger=prev(Location()) == value_list[1] && ProcessRecruits(value_list[2]))
     }
 }
 
-SingleItemCheevos()
+RecruitCheevos()
 
 
 
+
+//     Need more complexity for denebs for different map ids and class check
+//    
+///Random story battle cheevos with no title. Mostly postgame in dungeouns
+////key = Name of Character
+////value = [cheevo points, location hex value, secondary location, enemy id number, memory for level change, highest numebr of allies, Cheevo Title, Cheevo description]
+
+DungeonLevelDict = {
+    "Nybeth":       [05, 0x01, 0x06, 0x3D, high4(0xAFD8CE), 10, "A Pleasure, To Be Sure!", "Defeat Nybeth at Level 5 of the Palace of the Dead."],
+    "Georges":      [05, 0x01, 0x018, 0x8e, low4(0x00afd8d7), 10, "Bodies Are Fleshy, Weak Things...A Nuisance", "Defeat Georges at Level 22 of the Palace of the Dead."],
+    "Belzebuth":    [05, 0x01, 0x08, 0x72, low4(0x00afd8d4), 10, "Dragon Lord?", "Defeat Belzebuth at Level 41 of the Palace of the Dead."],
+    "Belzebuth II": [10, 0x01, 0x019, 0x72, low4(0x00afd8d8), 10, "Unquenchable Desire", "Defeat Belzebuth at Level 74 of the Palace of the Dead."],
+    "Vepahl":       [05, 0x2c, 0x04, 0x4b, high4(0x00afd8cd), 12, "Power of the Divine", "Defeat Vepahl at Level 3 of San Brosa."],
+}
+
+function ProcessDungeon(value_list)
+{
+    trigger = always_false()
+    enemy_id = value_list[3]
+    allies_num = value_list[5]
+    mem_base = 0x00d40650
+    char_offset = 0x520
+    for i in range(0, allies_num - 1)
+    {
+        mem_char = mem_base + (char_offset * i)
+        trigger = trigger || (byte(0x00ad5c92) == (i + 1) && byte(mem_char) == enemy_id)
+    } 
+    return trigger
+}
+
+function DungeonLevelCheevos()
+{
+    for key in DungeonLevelDict
+    {
+        value_list = DungeonLevelDict[key]
+        achievement(title=value_list[6], description=value_list[7], points=value_list[0], 
+        trigger=Location() == value_list[1] && SecondaryLocation() == value_list[2] && prev(value_list[4]) == 1 && value_list[4] == 2 && ProcessDungeon(value_list))
+    }
+}
+
+DungeonLevelCheevos()
+
+///Cheevos for completing all battles in certain parts of extra dungeons
+////key = Name of Dungeoun
+////value = [cheevo points, location hex value, value of all upper and lower added up for levels, Cheevo Title]
+
+AllBattleInDungeonDict = {
+    "San Brosa Ruins":           [25, 0x2C, 60, "Garden Of Incredible Power", ""],
+    "Phorampa Wildwood":         [10, 0x25, 32, "Phorampa Open to Hunting", ""],
+    "Pirate's Graveyard":        [05, 0x27, 26, "He Who Devoured the Depths", ""],
+    "Palace of the Dead 76-100": [25, 0x01, 52, "In Love With the Dead", "(last battle at Altar Of Beyond)"]
+}
+
+function ProcessDungeonAdd(number_of_battle)
+{
+    trigger = (prev(low4(0x00afd8cc)) + prev(high4(0x00afd8cc)) + prev(low4(0x00afd8cd)) + prev(high4(0x00afd8cd)) +
+               prev(low4(0x00afd8ce)) + prev(high4(0x00afd8ce)) + prev(low4(0x00afd8cf)) + prev(high4(0x00afd8cf)) +
+               prev(low4(0x00afd8d0)) + prev(high4(0x00afd8d0)) + prev(low4(0x00afd8d1)) + prev(high4(0x00afd8d1)) +
+               prev(low4(0x00afd8d2)) + prev(high4(0x00afd8d2)) + prev(low4(0x00afd8d3)) + prev(high4(0x00afd8d3)) +
+               prev(low4(0x00afd8d4)) + prev(high4(0x00afd8d4)) + prev(low4(0x00afd8d5)) + prev(high4(0x00afd8d5)) +
+               prev(low4(0x00afd8d6)) + prev(high4(0x00afd8d6)) + prev(low4(0x00afd8d7)) + prev(high4(0x00afd8d7)) +
+               prev(low4(0x00afd8d8)) + prev(high4(0x00afd8d8)) + prev(low4(0x00afd8d9)) + prev(high4(0x00afd8d9)) +
+               prev(low4(0x00afd8da)) + prev(high4(0x00afd8da)) + prev(low4(0x00afd8db)) + prev(high4(0x00afd8db))
+               ) == number_of_battle - 1 && 
+               (low4(0x00afd8cc) + high4(0x00afd8cc) + low4(0x00afd8cd) + high4(0x00afd8cd) +
+               low4(0x00afd8ce) + high4(0x00afd8ce) + low4(0x00afd8cf) + high4(0x00afd8cf) +
+               low4(0x00afd8d0) + high4(0x00afd8d0) + low4(0x00afd8d1) + high4(0x00afd8d1) +
+               low4(0x00afd8d2) + high4(0x00afd8d2) + low4(0x00afd8d3) + high4(0x00afd8d3) +
+               low4(0x00afd8d4) + high4(0x00afd8d4) + low4(0x00afd8d5) + high4(0x00afd8d5) +
+               low4(0x00afd8d6) + high4(0x00afd8d6) + low4(0x00afd8d7) + high4(0x00afd8d7) +
+               low4(0x00afd8d8) + high4(0x00afd8d8) + low4(0x00afd8d9) + high4(0x00afd8d9) +
+               low4(0x00afd8da) + high4(0x00afd8da) + low4(0x00afd8db) + high4(0x00afd8db)
+               ) == number_of_battle
+    return trigger
+}
+
+function AllBattleCheevos()
+{
+    for key in AllBattleInDungeonDict
+    {
+        value_list = AllBattleInDungeonDict[key]
+        achievement(title=value_list[3], description="Complete all battles at " + key + value_list[4] + ".", points=value_list[0], 
+        trigger=Location() == value_list[1] && ProcessDungeonAdd(value_list[2]))
+    }
+}
+
+AllBattleCheevos()
+
+////    "Hanging Gardens":               [10, 0x21, ],
+
+////These are where the dungeon swithces to another map after the last battle so counting the map state will not work so I use the path bits
+OtherAllBattleInDungeonDict = {
+    "Palace of Dead Floors 1-25":  [01, 0x01, 0x1A, 7, "Like the Dead"],
+    "Palace of Dead Floors 26-50": [05, 0x01, 0x15, 51, "Enticed With the Dead"],
+    "Palace of Dead Floors 51-75": [10, 0x01, 0x1A, 50, "Obsessed With the Dead"],
+}
+
+function OtherAllBattleCheevos()
+{
+    for key in OtherAllBattleInDungeonDict
+    {
+        value_list = OtherAllBattleInDungeonDict[key]
+        achievement(title=value_list[4], description="Complete all battles at " + key + ".", points=value_list[0], 
+        trigger=Location() == value_list[1] && SecondaryLocation() == value_list[2] && dword(0xAFD8BC) == value_list[3] && 
+                never(SecondaryLocation() != value_list[2]) && once(dword(0xAFD8BC) == 0x3ffffff))
+    }
+}
+
+OtherAllBattleCheevos()
+
+achievement(title="Sick of the Dead",
+            description="Complete all battles at Palace of Dead Floors 101-115(Finish with Chamber of the Seal battle with Rodrick).",
+            points=10,
+            trigger=Location() == 0x01 && SecondaryLocation() == 0x03 && dword(0x00afd8cc) == 0x22221222 && 
+                    dword(0x00afd8d0) == 0x12222222 && DeltaTitle() != 0x37 && Title() == 0x37)
+
+
+/// Hanging Garden Dict key = Name of cheevo, value = [points, 0x00afd6ac value, 0x00afd6b0 value, 0x00afd6b4 value, description]
+HangingGardenCheevoDict = {
+    "Tour the King's Garden" :        [10, 0x22222000, 0x20022222, 0x00012220, "Fight all battles in the Hanging Gardens."],
+    "Quick Walk through the Gardens": [05, 0x00112000, 0x20020012, 0x00011210, "Take the shortest route to the Twixt Of Heaven and Earth in the hanging gardens."],
+}
+
+function HangingGardenCheeovs()
+{
+    for key in HangingGardenCheevoDict
+    {
+        value_list = HangingGardenCheevoDict[key]
+        achievement(title=key, description=value_list[4], points=value_list[0], 
+        trigger=Location() == 0x21 && SecondaryLocation() == 0x13 && prev(dword(0x00afd6ac)) == value_list[1] &&
+                prev(dword(0x00afd6b0)) == value_list[2] && prev(dword(0x00afd6b4)) == value_list[3] &&
+                dword(0x00afd6ac) == 0 && dword(0x00afd6b0) == 0 && dword(0x00afd6b4) == 0x01000000
+        )
+    }
+}
+
+HangingGardenCheeovs()
+
+
+achievement(title="Power Of Gods",
+            description="Obtain at least one of each of the God Weapons:  Notos, Boreas, Zephyros, Euros",
+            points=10,
+            trigger=Location() != 0 && SecondaryLocation() != 0 && Title() != 0 && byte(0x00d52bf8) >= 1 && byte(0x00d52c14) >= 1 &&
+                    byte(0x00d52c2e) >= 1 && byte(0x00d52c4b) >= 1 && InBattle() &&
+                    (prev(byte(0x00d52bf8)) == 0 || prev(byte(0x00d52c14)) == 0 || prev(byte(0x00d52c2e)) == 0
+                    || prev(byte(0x00d52c4b)) == 0)
+            )
+
+///Item set Dict key name of cheevo, value [points, left hand value, right hand value, helm value, armor value, description extension] 
+
+ItemSetDict = {
+    "Dragonslayer":       [05, 0xffff, 0x019e, 0x01b6, 0x01cb, "Dragon Equipment(Wyrmscale Helm, Wyrmscale Armor, and Ancient Dragon Scale shield)"],
+    "Battle With Ogre's": [10, 0x004f, 0x0000, 0x01b8, 0x01e6, "Ogre Equipment(Ogre Sword, Ogre Helm, and Ogre Armor)"],
+    "Ji'ygla's Range":    [10, 0x0151, 0x0000, 0x01dc, 0x01fa, "Ji'ygla's Equipment(Ji'ygla's Bow, Ji'ygla's Darkcoat, and Ji'ygla's Bracers)"],
+    "Evil Deeds":         [10, 0x00c0, 0x0000, 0x01b9, 0x01e4, "Dark Equipment(Dagda's Hammer, Skull Mask, and Thanatos Armor)"],
+}
+
+function EquipTrigger(value_list)
+{
+    trigger = always_false()
+    for i in range(0, 1)
+    {
+        if i == 0
+        {
+            if value_list[1] == 0xFFFF
+            {
+                trigger = trigger || LeftHand() == value_list[2] && FirstArmor() == value_list[3] && SecondArmor() == value_list[4]
+            }
+            else
+            {
+                trigger = trigger || RightHand() == value_list[1] && LeftHand() == value_list[2] && FirstArmor() == value_list[3] && SecondArmor() == value_list[4]
+            }
+        }
+        else if i == 1
+        {
+            if value_list[1] == 0xFFFF
+            {
+                trigger = trigger || LeftHand() == value_list[2] && FirstArmor() == value_list[4] && SecondArmor() == value_list[3]
+            }
+            else
+            {
+                trigger = trigger || RightHand() == value_list[1] && LeftHand() == value_list[2] && FirstArmor() == value_list[4] && SecondArmor() == value_list[3]
+            }
+        }
+    }
+    
+    return trigger
+}
+
+function DenamEquipCheevos()
+{
+    for key in ItemSetDict
+    {
+        value_list = ItemSetDict[key]
+        achievement(title=key, description=value_list[5], points=value_list[0], 
+        trigger=Location() != 0 && SecondaryLocation() != 0 && Title() != 0 && EquipTrigger(value_list)
+        )
+    }
+}
+
+DenamEquipCheevos()
+
+
+//Class Cheevos
+//Only Catiuas for now...
+
+function ProcessClass(class_val)
+{
+    trigger = always_false()
+    mem_base = 0x00ad8979
+    char_offset = 0x48C
+    for i in range(0, 48)
+    {
+        mem_char = mem_base + (char_offset * i)
+        trigger = trigger || (prev(byte(mem_char)) != class_val && byte(mem_char) == class_val)
+    }
+    return trigger
+}
+
+///Random Cheevos
+
+achievement(title="Fear of the Dark",
+            description="Obtain a Heretic's Mark and Change Catuia into a special class.",
+            points=10,
+            trigger=Location() != 0 && SecondaryLocation() != 0 && Title() != 0 && ProcessClass(0x36)
+            )
+
+function ProcessMusic()
+{
+    trigger = (prev(bitcount(0x00b111c4)) + prev(bitcount(0x00b111c5)) + prev(bitcount(0x00b111c6)) + 
+               prev(bitcount(0x00b111c7)) + prev(bitcount(0x00b111c8)) + prev(bitcount(0x00b111c9)) + 
+               prev(bitcount(0x00b111ca)) + prev(bitcount(0x00b111cb)) + prev(bitcount(0x00b111cc))
+               ) == 64 && 
+              (bitcount(0x00b111c4) + bitcount(0x00b111c5) + bitcount(0x00b111c6) +
+               bitcount(0x00b111c7) + bitcount(0x00b111c8) + bitcount(0x00b111c9) +
+               bitcount(0x00b111ca) + bitcount(0x00b111cb) + bitcount(0x00b111cc)
+               ) == 65
+    return trigger
+}
+
+achievement(title="Faraway Heights",
+            description="Obtain all Music selection in the Warren Report(Need to open up Warren report music menu).",
+            points=10,
+            trigger=Location() != 0 && SecondaryLocation() != 0 && Title() != 0 && ProcessMusic()
+            )
+
+function ProcessRecipes()
+{
+    trigger = (prev(byte(0x00ae85ca)) + prev(byte(0x00ae85cb)) + prev(byte(0x00ae85cc)) +  prev(byte(0x00ae85cd)) +
+               prev(byte(0x00ae85ce)) + prev(byte(0x00ae85cf)) + prev(byte(0x00ae85d0)) +  prev(byte(0x00ae85d1)) +
+               prev(byte(0x00ae85d2)) + prev(byte(0x00ae85d3)) + prev(byte(0x00ae85d4)) +  prev(byte(0x00ae85d5)) +
+               prev(byte(0x00ae85d6)) + prev(byte(0x00ae85d7)) + prev(byte(0x00ae85d8)) +  prev(byte(0x00ae85d9)) +
+               prev(byte(0x00ae85da)) + prev(byte(0x00ae85db)) + prev(byte(0x00ae85dc)) +  prev(byte(0x00ae85dd)) +
+               prev(byte(0x00ae85de)) + prev(byte(0x00ae85df)) + prev(byte(0x00ae85e0)) +  prev(byte(0x00ae85e1)) +
+               prev(byte(0x00ae85e2)) + prev(byte(0x00ae85e3)) + prev(byte(0x00ae85e4)) +  prev(byte(0x00ae85e5)) +
+               prev(byte(0x00ae85e6)) + prev(byte(0x00ae85e7)) + prev(byte(0x00ae85e8)) +  prev(byte(0x00ae85e9)) +
+               prev(byte(0x00ae85ea)) + prev(byte(0x00ae85eb)) + prev(byte(0x00ae85ec)) +  prev(byte(0x00ae85ed)) +
+               prev(byte(0x00ae85ee)) + prev(byte(0x00ae85ef)) + prev(byte(0x00ae85f0)) +  prev(byte(0x00ae85f1)) +
+               prev(byte(0x00ae85f2)) + prev(byte(0x00ae85f3)) + prev(byte(0x00ae85f4)) +  prev(byte(0x00ae85f5)) +
+               prev(byte(0x00ae85f6)) + prev(byte(0x00ae85f7)) + prev(byte(0x00ae85f8)) +  prev(byte(0x00ae85f9)) +
+               prev(byte(0x00ae85fa)) + prev(byte(0x00ae85fb)) + prev(byte(0x00ae85fc)) +  prev(byte(0x00ae85fd))
+              ) == 51 && 
+              (byte(0x00ae85ca) + byte(0x00ae85cb) + byte(0x00ae85cc) +  byte(0x00ae85cd) +
+               byte(0x00ae85ce) + byte(0x00ae85cf) + byte(0x00ae85d0) +  byte(0x00ae85d1) +
+               byte(0x00ae85d2) + byte(0x00ae85d3) + byte(0x00ae85d4) +  byte(0x00ae85d5) +
+               byte(0x00ae85d6) + byte(0x00ae85d7) + byte(0x00ae85d8) +  byte(0x00ae85d9) +
+               byte(0x00ae85da) + byte(0x00ae85db) + byte(0x00ae85dc) +  byte(0x00ae85dd) +
+               byte(0x00ae85de) + byte(0x00ae85df) + byte(0x00ae85e0) +  byte(0x00ae85e1) +
+               byte(0x00ae85e2) + byte(0x00ae85e3) + byte(0x00ae85e4) +  byte(0x00ae85e5) +
+               byte(0x00ae85e6) + byte(0x00ae85e7) + byte(0x00ae85e8) +  byte(0x00ae85e9) +
+               byte(0x00ae85ea) + byte(0x00ae85eb) + byte(0x00ae85ec) +  byte(0x00ae85ed) +
+               byte(0x00ae85ee) + byte(0x00ae85ef) + byte(0x00ae85f0) +  byte(0x00ae85f1) +
+               byte(0x00ae85f2) + byte(0x00ae85f3) + byte(0x00ae85f4) +  byte(0x00ae85f5) +
+               byte(0x00ae85f6) + byte(0x00ae85f7) + byte(0x00ae85f8) +  byte(0x00ae85f9) +
+               byte(0x00ae85fa) + byte(0x00ae85fb) + byte(0x00ae85fc) +  byte(0x00ae85fd)
+               ) == 52
+    return trigger
+}
+
+achievement(title="Secret Of the Master",
+            description="Obtain all crafting recipes.",
+            points=25,
+            trigger=Location() != 0 && SecondaryLocation() != 0 && Title() != 0 && ProcessRecipes()
+            )
+            
+achievement(title="Floating On Air",
+            description="Complete the story battle at Top Of San Brosa(No Heavenly General).",
+            points=10,
+            trigger=Location() == 0x2C && prev(high4(0x00afd8da)) == 1 && high4(0x00afd8da) == 2
+            && unless(once(byte(0x00ae8544) > 0)) && (never(SecondaryLocation() != 0x1A) || always_false())
+            )
+            
+achievement(title="Dont Be Deceived",
+            description="Complete the story battle at Level 12 of San Brosa.",
+            points=5,
+            trigger=Location() == 0x2C && SecondaryLocation() != 0x0B && prev(low4(0x00afd8d2)) == 1 && low4(0x00afd8d2) == 2
+            )
+
+function ProcessOmishBattle()
+{
+    trigger = always_true()
+    mem_base = 0x00d410a0
+    char_offset = 0x520
+    for i in range(0, 19)
+    {
+        mem_char = mem_base + (char_offset * i)
+        trigger = trigger && word(mem_char) == 0
+    }
+    return trigger
+}
+
+function ProcessOmishDelta()
+{
+    mem_base = 0x00d410a0
+    char_offset = 0x520
+    trigger = always_false()
+    for i in range(0, 19)
+    {
+        mem_char = mem_base + (char_offset * i)
+        trigger = trigger || prev(word(mem_char)) != 0
+    }
+    return trigger
+}
+
+achievement(title="The Songstress Of Omish",
+            description="Compelte initial battle of CODA episode 1 by defeating all enemies.",
+            points=10,
+            trigger=Location() == 0x26 && byte(0x00d40130) == 1 && byte(0x00d40650) == 0x06 && byte(0x00d40b70) == 0x08 &&
+                    ProcessOmishBattle() && ProcessOmishDelta()
+            )
+
+function InCityLocation()
+{
+    trigger = always_false()
+    trigger = trigger || Location() == 0x05 || Location() == 0x09 || Location() == 0x0B || Location() == 0x0D ||
+              Location() == 0x0F || Location() == 0x14 || Location() == 0x17 || Location() == 0x19 || 
+              Location() == 0x1A || Location() == 0x1C || Location() == 0x1E || Location() == 0x1F ||
+              Location() == 0x23 || Location() == 0x26
+    return trigger
+}
+
+//Item Cheevos
+
+achievement(title="Heavenly Communion",
+            description="Craft a Heaven's Fork.",
+            points=5,
+            trigger=prev(byte(0x00ae8544)) < byte(0x00ae8544) && Title() != 0 && SecondaryLocation() != 0 && NotInBattle() && InCityLocation()
+            )
+
+achievement(title="Tale of Mann Maceux",
+            description="Steal a Reaver ring from the Grim Reaper.",
+            points=10,
+            trigger=Location() == 0x25 && SecondaryLocation() == 0x08 && Title() != 0 &&
+                    prev(byte(0x00d52dd9)) < byte(0x00d52dd9) && InBattle()
+            )
+            
+achievement(title="Forgive Thy Sins",
+            description="Steal an Abuna's Mark.",
+            points=10,
+            trigger=Location() == 0x25 && SecondaryLocation() == 0x04 && Title() != 0 &&
+                    prev(byte(0x00d52fe4)) < byte(0x00d52fe4) && InBattle()
+                    
+            )
+            
+achievement(title="Command and Conquer",
+            description="Steal a Hagiaknight Mark.",
+            points=10,
+            trigger=Location() == 0x2e && Title() != 0 && prev(byte(0x00d52fee)) < byte(0x00d52fee) && 
+                    InBattle()
+            )
+            
+function ProcessInBattleClassChange(class_val)
+{
+    trigger = always_false()
+    mem_base = 0x00d40179
+    alliegance_offset = 0x09
+    char_offset = 0x520
+    for i in range(0, 11)
+    {
+        mem_char = mem_base + (char_offset * i)
+        trigger = trigger || (byte(mem_char) == class_val && prev(byte(mem_char)) != class_val && byte(mem_char + alliegance_offset) == 0x13)
+    }
+    return trigger
+}
+
+achievement(title="Heavenly Blessing",
+            description="Convert a character to a Divine Knight.",
+            points=10,
+            trigger=Location() == 0x2c && SecondaryLocation() == 0x04 && InBattle() && ProcessInBattleClassChange(0x12)
+            )
+
+achievement(title="Hellish Blessing",
+            description="Convert a character to a Lich.",
+            points=10,
+            trigger=Location() == 0x01 && SecondaryLocation() == 0x08 && InBattle() && ProcessInBattleClassChange(0x11)
+            )      
+
+function ProcessNamedWeapon()
+{
+    trigger = (prev(byte(0x00d52dff)) + prev(byte(0x00d52e00)) + prev(byte(0x00d52e01)) +  prev(byte(0x00d52e02)) +
+               prev(byte(0x00d52e03)) + prev(byte(0x00d52e04)) + prev(byte(0x00d52e05)) +  prev(byte(0x00d52e06)) +
+               prev(byte(0x00d52e07)) + prev(byte(0x00d52e08)) + prev(byte(0x00d52e09)) +  prev(byte(0x00d52e0a)) +
+               prev(byte(0x00d52e0b)) + prev(byte(0x00d52e0c)) + prev(byte(0x00d52e0d)) +  prev(byte(0x00d52e0e)) +
+               prev(byte(0x00d52e0f))
+              ) == 0 && 
+              (byte(0x00d52dff) + byte(0x00d52e00) + byte(0x00d52e01) +  byte(0x00d52e02) +
+               byte(0x00d52e03) + byte(0x00d52e04) + byte(0x00d52e05) +  byte(0x00d52e06) +
+               byte(0x00d52e07) + byte(0x00d52e08) + byte(0x00d52e09) +  byte(0x00d52e0a) +
+               byte(0x00d52e0b) + byte(0x00d52e0c) + byte(0x00d52e0d) +  byte(0x00d52e0e) +
+               byte(0x00d52e0f)
+               ) == 1
+    return trigger
+}
+
+achievement(title="Take This Curse",
+            description="Obtain a named Cursed weapon.",
+            points=10,
+            trigger=Location() == 0x01 && SecondaryLocation() != 0x00 && InBattle() && ProcessNamedWeapon()
+            )  
 
 /////REFERENCE MATERIAL OR STUFF MOVED AROUND
 
@@ -425,3 +922,12 @@ SingleItemCheevos()
 ///    "Bringer of Strife":              [1, 0x0, 0x2F, "Told your war council that the Resistance's sacking of Heim was an unavoidable evil."],
 ///    "Grave Robber":                   [1, 0x00, 0x32, "Plundered the treasure from the Pirate's Graveyard."],
 ///    "He Who Treads Holy Ground":      [5, 0x00, 0x33, "Left the treasure in the Pirate's Graveyard undisturbed"],
+
+//////Title Cheevos that needs extra logic - Endings and Misc since it may not be guartneed as the showing Title since multiple ones could potentially unlock at once///////
+//////Abandonned due to potential issue with coliding with other cheevos and being too much of an ask
+
+///    /// Need to figure out how this will work with the location
+///   "Concord King[m]": [25, 0x21, [0x56, 0x5A], "Complete main campaign without using Chariot Tarot or retreating."],  /// Need to pop on killing last boss with and check for 0 deatsh
+///   "The Unbloodied Depth Dweller[m]": [25, 0x01, [0x35, 0x5B], "Traverse throug Palace of the Dead without any units dying(No Death Counter to 0)"], //need to pop on death of nybeth
+///   "The Unscathed Depth Dweller[m]": [100, 0x01, [0x35, 0x5B], "Traverse throug Palace of the Dead without any units falling(No HP to 0)"], //need to pop on death of nybeth
+
