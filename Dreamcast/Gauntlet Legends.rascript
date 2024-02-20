@@ -11,6 +11,7 @@ function InValidLevel() => LevelId() != 0x0d00 && LevelId() >= 0x0100 && LevelId
 function RuneCount(val) => (prev(bitcount(0x28d448)) + prev(bitcount(0x28d448))) == val - 1 && measured((bitcount(0x28d448) + bitcount(0x28d448)) == val)
 function ObeliskCount(val) => (prev(bitcount(0x28d440)) + prev(bitcount(0x28d441))) == val - 1 && measured((bitcount(0x28d440) + bitcount(0x28d441)) == val)
 function Char1LevelUp(val) => prev(byte(0x28d424)) == val -1 && byte(0x28d424) == val
+function ObtainCoin(count) => measured(tally(count, prev(dword(0x28d434)) < dword(0x28d434)))
 
 // Lookup Tables
 // level lookup key = mem value, val = [Name of level, bool to make cheevs, points if applicable]
@@ -55,6 +56,13 @@ LevelLookup = {
     
     0x0600: ["Gates of the Underworld", true, 10],
     0x0601: ["Throne of Skorn", false],
+    
+    0x0C00: ["Bonus Level 3", false],
+    0x0C01: ["Bonus Level 4", false],
+    0x0C02: ["Bonus Level 2", false],
+    0x0C03: ["Bonus Level 1", false],
+    0x0C04: ["Bonus Level 5", false],
+    0x0703: ["Mausoleum", false]
 }
 
 ClassLookup = {
@@ -66,7 +74,7 @@ ClassLookup = {
     0x05: "Knight",
     0x06: "Sorceress",
     0x07: "Jester",
-    0x08: "MInotaur",
+    0x08: "Minotaur",
     0x09: "Falconess",
     0x0A: "Jackal",  
     0x0B: "Tigress",
@@ -90,7 +98,7 @@ function LevelCheevos()
         if lookup_val[1] == true
         {
             trigger = PriorLevelId() == mem_val && BeatLevelFirstTime() && LevelId() != mem_val
-            achievement(title=lookup_val[0], description="Complete the Level " + lookup_val[0], points=lookup_val[2], trigger=trigger) 
+            achievement(title=lookup_val[0], description="Complete the Level, " + lookup_val[0], points=lookup_val[2], trigger=trigger) 
         }
     }
 }
@@ -131,8 +139,8 @@ BossCheevos()
 //Item Lookup
 //Key Item name, value = [mem of item, level id where to get it, level id where to use it, Name of use, Name of Boss to use]
 SpecialItemLookup = {
-    "Scimitar of Fire":         [bit1(0x28d444), 0x0000, 0x0104, "Burn the Beast", "Chimera"],
-    "Ice Axe":                  [bit2(0x28d444), 0x0000, 0x0205, "Freeze the Wyvern", "Dragon"],
+    "Scimitar of Rasha":         [bit1(0x28d444), 0x0000, 0x0104, "Burn the Beast", "Chimera"],
+    "Ice Axe of Untar":                  [bit2(0x28d444), 0x0000, 0x0205, "Freeze the Wyvern", "Dragon"],
     "Lamp of Dark Obstruction": [bit3(0x28d444), 0x0000, 0x0304, "Contain the Dark", "Genie"],
     "Toxic Bellows":            [bit4(0x28d444), 0x0000, 0x0404, "Poison the Queen", "Queen of Spiders"],
     "Soul Savior":              [bit5(0x28d444), 0x0500, 0x0000, "", ""],
@@ -181,26 +189,101 @@ for i in ObeliskLookup{
     achievement(title="Obelisk " + i[0], description="Find " + i[3], points=i[2], trigger=trigger)
 }
 
-LevelLookup = [
+LevelUpLookup = [
     ["Whelp", 2, 1],
     ["Squire", 10, 5],
     ["Marquis", 25, 10],
     ["Viceroy", 50, 25],
-    ["Lord", 75, 50],
+    ["GOD", 99, 50],
 ]
 
-for i in LevelLookup{
+for i in LevelUpLookup{
     trigger = InValidLevel() && Char1LevelUp(i[1])
     achievement(title=i[0], description="Level up a character to level " + i[1], points=i[2], trigger=trigger)
 }
 
+SpecialChars = [
+    ["Minotaur", 0x08, "Minotaur cheevo Name"],
+    ["Falconess", 0x09, "Falconess cheevo Name"],
+    ["Jackal", 0x0A, "Jackal cheevo Name"],
+    ["Tigeress", 0x0B, "Tigeress cheevo Name"],
+]
+
+for i in SpecialChars{
+    trigger = InValidLevel() && Char1LevelUp(5) && Player1Class() == i[1]
+    achievement(title=i[2], description="Level up a " + i[0] + " to level 5", points=10, trigger=trigger)
+}
+
+// Stat Cheevo Lookup Table
+// Key = Stat name, Val= [memory location of stat, Name 1st tier, Name of 2nd tier, name of third tier]
+StatLookup = {
+    "Strength": [0x28cd58, "Gym Rat", "Player is Strong", "MR. UNIVERSE"],
+    "Speed": [0x28cd64, "With the Quickness", "Ninja Speed", "Like the Flash"],
+    "Armor": [0x28cd5c, "Realm Protector", "Divine Protection", "Shield of Legend"],
+    "Magic": [0x28cd60, "Magical Apprentice", "Archmage", "He Who Shall Not Be Named"],
+}
+
+StatList = [[300.0, 1], [600.0, 5], [999.0, 10]]
+
+for key in StatLookup{
+    stat_name = key
+    value_list = StatLookup[key]
+    title_int = 1
+    for i in StatList{
+        trigger = prev(float(value_list[0])) < i[0] && float(value_list[0]) == i[0] && LevelId() == 0xd00
+        achievement(title=value_list[title_int], description="Raise the stat, " + key + " to the value " + i[0], points=i[1], trigger=trigger)
+        title_int = title_int + 1
+    }
+}
+
+///Bonus Level lookup
+// key = Bonus Level, val = [LevelId Value, num of coins, points, Title]
+BonusLookup = {
+    "Bonus Level 1": [0x0C03, 23, 05, "Run the Gauntlet"],
+    "Bonus Level 2": [0x0C02, 23, 05, "Moonage Day Dream"],
+    "Bonus Level 3": [0x0C00, 22, 10, "Office Space"],
+    "Bonus Level 4": [0x0C01, 23, 10, "Stunning Landscape"],
+    "Bonus Level 5": [0x0C04, 13, 25, "Trench Warfare"],
+}
+
+for key in BonusLookup{
+    val_list = BonusLookup[key]
+    trigger = ObtainCoin(val_list[1]) && LevelId() == val_list[0] && never(LevelId() != val_list[0])
+    achievement(title=val_list[3], description="Obtain " + val_list[1] + " coins while in " + key, points=val_list[2], trigger=trigger)
+}
+
+
+achievement(title="Mausoleum", description="Complete the Level, Masoleum", points=10, 
+            trigger=prev(byte(0x28cd50)) == 0x01 && byte(0x28cd50) == 0x07 && LevelId() == 0x0703
+)
 
 
 
+///Temp shot for docs pointer shit
+//function midwayPointer() => 0x0073F810
+//function isNotHome() => 0x056
+//function GameMode() => 0x056
+
+//function PointerCheckFunction(movie){
+//    return_val = always_true()
+//    return_val = return_val || (prev(dword(dword(midwayPointer())+movie ) + 0x20) != 0x01) && dword(dword(midwayPointer())+movie )+0x20 == 0x01
+//    return_val = return_val || prev(dword(dword(midwayPointer())+movie ) + 0x24) != 0x01 && dword(dword(midwayPointer())+movie )+0x24 == 0x01
+//    return return_val
+//}
+
+//function cinema(movie,name) {
+
+//cinemaPoint = 
 
 
+//achievement(
+//    title = "hello", points = 0,
+//    description = "unlock the movie", published = " ",
+//    trigger = isNotHome() != 0x305f75 || isNotHome() != 0x315f6f || isNotHome() != 0x325f6f || isNotHome() != 0x00 && GameMode() == 0x00 && 
+//    PointerCheckFunction(movie)
+//)
 
 
+//}
 
-
-
+//cinema(0x23, "hello")

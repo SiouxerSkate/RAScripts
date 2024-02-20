@@ -272,6 +272,8 @@ FF12 - Statue cheevos refactor to not use the statue bits - Done for now
 	- Plunderer, , Mistwalker, Assault Striker, Spellsinger, Premier Prestidigitator, Master Thief, Blood Dancer, Record Breaker, Exemplar, Spendthrift, Privateer, Wayfarer, - DONE 
 	Added description - Cartopher, collector, Runeweaver, Jack-of-All-Trades, Conqueror, High Summoner, Scrivener, Radiant Savior, Fell Angel, Zodiac Knight,
 
+Castlevania 64 		- EU version has different memory for HP. See Bad to the Bone or Warm Welcome with the fix to add to all hp cheevos.
+
 
 ----translation patch----
 Front Mission  				- in DMs
@@ -281,6 +283,7 @@ Final Fantasy Tactics		- smart encounters hack
 Final Fantasy Tactics(PSP)	- Spanish
 Xenogears 					- different translations, Potugese
 Tactics Ogre				- EU 
+THPS2						- EU
 
 
 ------------Devember tix---------
