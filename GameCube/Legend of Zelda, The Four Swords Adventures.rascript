@@ -9,9 +9,44 @@ function PauseLockOnFairyUse(world, level) => disable_when(prev(ForceFairy()) > 
 function InLevel() => byte(0x0053acd0) == 0x01 && dword_be(0x00958788) == 0x07
 function EnemyKillChain() => byte(0x00529fe1)
 
+function LinkGrabItem(pointer_address, link_offset, data_offset, value) => 
+    dword_be(data_offset + dword_be(link_offset + dword_be(pointer_address))) == value && 
+    prev(dword_be(data_offset + prev(dword_be(link_offset + prev(dword_be(pointer_address)))))) != value
 
+LinkColorDict = {
+    "Green": 0x80000004,
+    "Red": 0x80000008,
+    "Blue": 0x8000000c,
+    "Purple": 0x80000010,
+}
 
-////First Time Progression Cheevos
+LinkDataPointer = {
+    "State": 0x8001240,
+    "Force Gems": 0x80000c04 ,
+    "Item": 0x80000c10,
+    "ItemLevel2": 0x80000c14,
+    "HoldingSomething": 0x80000d64,
+    "Combo": 0x80000c74,
+}
+
+ItemLookup = {
+    "Pegasus Boots": [0x01, "Run Like the Wind"],
+    "Lamp": [0x02, "Light the Dark"],
+    "Boomerang": [0x03, "Catch!"],
+    "Bow and Arrow": [0x04, "Archery Class"],
+    "Magic Hammer": [0x05, "Mashable"],
+    "Fire Rod": [0x06, "Burn Baby Burn"],
+    "Roc's Feather": [0x07, "Flying High"],
+    "Bombs": [0x08, "This Blows"],
+    "Shovel": [0x09, "Dig Dug"],
+    "Slingshot": [0x0A, "Deku Demolisher"],
+}
+
+US_LINK_POINTER = 0x0053ac90
+EU_LINK_POINTER = 0x00557fd8
+
+////First Time Progression Cheevos 
+//TODO: Need to find the same memory for the EU version and make alts...
 
 ///Progression Lookup
 ///Key = Name of World, value = [bit memory[file_1, file_2, file3], WorldId, LevelID, GameState, points, name of cheevo, extended description]
@@ -41,3 +76,15 @@ for key in ProgressionLookup
     trigger = WorldId() == value_list[1] && LevelId() == value_list[2] && prev(byte(0x0053acd0)) == 0x01 && dword_be(0x00958788) == value_list[3] && FileBitAlt(value_list[0])
     achievement(title=value_list[5], description="Clear " + key + " and " + value_list[6], points=value_list[4], trigger=trigger)
 }
+
+///Item Cheevos
+/// In game check with EU needs to be tested
+for key in ItemLookup
+{
+    trigger = InLevel() && (LinkGrabItem(US_LINK_POINTER, LinkColorDict["Green"], LinkDataPointer["Item"], ItemLookup[key][0]) || LinkGrabItem(EU_LINK_POINTER, LinkColorDict["Green"], LinkDataPointer["Item"], ItemLookup[key][0]))
+    achievement(title=ItemLookup[key][1], description="Obtain the " + key + " for the first time.", points=1, trigger=trigger)
+    //Add item level up cheevo too
+}
+
+    
+
