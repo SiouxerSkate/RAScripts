@@ -1,50 +1,49 @@
 ----Active DEV work----
-Rampage World Tour					- N64
-Guantlet Legends					= Dreamcast
-Destiny of an Emperor				- NES
 
-Potential big RPGS
+
+---Potential work---
 Phantom Brave						- PS2		- Save for RPG quest?
 Disgae								- PS2		- Save for RPG quest?
 Dsigae2								- PS2       - Save for RPG quest?
 
 ----Games to Finish----
-FF8								- PS1   in progress..working though story for revision contents. Then need to dig up the save for no leeling for that final cheev
-Ocarana Of Time					- SNES	in progress...working on it slowly
-FF7								- PS1   in progress...Doing the llG run now with plan to get Barret date. Then just need gold saucer shit
-Trials of Mana					- SNES  finish set...no clue may need to do a new run through with just teh characters I need
-Parallel Worlds					- SNES  finish set...use dat guide but the 3 hearts is gonna be a brute
-Mario Kart						- SNES  finish set...Just need 150 cc 
-Super Mario 64					- N64   finish set...need to look at the set again
+FF10 							- PS2 	- in progress....just need a few more tedious challenges.
+Wind Waker						- GCN  	- in progress
+FF8								- PS1  	- in progress..working though story for revision contents.
+Ocarana Of Time					- SNES	- in progress...working on it slowly
+FF7								- PS1  	- finish set...Doing the llG run now with plan to get Barret date. Then just need gold saucer shit
+Trials of Mana					- SNES 	- finish set...Kevin and Carlie finish game, Kevin Carlie Lise final jobs, Lise full playthrough...shitty
+Parallel Worlds					- SNES	- finish set...use dat guide but the 3 hearts is gonna be a brute
+Mario Kart						- SNES 	- finish set...Just need 150 cc
+
 
 ------Revision to re master--------
 DKC3					- SNES  need a few hard challenges
 Aria of Sorrow			- GBA Julius 4 min cheevo...Need to shave off like 30 seconds
-Super Mario RPG			- SNES need the super jump and the all coins cheevo...Use the metronome
-
 
 -----Cheevs to finish(Less than 5 in a set Maybe even in Softcore!)-----
 Super Mario All stars		- SNEs beat mario 2 in one go
 Portrait of Ruin			- NDS Dracula no damage, dracula lvl 1 cap, nest of evil no items - Maybe possible with more tries...didnt really try them
+Super Mario RPG			- SNES need the super jump and the all coins cheevo...Use the metronome
+Super Mario 64			- N64  last two board cruiser to carpet and koopa 2 speedrun
 
 
 ----Cheevs to try in hardcore again--------
-Minish Cap 		- Fux the Vaati one
-Super Metroid 	- Try time cheevs again. 
-DKC2			- The Poison Pong. Dat last part doe
-Mega Man X 		- ZERO Mode - NOPE
-RE4				- Neck Breaker Ballet...FUCKME
+Minish Cap 		- Fux the Vaati one - I hear rumblings of this gettign turned into seperate cheevs
+Super Metroid 	- Try time cheevs again.
+Mega Man X 		- ZERO Mode - NOPE...or pratcice more...
+RE4				- Neck Breaker Ballet...FUCKME - Need to try turbo X linked to R2 starts - Now with measrued
 
 
 -----Console Quest------NEEDS TTO BE SOLE OR MAJORITY DEV !!!
-N64							- Rampage World Tour - Claimed
+N64							- 
 GBC 						- Star Ocean Blue Sphere, Quest for Camelot
 PC Engine					- Parasol Stars
 Sega CD						- Dune
 Sega 32X					- 
 Atari Lynx					- 
 Neo Geo Pocket Color		-	 
-Game Gear					-
+Game Gear					- Alien3 - Done
 Atari Jaguar				-
 Magnavox Odyseey2			-
 Pokemon Mini				-
@@ -74,16 +73,17 @@ PC Engine CD				-
 Atari Jaguar CD				-
 Nintendo Dsi				-
 Uzebox						-
-Gamecube					- Blood Omen 2 - Claimed for rollout?
+Gamecube					- Does 4 swords work?
 Neo Geo CD 					- Double Dragon - Done
 
 ----Revisions-----
 THPS2(PS1)	- Revision with found pointers
-Warcrat 2 	- Add cheevos for each sceanrio
 
 
 ----DevQuest2 Remastered-----
-Destiny of an Emperoro		- NES - Claimed
+Destiny of an Emperoro		- NES - DONE
+NBA Jam 					- SNES - DONE - Need to fix memory per Kiwi
+Dark Arms					- neo Geo Pocket	- In progress
 
 
 Adventures of lolo 			- NES
@@ -137,8 +137,13 @@ Warcraft 2					- Done need to test but gonna trust myself
 
 ----Dev Quest 10(it takes two)----
 Need to talk to people about collabs
-FF12 collab 	- DONE
-2nd collab		- need to find someone to help
+FF12 collab 		- DONE
+Four Swords collab	- DONE
+
+
+----Dev Quest 12-2(Hacker Habit -2)----
+Chrono Trigger + - In progress
+FF6 Hope Eternal and Love Everlasting - In progress
 
 
 ----Dev Quest 13(set fixer)-----
@@ -156,7 +161,10 @@ Castlevania 64 - DONE
 	- Fountain
 	- No damage in tower or garden runnign
 	- No dying and skip 2 bosses in tower
+	
+Need 3rd game....
 
+Castlevania Chronicles		- PS1 Need to play and check out
 Zero the Kamikazee squirrel - SNES need to check out
 
 
@@ -197,14 +205,14 @@ Aria Of Sorrow	- gba	- NOSOUL and NOUSE at same time subset - Done
 
 ----DQ 19 Genre wheel---
 Hack N Slash
-Gauntlet Legends	- Dreamcast	- Claimed
+Gauntlet Legends	- Dreamcast	- DONE
 
 
 ----Genre Conqurer-------
 Action-Adventure	- Legacy of Kain(PS1)		- DONE
 Action 				- Wonderboy(Master Sys)		- DONE
 Adventure   		- Hydlide II: Shrine(Pc8800)- DONE
-Arcade				- Rampage World Tour		- Claimed
+Arcade				-
 Board and Card		-
 Educational			-
 Fighting			- Double Dragon(Neo Geo CD)	- DONE
@@ -221,9 +229,13 @@ Sports				- Tony Hawk 2(PS1)			- DONE
 Strategy			- Ogre Battle(SNES)			- DONE
 
 ----Sub Genre----------Need list of subs btu probably nto gonna care about it
+Hack N Slash		- Gauntlet(Dreamcast)		- DONE
 
 
-
+---DQ 21----------
+1 - Full Quiet					- 
+2 - Dungeons and doom knights	- 
+3 - Erya the crow maiden		- 
 
 ----Alphadev a bet-----
 A	- Alien vs Predator(SNES)
@@ -252,7 +264,19 @@ W	- Wonder Boy(Master System)
 X	- Xenogears(PS1)(probably wont count as not enough cheevos)
 Y	-
 Z	-
-3	- 3-D Tetris(Need claim)
+3	-
+
+----DQ 22 - Museum ----
+
+
+----DQ 23 - Well Of Wishes ----
+Will spin after hacks
+
+
+
+----DQ 24 - She's Got This ----
+Alien 3 - Game Gear - DONE
+
 
 
 ----R.P-----
@@ -272,7 +296,7 @@ FF12 - Statue cheevos refactor to not use the statue bits - Done for now
 	- Plunderer, , Mistwalker, Assault Striker, Spellsinger, Premier Prestidigitator, Master Thief, Blood Dancer, Record Breaker, Exemplar, Spendthrift, Privateer, Wayfarer, - DONE 
 	Added description - Cartopher, collector, Runeweaver, Jack-of-All-Trades, Conqueror, High Summoner, Scrivener, Radiant Savior, Fell Angel, Zodiac Knight,
 
-Castlevania 64 		- EU version has different memory for HP. See Bad to the Bone or Warm Welcome with the fix to add to all hp cheevos.
+Chrono Trigger DS - Do a playthrough and Add Trigger flags.
 
 
 ----translation patch----
@@ -287,5 +311,3 @@ THPS2						- EU
 
 
 ------------Devember tix---------
-
-https://retroachievements.org/game/14050 i fnoone beats me to it

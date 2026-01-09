@@ -7,14 +7,16 @@ function LevelId() => word(0x28d3ec)
 function PriorLevelId() => prior(word(0x28d3ec))
 function Player1Class() => byte(0x28cc78)
 function BeatLevelFirstTime() => prev(word(0x28d43c)) < word(0x28d43c)
-function InValidLevel() => LevelId() != 0x0d00 && LevelId() >= 0x0100 && LevelId() <= 0x0805
-function RuneCount(val) => (prev(bitcount(0x28d448)) + prev(bitcount(0x28d448))) == val - 1 && measured((bitcount(0x28d448) + bitcount(0x28d448)) == val)
+function InValidLevel() => LevelId() != 0x0d00 && LevelId() >= 0x0100 && LevelId() <= 0x0805 && GameState() == 0x01
+function RuneCount(val) => (prev(bitcount(0x28d448)) + prev(bitcount(0x28d449))) == val - 1 && measured((bitcount(0x28d448) + bitcount(0x28d449)) == val)
 function ObeliskCount(val) => (prev(bitcount(0x28d440)) + prev(bitcount(0x28d441))) == val - 1 && measured((bitcount(0x28d440) + bitcount(0x28d441)) == val)
 function Char1LevelUp(val) => prev(byte(0x28d424)) == val -1 && byte(0x28d424) == val
 function ObtainCoin(count) => measured(tally(count, prev(dword(0x28d434)) < dword(0x28d434)))
+function GameState() => byte(0x28cd50)
 
 // Lookup Tables
 // level lookup key = mem value, val = [Name of level, bool to make cheevs, points if applicable]
+// Need to put in a fix for bonus levels
 LevelLookup = {
     0x0D00: ["Tower", false],
 
@@ -110,12 +112,12 @@ LevelCheevos()
 // Boss stuff Lookup
 // Key = Boss Name, val = [defeat bit, level value, bit of special item, "Cheevo Name", points, "Special Item used Cheevo Name"]
 BossLookup = {
-    "Dragon":                  [bit1(0x28d44c), 0x0205, "Dragon Defeated", 10, "Dragon item used"],
-    "Chimera":                 [bit2(0x28d44c), 0x0104, "Chimera Defeated", 10, "Chimera item used"],
+    "Dragon":                  [bit2(0x28d44c), 0x0205, "Dragon Defeated", 10, "Dragon item used"],
+    "Chimera":                 [bit1(0x28d44c), 0x0104, "Chimera Defeated", 10, "Chimera item used"],
     "Genie":                   [bit3(0x28d44c), 0x0304, "Genie Defeated", 10, "Genie item used"],
     "Spider Queen":            [bit4(0x28d44c), 0x0404, "Spider Defeated", 10, "Spider item used"],
     "Skorn of the Altar":      [bit5(0x28d44c), 0x0501, "Skorn Defeated", 25, ""],
-    "Skorn of the Underworld": [bit6(0x28d44c), 0x0601, "Under Skorn Defeated", 50, ""],
+    "Skorn of the Underworld": [bit6(0x28d44c), 0x0601, "True Skorn Defeated", 50, ""],
 }
 
 function BossCheevos()
@@ -139,10 +141,10 @@ BossCheevos()
 //Item Lookup
 //Key Item name, value = [mem of item, level id where to get it, level id where to use it, Name of use, Name of Boss to use]
 SpecialItemLookup = {
-    "Scimitar of Rasha":         [bit1(0x28d444), 0x0000, 0x0104, "Burn the Beast", "Chimera"],
-    "Ice Axe of Untar":                  [bit2(0x28d444), 0x0000, 0x0205, "Freeze the Wyvern", "Dragon"],
-    "Lamp of Dark Obstruction": [bit3(0x28d444), 0x0000, 0x0304, "Contain the Dark", "Genie"],
-    "Toxic Bellows":            [bit4(0x28d444), 0x0000, 0x0404, "Poison the Queen", "Queen of Spiders"],
+    "Scimitar of Decapitation": [bit1(0x28d444), 0x0203, 0x0104, "Burn the Beast", "Chimera"],
+    "The Legendary Ice Axe":    [bit2(0x28d444), 0x0105, 0x0205, "Freeze the Wyvern", "Dragon"],
+    "Lamp of Dark Obstruction": [bit3(0x28d444), 0x0403, 0x0304, "Contain the Dark", "Genie"],
+    "Toxic Bellows":            [bit4(0x28d444), 0x0303, 0x0404, "Poison the Queen", "Queen of Spiders"],
     "Soul Savior":              [bit5(0x28d444), 0x0500, 0x0000, "", ""],
 }
 
@@ -170,7 +172,7 @@ SpecialItemCheevos()
 RuneLookup = [
     ["Finder", 1, 1, "a Rune"], 
     ["Hunter", 6, 5, "six Runes"],
-    ["Master", 11, 10, "all Runes"]
+    ["Master", 13, 10, "all Runes"]
 ]
 
 for i in RuneLookup{
@@ -223,14 +225,14 @@ StatLookup = {
     "Magic": [0x28cd60, "Magical Apprentice", "Archmage", "He Who Shall Not Be Named"],
 }
 
-StatList = [[300.0, 1], [600.0, 5], [999.0, 10]]
+StatList = [[350.0, 1], [700.0, 5], [999.0, 10]]
 
 for key in StatLookup{
     stat_name = key
     value_list = StatLookup[key]
     title_int = 1
     for i in StatList{
-        trigger = prev(float(value_list[0])) < i[0] && float(value_list[0]) == i[0] && LevelId() == 0xd00
+        trigger = prev(float(value_list[0])) < i[0] && float(value_list[0]) == i[0] && LevelId() == 0xd00 && GameState() == 0x08 
         achievement(title=value_list[title_int], description="Raise the stat, " + key + " to the value " + i[0], points=i[1], trigger=trigger)
         title_int = title_int + 1
     }
@@ -241,7 +243,7 @@ for key in StatLookup{
 BonusLookup = {
     "Bonus Level 1": [0x0C03, 23, 05, "Run the Gauntlet"],
     "Bonus Level 2": [0x0C02, 23, 05, "Moonage Day Dream"],
-    "Bonus Level 3": [0x0C00, 22, 10, "Office Space"],
+    "Bonus Level 3": [0x0C00, 23, 10, "Office Space"],
     "Bonus Level 4": [0x0C01, 23, 10, "Stunning Landscape"],
     "Bonus Level 5": [0x0C04, 13, 25, "Trench Warfare"],
 }
@@ -257,33 +259,74 @@ achievement(title="Mausoleum", description="Complete the Level, Masoleum", point
             trigger=prev(byte(0x28cd50)) == 0x01 && byte(0x28cd50) == 0x07 && LevelId() == 0x0703
 )
 
+//RP
+LevelLookupRP = {
+    0x0D00: "Tower",
 
+    0x0200: "Valley of Fire",
+    0x0201: "Dagger Peak",
+    0x0202: "Cliffs of Desolation",
+    0x0203: "Lost Cave",
+    0x0204: "Volcanic Cavern",
+    0x0205: "Dragon's Lair",
+    
+    0x0700: "Poison Fields",
+    0x0100: "Castle Courtyard",
+    0x0102: "Tower Armory",
+    0x0103: "Castle Treasury",
+    0x0105: "Dungeon of Torment",
+    0x0104: "Chimera's Keep",
+    
+    0x0300: "City Ruins",
+    0x0301: "Temple of the Magi",
+    0x0302: "Mystic Pyramid",
+    0x0303: "Tombs of the Undead",
+    0x0304: "Genie's Sanctum",
+    
+    0x0400: "Acid Swamp",
+    0x0401: "Twisted Roots of Evil", 
+    0x0402: "Ancient Tree", 
+    0x0403: "Gnarled Branches", 
+    0x0404: "Web of the Queen Spider", 
+    
+    0x0500: "Desecrated Temple", 
+    0x0501: "Altar of Skorne", 
 
-///Temp shot for docs pointer shit
-//function midwayPointer() => 0x0073F810
-//function isNotHome() => 0x056
-//function GameMode() => 0x056
+    0x0800: "Battle Trenches", 
+    0x0803: "Battle Trenches II", 
+    0x0801: "Fortified Towers", 
+    0x0804: "Fortified Towers II", 
+    0x0802: "Infernal Fortress", 
+    0x0805: "Infernal Fortress II", 
+    
+    0x0600: "Gates of the Underworld", 
+    0x0601: "Throne of Skorn", 
+    
+    0x0C00: "Bonus Level 3", 
+    0x0C01: "Bonus Level 4", 
+    0x0C02: "Bonus Level 2", 
+    0x0C03: "Bonus Level 1", 
+    0x0C04: "Bonus Level 5", 
+    0x0703: "Mausoleum",
+}
+rich_presence_conditional_display(GameState() == 0x00, "Waiting To Enter the Guantlet")
+rich_presence_conditional_display(GameState() == 0x03, "Ready to Run but Choosing Your Destiny")
+rich_presence_display("Running the Gauntlet with a Level {0} {1} {2}, at {3}", 
+    rich_presence_value("Level", byte(0x28d424)),
+    rich_presence_lookup("Color", byte(0x28cc7c), CharColorLookup),
+    rich_presence_lookup("Class", byte(0x28cc78), ClassLookup),
+    rich_presence_lookup("Level", word(0x28d3ec), LevelLookupRP)
+)
 
-//function PointerCheckFunction(movie){
-//    return_val = always_true()
-//    return_val = return_val || (prev(dword(dword(midwayPointer())+movie ) + 0x20) != 0x01) && dword(dword(midwayPointer())+movie )+0x20 == 0x01
-//    return_val = return_val || prev(dword(dword(midwayPointer())+movie ) + 0x24) != 0x01 && dword(dword(midwayPointer())+movie )+0x24 == 0x01
-//    return return_val
-//}
-
-//function cinema(movie,name) {
-
-//cinemaPoint = 
-
-
-//achievement(
-//    title = "hello", points = 0,
-//    description = "unlock the movie", published = " ",
-//    trigger = isNotHome() != 0x305f75 || isNotHome() != 0x315f6f || isNotHome() != 0x325f6f || isNotHome() != 0x00 && GameMode() == 0x00 && 
-//    PointerCheckFunction(movie)
-//)
-
-
-//}
-
-//cinema(0x23, "hello")
+for key in LevelLookupRP{
+    level_id = key
+    level_name = LevelLookupRP[key]
+    title = level_name + " Speed Run"
+    description = "Finish " + level_name + " as fast as possible!"
+    start = GameState() == 0x01 && LevelId() == level_id
+    cancel = always_true() && (float(0x28d3dc) == 0.00 || 
+             ((prev(byte(0x00f199)) == 0x1F) && prev(byte(0x00f1a4)) == 0 && dword(0x2185ec) == 0x100400) ||
+             ((prev(byte(0x00f199)) == 0x1F) && prev(byte(0x00f1a4)) == 0 && dword(0x2185ec) == 0x100))
+    submit = GameState() == 0x08 && LevelId() != level_id && float(0x28d3dc) > 0.00
+    leaderboard(title, description, start, cancel, submit, float(0x28cd04), format="MILLISECS", lower_is_better=true, id=0)
+}
