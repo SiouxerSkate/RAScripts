@@ -103,14 +103,14 @@ function BeatGame()
             value_list = PlayerDict[key]
             if i == 0
             {
-                description_extend = " on any diffculty"
+                description_extend = " on any difficulty"
                 difficulty_trigger = Difficulty() >= 0x0
                 points = 5
                 title = value_list[1]
             }
             else
             {
-                description_extend = " on Hard diffculty"
+                description_extend = " on Hard difficulty"
                 difficulty_trigger = Difficulty() == 0x02
                 points = 10
                 title = value_list[2]
@@ -159,7 +159,7 @@ achievement(title="Play That Jazz", description="Enter Charge mode as Billy or J
 achievement(title="Medal Searching", description="Win your first fight", points=1, 
             trigger=BiosProtection() && GameState() != 0xFF && EnemyFighting() <= 0x0D && CharSelected() <= 0x0D && WinTwoRounds())
             
-achievement(title="Size Matters", description="Change Your Characters Size", points=1, 
+achievement(title="Size Matters", description="Change Your Character's Size", points=1, 
             trigger=BiosProtection() && GameState() != 0xFF && EnemyFighting() <= 0x0D && CharSelected() <= 0x0D && 
             Timer() > 0 && Timer() < 0x99 && prev(byte(0x0441)) == 0x00 && byte(0x0441) > 0)
             
