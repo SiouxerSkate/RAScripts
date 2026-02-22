@@ -179,7 +179,7 @@ MonthLookup = {
 //////////FUNCTION DEFINITION//////////
 function Location() => word(0xafd956)
 function Title() => word(0x00b10fb8)
-function DeltaTitle() => prev(word(0x00b10fb8))
+function DeltaTitle() => prev(byte(0x00b10fb8))
 function ObtainItem(mem) => prev(byte(mem)) < byte(mem)
 function InBattle() => prev(byte(0xd40050)) == 1
 function NotInBattle() => prev(byte(0xd40050)) == 0
