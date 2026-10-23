@@ -931,6 +931,9 @@ achievement(title="Take This Curse",
 ///   "The Unbloodied Depth Dweller[m]": [25, 0x01, [0x35, 0x5B], "Traverse throug Palace of the Dead without any units dying(No Death Counter to 0)"], //need to pop on death of nybeth
 ///   "The Unscathed Depth Dweller[m]": [100, 0x01, [0x35, 0x5B], "Traverse throug Palace of the Dead without any units falling(No HP to 0)"], //need to pop on death of nybeth
 
+
+////SUBSET INFO BELOW
+
 //////////FUNCTION DEFINITION//////////
 function Location() => word(0xafd956)
 function Title() => word(0x00b10fb8)
@@ -1239,9 +1242,9 @@ function ProcessMagicBattle(key, value_list)
     alliegance_offset = 0x52
     for i in range(0, 11)
     {
-        mem_char = value_list[2] + (char_offset * i)
-        mem_base_char = mem_base_char + (char_offset * i)
-        trigger = trigger || (InBattle() && byte(mem_base_char + alliegance_offset) == 0x13 && ProcessMagicBits(key, mem_char, value_list))
+        mem_char_magic = value_list[2] + (char_offset * i)
+        mem_char = mem_base_char + (char_offset * i)
+        trigger = trigger || (InBattle() && byte(mem_char + alliegance_offset) == 0x13 && ProcessMagicBits(key, mem_char_magic, value_list))
     }
     return trigger
 }

@@ -328,7 +328,7 @@ BattleCursedWeapons()
 
 CraftDict = {
     "Urchin Bola +1":           [05, 0xae836e, "Slinging Stones", "Craft an "],
-    "Lobber +2":                [05, 0xae836e, "Lobbing Lobber", "Craft a "],
+    "Lobber +2":                [05, 0x00ae8371, "Lobbing Lobber", "Craft a "],
     "Medusa Shield":            [05, 0xae82ba, "Malevolent Gaze", "Craft a "],
     "Daedalus Bracers":         [05, 0xae830e, "Arm of the Dragon Lord", "Craft a "],
 }
@@ -484,9 +484,9 @@ function ProcessMagicBattle(key, value_list)
     alliegance_offset = 0x52
     for i in range(0, 11)
     {
-        mem_char = value_list[2] + (char_offset * i)
-        mem_base_char = mem_base_char + (char_offset * i)
-        trigger = trigger || (InBattle() && byte(mem_base_char + alliegance_offset) == 0x13 && ProcessMagicBits(key, mem_char, value_list))
+        mem_char = mem_base_char + (char_offset * i)
+        mem_spell_char = value_list[2] + (char_offset * i)
+        trigger = trigger || (InBattle() && byte(mem_char + alliegance_offset) == 0x13 && ProcessMagicBits(key, mem_spell_char, value_list))
     }
     return trigger
 }
@@ -738,7 +738,7 @@ SkillMasteryDict = {
     "Empower Dragon":      [05, 0xeb, 8, "Helping the Dragons"],
     "Empower Beast":       [05, 0xec, 8, "Helping the Beasts"],
     "Witch's Smile":       [10, 0xed, 8, "Charm of the Wicce"],
-    "Irresistable Beauty": [05, 0xed, 8, "Beauty Pagaent"],
+    "Irresistable Beauty": [05, 0xee, 8, "Beauty Pagaent"],
     "Meditate":            [05, 0xef, 8, "Astral Projection"],
     "Lament of the Dead":  [05, 0xf0, 8, "A Frightning Affair"],
     "Rapier Glance":       [05, 0xf1, 8, "Gaze of the Reptile"],
@@ -760,7 +760,7 @@ SkillMasteryDict = {
     "Fey Pact":            [10, 0x101, 8, "Searching For Fairy"],
     "Master Undead":       [05, 0x102, 8, "With the Dead"],
     "Control Golem":       [05, 0x103, 8, "Golemy and Golemy"],
-    "Princess's Whim":     [10, 0xed, 8, "Valerian Healing"],
+    "Princess's Whim":     [10, 0x114, 8, "Valerian Healing"],
 }
 
 function ProcessSkillBattle(key, skill_val, skill_level)
