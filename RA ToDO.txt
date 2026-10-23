@@ -1,17 +1,15 @@
 ----Active DEV work----
-
+Vanguard Bandits(PS1) - Just beginning
 
 ---Potential work---
-Phantom Brave						- PS2		- Save for RPG quest?
-Disgae								- PS2		- Save for RPG quest?
 Dsigae2								- PS2       - Save for RPG quest?
 
 ----Games to Finish----
-FF10 							- PS2 	- in progress....just need a few more tedious challenges.
-Wind Waker						- GCN  	- in progress
-FF8								- PS1  	- in progress..working though story for revision contents.
+FF10 							- PS2 	- in progress....just need a few more black aeons.
+Wind Waker						- GCN  	- in progress...3 hearts and hardher things
+FF8								- PS1  	- in progress..working though story for revision contents and Triple Triad subset.
 Ocarana Of Time					- SNES	- in progress...working on it slowly
-FF7								- PS1  	- finish set...Doing the llG run now with plan to get Barret date. Then just need gold saucer shit
+FF7								- PS1  	- finish set...Doing the llG run now with plan to get Barret date. Then just need gold saucer shit plus new revision stuff
 Trials of Mana					- SNES 	- finish set...Kevin and Carlie finish game, Kevin Carlie Lise final jobs, Lise full playthrough...shitty
 Parallel Worlds					- SNES	- finish set...use dat guide but the 3 hearts is gonna be a brute
 Mario Kart						- SNES 	- finish set...Just need 150 cc
@@ -22,27 +20,26 @@ DKC3					- SNES  need a few hard challenges
 Aria of Sorrow			- GBA Julius 4 min cheevo...Need to shave off like 30 seconds
 
 -----Cheevs to finish(Less than 5 in a set Maybe even in Softcore!)-----
-Super Mario All stars		- SNEs beat mario 2 in one go
-Portrait of Ruin			- NDS Dracula no damage, dracula lvl 1 cap, nest of evil no items - Maybe possible with more tries...didnt really try them
+Super Mario All stars	- SNEs beat mario 2 in one go...Also added more in a revision
+Portrait of Ruin		- NDS Dracula no damage, dracula lvl 1 cap, nest of evil no items - Maybe possible with more tries...didnt really try them
 Super Mario RPG			- SNES need the super jump and the all coins cheevo...Use the metronome
 Super Mario 64			- N64  last two board cruiser to carpet and koopa 2 speedrun
 
-
 ----Cheevs to try in hardcore again--------
 Minish Cap 		- Fux the Vaati one - I hear rumblings of this gettign turned into seperate cheevs
-Super Metroid 	- Try time cheevs again.
+Super Metroid 	- Try time cheevs again....
 Mega Man X 		- ZERO Mode - NOPE...or pratcice more...
 RE4				- Neck Breaker Ballet...FUCKME - Need to try turbo X linked to R2 starts - Now with measrued
 
 
------Console Quest------NEEDS TTO BE SOLE OR MAJORITY DEV !!!
+-----Console Quest------NEEDS TO BE SOLE OR MAJORITY DEV !!!
 N64							- 
 GBC 						- Star Ocean Blue Sphere, Quest for Camelot
 PC Engine					- Parasol Stars
 Sega CD						- Dune
 Sega 32X					- 
 Atari Lynx					- 
-Neo Geo Pocket Color		-	 
+Neo Geo Pocket Color		-  
 Game Gear					- Alien3 - Done
 Atari Jaguar				-
 Magnavox Odyseey2			-
@@ -54,7 +51,7 @@ MSX 						- Hydlide?
 SG-1000						-
 Armstrad CPC				-
 Apple II					-
-Dreamcast					-
+Dreamcast					- Gauntlet Legends - Done
 3DO							-
 ColecoVision				-
 Intellisivsion				-
@@ -73,22 +70,21 @@ PC Engine CD				-
 Atari Jaguar CD				-
 Nintendo Dsi				-
 Uzebox						-
-Gamecube					- Does 4 swords work?
+Gamecube					- Does 4 swords work? - It SHould
 Neo Geo CD 					- Double Dragon - Done
 
 ----Revisions-----
-THPS2(PS1)	- Revision with found pointers
+
 
 
 ----DevQuest2 Remastered-----
-Destiny of an Emperoro		- NES - DONE
-NBA Jam 					- SNES - DONE - Need to fix memory per Kiwi
-Dark Arms					- neo Geo Pocket	- In progress
+Destiny of an Emperoro		- NES - DONE - Need to refix this 
+NBA Jam 					- SNES - DONE - - Need to redo this per Refactor stuff
+Dark Arms					- neo Geo Pocket - Done - Need to redo this per Refactor stuff
 
+----DevQuest2-3----
+Need to look at list when I decide to do it - Also go in tandem with refactor project
 
-Adventures of lolo 			- NES
-Mega Man Xtreme2			- GBA
-Mortal Kombat 2				- Game gear
 
 
 -----Dev Quest 5(trigger happy)----- DONE
@@ -142,8 +138,8 @@ Four Swords collab	- DONE
 
 
 ----Dev Quest 12-2(Hacker Habit -2)----
-Chrono Trigger + - In progress
-FF6 Hope Eternal and Love Everlasting - In progress
+Chrono Trigger + - DONE
+FF6 Hope Eternal and Love Everlasting - Done
 
 
 ----Dev Quest 13(set fixer)-----
@@ -161,12 +157,11 @@ Castlevania 64 - DONE
 	- Fountain
 	- No damage in tower or garden runnign
 	- No dying and skip 2 bosses in tower
-	
-Need 3rd game....
 
-Castlevania Chronicles		- PS1 Need to play and check out
-Zero the Kamikazee squirrel - SNES need to check out
+Castlevania Chronicles		- PS1 - DONE
 
+---DQ13-2-------
+Need to look at list and pick games PLUS refactor stuff?
 
 
 ----Dev Quest 14(leaderboards)-----
@@ -190,12 +185,15 @@ NBA Jam					- Look Into
 
 ----Dev Quest 16(wish set)-----
 Tactics Ogre - PSP - DONE for part 1
-Need game for part 2
+Part II
+Vanguard Bandits  - Claimed
 
 
 ----Dev Quest 17(sports)----
 NBA Jam T.E.	- Gameboy	- Done
 Grind Session	- pS1		- Done
+Part II
+
 
 
 -----DQ 18(subsets)------
@@ -267,6 +265,17 @@ Z	-
 3	-
 
 ----DQ 22 - Museum ----
+Chrono Trigger - DONE 
+Aria Of Sorror - CLAIMED
+
+----DQ22-2 --------
+check for more while doing refactor project for QA
+
+Strider - Need claim
+Stider Returns - Need Claim
+FF2 US - Need Claim
+
+----DQ22-3--------
 
 
 ----DQ 23 - Well Of Wishes ----
@@ -279,13 +288,19 @@ Alien 3 - Game Gear - DONE
 
 
 
+----DQ 25 - Time Warp(I got 2006)
+Disgae 2?
+
+
+
 ----R.P-----
 Advanced Golf		 - 
 
 
 ----old work fix----- 
 Legacy of Kain		- Add the Ship Cheevo
-GBA Golf			- Need to protect from playing from the menu
+THPS2(PS1)       	- Revision with found pointers
+GBA Golf			- Need to protect from playing from the menu now onm DQ2 I think
 Battletoads Genesis - Need to protect from last life
 Front Mission 		- Need to protect against in-game save.
 FFT PS1 refactor	- Story Done. 
@@ -296,18 +311,44 @@ FF12 - Statue cheevos refactor to not use the statue bits - Done for now
 	- Plunderer, , Mistwalker, Assault Striker, Spellsinger, Premier Prestidigitator, Master Thief, Blood Dancer, Record Breaker, Exemplar, Spendthrift, Privateer, Wayfarer, - DONE 
 	Added description - Cartopher, collector, Runeweaver, Jack-of-All-Trades, Conqueror, High Summoner, Scrivener, Radiant Savior, Fell Angel, Zodiac Knight,
 
-Chrono Trigger DS - Do a playthrough and Add Trigger flags.
+Chrono Trigger DS - Do a playthrough and Add Trigger flags and leaderboards maybe
 
 
-----translation patch----
-Front Mission  				- in DMs
-Chrono TriggerDS 			- Spanish, Portugese, see forum
-Legacy of Kain 	 			- EU version and French version
-Final Fantasy Tactics		- smart encounters hack
-Final Fantasy Tactics(PSP)	- Spanish
-Xenogears 					- different translations, Potugese
-Tactics Ogre				- EU 
-THPS2						- EU
+----Maintainership---
+Vandal Hearts - Done
+Warcraft 2 - Done
+Front Mission - Done
+Dark Arms - Need to look again at refactor and message - https://retroachievements.org/game/10297
+Destiny of Emperors - Need to fix more and message
 
+https://retroachievements.org/game/11345 - Castlevania Chrnociles did a revision for DQ2/13 and fixed/chanegd everything
+
+Aria of Sorrow?
+Chrono Trigger?
 
 ------------Devember tix---------
+
+
+
+-----QA Refactor Project sets to refactor----
+Chrono Trigger(SNES):
+	- Modernized code notes with proper sizes
+	- Removed unnecessary/unused/unhelpful notes
+	- Found better memory for a cheevos using undescriptive/inaccurate notes
+	- Added a default RP value similar to HACK Chrono Trogger + - AutoCR not being green bugged me...
+	- Many Cheevos not matching code note sizes
+	- Many cheevos not using deltas/unnesscessary hits/unnesscessary resets i.e. modernized logic
+	- A few OCA acheievments
+	- Some cheevos using dialog changed to better logical lines
+	
+	
+Aria Of Sorrow(GBA):
+    - Modernized code note with porper sizes
+	- Removed unnecessary/unused/unhelpful notes
+	- Handful of used memory not noted(Bullet Hell, Guardian Angels, Enchanter, Open House)
+	- Refactored ending cheevos to use better logic with delta and boss bits instead of random weird room transistion id and hits.(Had some tickets for these)
+	- A few challenge cheevos had logic with inaccurate memory size per the note.
+	- Some minor writing issues with captalizantion and brackets
+	- all efforts above to get AutoCR to all green
+	- Leaderboards using logic with no notes and incorrect sizes
+	

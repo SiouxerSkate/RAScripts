@@ -82,7 +82,7 @@ achievement(
 
 //RareEncounterDict = "Enemy Name": ["Name of CHeevo", points, [[battle formation, battle background]], missable, cheevo id, "extra description"]
 RareEncounterDict = {
-    "Garula": ["Garula Warfare", 5, [[0x13, 0x03], [0x13, 0x00], [0x13, 0x0C]], "missable", 572433, ""],
+    "Garula": ["Garula Warfare", 5, [[0x13, 0x03], [0x13, 0x00], [0x13, 0x0C], [0x13, 0x0B]], "missable", 572433, ""],
     " a pack of Cure Bunny": ["Cure What Ails You", 10, [[0xbd, 0x03]], "missable", 573501, ""],
     "Nightmare and receive the ultimate weapon": ["Nightmare Ultimus", 10, [[0x1c5, 0x2A]], "missable", 573506, ""],
     "Intagir": ["Intangible Behemoth", 10, [[0xd2, 0x03], [0xd2, 0x00]], "missable", 576041, " in the World of Balance"],
@@ -248,7 +248,7 @@ achievement(
     id=572430,
     trigger =  MapID() == 0x1E && prev(bit2(0x001e40)) == 0 && bit2(0x001e40) == 1
 )
-ElixirList = [bit2(0x001e40), bit2(0x001e41), bit7(0x001e43), bit5(0x001e47), bit6(0x001e47), bit5(0x001e48), bit7(0x001e4c), bit2(0x001e41), bit3(0x001e46)]
+ElixirList = [bit2(0x001e40), bit2(0x001e41), bit7(0x001e43), bit5(0x001e47), bit6(0x001e47), bit5(0x001e48), bit7(0x001e4c), bit3(0x001e46)]
 
 function Elixirs(num_to_check)
 {
@@ -267,14 +267,14 @@ achievement(
     title="Time Is on Our Side", points=5, 
     description="Find half of the Elixirs hidden in a clock",
     id=572459,
-    trigger = Elixirs(5)
+    trigger = Elixirs(4)
 )
 
 achievement(
     title="Time to Be Alive", points=10, 
     description="Find all of the Elixirs hidden in a clock",
     id=579716,
-    trigger = Elixirs(9)
+    trigger = Elixirs(8)
 )
 
 //Item Cheevos. "Cheevo name": [points, [list of bits], description addition, number to check, cheevo_id]
@@ -282,32 +282,33 @@ achievement(
 ItemLookup = {
     "That's TREASURE HUNTER": [5,
       [bit2(0x001e40), bit3(0x001e41), bit4(0x001e41), bit6(0x001e41), bit7(0x001e41), bitcount(0x001e42), bitcount(0x001e43), bit4(0x001e44), bit5(0x001e44), bit6(0x001e44), 
-       bit7(0x001e44), bitcount(0x001e45), bit0(0x001e46), bit1(0x001e4c), bit2(0x001e51), bit3(0x001e51), bit4(0x001e51), bit5(0x001e51), bit6(0x001e5c), bit7(0x001e5c), 
+       bit7(0x001e44), bitcount(0x001e45), bit0(0x001e46), bit1(0x001e46), bit1(0x001e4c), bit2(0x001e51), bit3(0x001e51), bit4(0x001e51), bit5(0x001e51), bit6(0x001e5c), bit7(0x001e5c), 
        bit4(0x001e5f), bit0(0x001e60)],
       "items that are available before jumping onto the River Lethe",
-      43,
+      44,
       572437,
     ],
     "Novice Treasure Hunter": [5,
       [bit4(0x001e40), bit5(0x001e40), bit6(0x001e40), bit7(0x001e40), bit0(0x001e41), bit1(0x001e41), bit2(0x0001e41), bit5(0x001e41), 
        bit0(0x001e44), bit1(0x001e44), bit2(0x001e44), bit3(0x001e44), bit2(0x001e46), bit7(0x001e46), 
-       bitcount(0x001e47), bit0(0x001e48), bit1(0x001e48), bit2(0x001e48), bit5(0x001e48), bit6(0x001e48), bit7(0x001e48), 
+       bitcount(0x001e47), bit0(0x001e48), bit1(0x001e48), bit2(0x001e48), bit3(0x001e48), bit5(0x001e48), bit6(0x001e48), bit7(0x001e48), 
        bit0(0x001e49), bit1(0x001e49), bit2(0x001e49), bit3(0x001e49), bit4(0x001e49),
        bit2(0x001e4a), bit3(0x001e4a), bit4(0x001e4a), bit5(0x001e4a), bit6(0x001e4a), bit7(0x001e4a), 
-       bit0(0x001e4b), bit1(0x001e4b), bit4(0x001e4b), bit5(0x001e4b),
+       bit0(0x001e4b), bit1(0x001e4b), bit2(0x001e4b), bit3(0x001e4b), bit4(0x001e4b), bit5(0x001e4b), bit6(0x001e4b),
        bit2(0x001e4c), bit4(0x001e4c), bit5(0x001e4c), bit6(0x001e4c), bit7(0x001e4c), 
-       bit3(0x001e5a), bit4(0x001e5a), bit5(0x001e5c), bit7(0x001e5d), bit3(0x001e5e), bit4(0x001e5e), bit5(0x001e5e), 
+       bit2(0x001e5a), bit3(0x001e5a), bit4(0x001e5a), bit5(0x001e5c), bit7(0x001e5d), bit0(0x001e5e), bit3(0x001e5e), bit4(0x001e5e), bit5(0x001e5e), 
        bit5(0x001e5f), bit6(0x001e5f), bit7(0x001e5f), bit5(0x001e61),  bit6(0x001e61),  bit7(0x001e61)],
-      "items that are available between River Lethe and catching a ride to the Empire",
-      61,
+      "items that are available between River Lethe and escaping the Magitek Facility",
+      67,
       572511,
     ],
     "Advanced Treasure Hunter": [10,
-      [bit3(0x001e40), bit3(0x001e46), bit4(0x001e46), bit4(0x001e48), bit5(0x001e49), bit6(0x001e49), bit7(0x001e49), bit0(0x001e4a), bit1(0x001e4a), 
+      [bit3(0x001e40), bit3(0x001e46), bit4(0x001e46), bit5(0x001e46), bit6(0x001e46), bit4(0x001e48), bit5(0x001e49), bit6(0x001e49), bit7(0x001e49), bit0(0x001e4a), bit1(0x001e4a), 
        bit7(0x001e4b), bit0(0x001e4c), bit3(0x001e4c), bitcount(0x001e4d), bitcount(0x001e4e), bitcount(0x001e4f), 
-       bitcount(0x001e50), bit0(0x001e51), bit1(0x001e51), bit3(0x001e56), bit6(0x001e5e), bit7(0x001e5e), bit0(0x001e5f), bit1(0x001e5f)],
+       bitcount(0x001e50), bit0(0x001e51), bit1(0x001e51), bit3(0x001e56), bit3(0x001e5c), bit6(0x001e5e), bit7(0x001e5e), bit0(0x001e5f), bit1(0x001e5f), bit2(0x001e5f),
+       bit1(0x001e60), ],
       "remaining items in the World of Balance",
-      51,
+      56,
       578047, 
     ],
     "Competent Treasure Hunter": [10,
@@ -322,11 +323,11 @@ ItemLookup = {
       [
         bit2(0x001e54), bit3(0x001e54), bit4(0x001e54), bit5(0x001e54), bit6(0x001e54), bitcount(0x001e55),
         bit0(0x001e56), bit1(0x001e56), bit6(0x001e57), bit7(0x001e57), bitcount(0x001e58), bit0(0x001e59), bit1(0x001e59), bit7(0x001e59), 
-        bit0(0x001e5a), bit1(0x001e5a), bit4(0x001e5c), bit0(0x001e5d), bit1(0x001e5d), bit4(0x001e5d), bit5(0x001e5d), 
+        bit0(0x001e5a), bit1(0x001e5a), bit4(0x001e5c), bit0(0x001e5d), bit1(0x001e5d), bit2(0x001e5d), bit4(0x001e5d), bit5(0x001e5d), 
         bit0(0x001e61), bit1(0x001e61), bit2(0x001e61),
       ],
       "items in caves in the World of Ruin: Cave on the Veldt, Figaro Castle Cave, Narshe Caves, Mt. Zozo, Star Cave, Zone Ender Cave",
-      38,
+      39,
       0,
     ],
     "Master Treasure Hunter": [50,
@@ -527,7 +528,7 @@ achievement(
     type="missable",
     id=576343,
     trigger=InBattle() && BattleFormation() == 0x1cb && BattleBackground() == 0x07 && TriggerVictory() &&
-    disable_when(byte(0x0000b5) == 2, until=byte(0x000055) != 0xFF)
+    disable_when(byte(0x0000b5) == 1, until=byte(0x000055) != 0xFF)
 )
 
 //achievement(
